@@ -1,0 +1,7 @@
+{
+  "name": "WioSpor",
+  "manifestVersion": 1,
+  "pluginLists": [
+    "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/plugins.json"
+  ]
+}
