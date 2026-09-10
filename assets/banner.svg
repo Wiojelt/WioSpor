@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="560" viewBox="0 0 1600 560" role="img" aria-label="WioSpor">
-  <defs><linearGradient id="g" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#0c1020"/><stop offset="1" stop-color="#191335"/></linearGradient></defs>
-  <rect width="1600" height="560" fill="url(#g)"/><circle cx="1450" cy="-50" r="260" fill="#7652e8" opacity=".22"/><circle cx="1180" cy="570" r="330" fill="#2e9dff" opacity=".17"/>
-  <text x="100" y="245" fill="#fff" font-size="128" font-family="Arial, sans-serif" font-weight="800">WIO<tspan fill="#8c6cff">SPOR</tspan></text>
-  <text x="106" y="315" fill="#c9c9db" font-size="30" font-family="Arial, sans-serif">Canlı TV · Spor · Birleşik kaynaklar</text>
-  <g transform="translate(106 390)"><rect width="155" height="50" rx="25" fill="#6d45d8"/><rect x="175" width="155" height="50" rx="25" fill="#ed7d28"/><rect x="350" width="155" height="50" rx="25" fill="#2cb86e"/><rect x="525" width="155" height="50" rx="25" fill="#e1b52f"/><rect x="700" width="155" height="50" rx="25" fill="#268ee6"/><rect x="875" width="155" height="50" rx="25" fill="#e0e4ed"/></g>
-</svg>
