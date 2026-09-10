@@ -2,6 +2,6 @@
   "name": "WioSpor",
   "manifestVersion": 1,
   "pluginLists": [
-    "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/plugins.json"
+    "https://raw.githubusercontent.com/Wiojelt/WioSpor/89cdc7788864caa1da653fbceca6be5fd6d2ac1e/plugins.json"
   ]
 }
