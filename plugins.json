@@ -1,18 +1,22 @@
 [
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/89cdc7788864caa1da653fbceca6be5fd6d2ac1e/30b0fca99840d33bc228e41b019d4f01f0d486bd/WioSpor.cs3",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/6030359478c305db5379d6eaccf642a10e6c6752/WioSpor.cs3",
     "status": 3,
     "version": 1,
     "name": "WioSpor",
     "internalName": "WioSpor",
-    "authors": ["Wiojelt"],
-    "description": "Renk gruplarıyla birleştirilmiş canlı TV ve spor kaynakları",
-    "fileSize": 230166,
+    "authors": [
+      "Wiojelt"
+    ],
+    "description": "Tüm canlı TV ve spor kanalları tek eklentide. Renk grupları ve alternatif yayın kaynakları.",
+    "fileSize": 330283,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
-    "tvTypes": ["Live"],
-    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/wiospor.svg",
+    "tvTypes": [
+      "Live"
+    ],
+    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png",
     "apiVersion": 1,
-    "fileHash": "sha256-5577d9b3b6ba5044ef9cc47858d4b8f015288655758cc0134020cf41ec3786ac"
+    "fileHash": "sha256-d1ee67c82734de9b957206c51c6cccd869b542bb0020a7b910f735335eb099c9"
   }
 ]
