@@ -1,6 +1,18 @@
-﻿<p align="center"><img src="assets/logo.png" alt="WioSpor" width="140"></p>
+﻿<p align="center">
+  <a href="https://intradeus.github.io/http-protocol-redirector?r=cloudstreamrepo://raw.githubusercontent.com/Wiojelt/WioSpor/main/repo.json">
+    <img src="assets/logo.png" alt="WioSpor" width="160">
+  </a><br>
+  <strong>Logoya dokun: WioSpor deposu CloudStream'e eklenir.</strong>
+</p>
 
 <h1 align="center">WioSpor</h1>
+
+<p align="center">
+  <a href="https://intradeus.github.io/http-protocol-redirector?r=cloudstreamrepo://raw.githubusercontent.com/Wiojelt/WioSpor/main/repo.json">
+    👉 <b>Tıkla Eklentiyi CloudStream'e Ekle</b>
+  </a>
+</p>
+
 <p align="center"> CloudStream için oluşturulmuş rengarenk bir eklenti.</p>
 
 <p align="center">
