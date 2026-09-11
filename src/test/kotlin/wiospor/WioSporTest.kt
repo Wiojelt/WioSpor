@@ -117,4 +117,27 @@ class WioSporTest {
             assertTrue(channel.logo.endsWith(".png"))
         }
     }
+
+    @Test
+    fun testDominoAndDomatesMatching() {
+        val mor1 = WioChannels.byId("mor_1")!!
+        assertTrue(WioChannels.matches(mor1, "Spor 1 -A"))
+        assertTrue(WioChannels.matches(mor1, "Spor 1-B"))
+        assertTrue(WioChannels.matches(mor1, "Sport 1"))
+        assertFalse(WioChannels.matches(mor1, "Tivibu Spor 1"))
+        assertFalse(WioChannels.matches(mor1, "Tabi Spor 1"))
+
+        val yesil1 = WioChannels.byId("yesil_1")!!
+        assertTrue(WioChannels.matches(yesil1, "Tabi Spor 1"))
+        assertTrue(WioChannels.matches(yesil1, "Tabi Spor 1-A"))
+        assertFalse(WioChannels.matches(yesil1, "Spor 1 -A"))
+
+        val smart1 = WioChannels.byId("yildiz_smart_1")!!
+        assertTrue(WioChannels.matches(smart1, "SMART SPOR"))
+        assertTrue(WioChannels.matches(smart1, "SMART SPOR-A"))
+
+        val mavi1 = WioChannels.byId("mavi_1")!!
+        assertTrue(WioChannels.matches(mavi1, "S SPORTS"))
+        assertTrue(WioChannels.matches(mavi1, "S SPORTS -A"))
+    }
 }

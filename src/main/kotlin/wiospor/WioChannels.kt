@@ -37,22 +37,22 @@ object WioChannels {
 
     val all: List<WioChannel> = listOf(
         // 🟣 Mor Spor (beIN Sports)
-        WioChannel("mor_1", "🟣 Mor Spor 1", GROUP_MOR, "beIN Sports 1", listOf("beinsports1", "bein1", "beinsport1", "bein sports 1", "mor spor 1", "mor 1"), "${BASE_LOGO}mor_1.png"),
-        WioChannel("mor_2", "🟣 Mor Spor 2", GROUP_MOR, "beIN Sports 2", listOf("beinsports2", "bein2", "beinsport2", "bein sports 2", "mor spor 2", "mor 2"), "${BASE_LOGO}mor_2.png"),
-        WioChannel("mor_3", "🟣 Mor Spor 3", GROUP_MOR, "beIN Sports 3", listOf("beinsports3", "bein3", "beinsport3", "bein sports 3", "mor spor 3", "mor 3"), "${BASE_LOGO}mor_3.png"),
-        WioChannel("mor_4", "🟣 Mor Spor 4", GROUP_MOR, "beIN Sports 4", listOf("beinsports4", "bein4", "beinsport4", "bein sports 4", "mor spor 4", "mor 4"), "${BASE_LOGO}mor_4.png"),
-        WioChannel("mor_5", "🟣 Mor Spor 5", GROUP_MOR, "beIN Sports 5", listOf("beinsports5", "bein5", "beinsport5", "bein sports 5", "mor spor 5", "mor 5"), "${BASE_LOGO}mor_5.png"),
-        WioChannel("mor_max_1", "🟣 Mor Spor Max 1", GROUP_MOR, "beIN Sports Max 1", listOf("beinsportsmax1", "beinmax1", "beinsportmax1", "bein max 1", "mor max 1"), "${BASE_LOGO}mor_max_1.png"),
-        WioChannel("mor_max_2", "🟣 Mor Spor Max 2", GROUP_MOR, "beIN Sports Max 2", listOf("beinsportsmax2", "beinmax2", "beinsportmax2", "bein max 2", "mor max 2"), "${BASE_LOGO}mor_max_2.png"),
-        WioChannel("mor_haber", "🟣 Mor Spor Haber", GROUP_MOR, "beIN Sports Haber", listOf("beinsportshaber", "beinhaber", "beinsport haber", "mor spor haber", "mor haber"), "${BASE_LOGO}mor_haber.png"),
+        WioChannel("mor_1", "🟣 Mor Spor 1", GROUP_MOR, "beIN Sports 1", listOf("beinsports1", "bein1", "beinsport1", "bein sports 1", "mor spor 1", "mor 1", "spor 1", "spor1", "sport 1", "sport1"), "${BASE_LOGO}mor_1.png"),
+        WioChannel("mor_2", "🟣 Mor Spor 2", GROUP_MOR, "beIN Sports 2", listOf("beinsports2", "bein2", "beinsport2", "bein sports 2", "mor spor 2", "mor 2", "spor 2", "spor2", "sport 2", "sport2"), "${BASE_LOGO}mor_2.png"),
+        WioChannel("mor_3", "🟣 Mor Spor 3", GROUP_MOR, "beIN Sports 3", listOf("beinsports3", "bein3", "beinsport3", "bein sports 3", "mor spor 3", "mor 3", "spor 3", "spor3", "sport 3", "sport3"), "${BASE_LOGO}mor_3.png"),
+        WioChannel("mor_4", "🟣 Mor Spor 4", GROUP_MOR, "beIN Sports 4", listOf("beinsports4", "bein4", "beinsport4", "bein sports 4", "mor spor 4", "mor 4", "spor 4", "spor4", "sport 4", "sport4"), "${BASE_LOGO}mor_4.png"),
+        WioChannel("mor_5", "🟣 Mor Spor 5", GROUP_MOR, "beIN Sports 5", listOf("beinsports5", "bein5", "beinsport5", "bein sports 5", "mor spor 5", "mor 5", "spor 5", "spor5", "sport 5", "sport5"), "${BASE_LOGO}mor_5.png"),
+        WioChannel("mor_max_1", "🟣 Mor Spor Max 1", GROUP_MOR, "beIN Sports Max 1", listOf("beinsportsmax1", "beinmax1", "beinsportmax1", "bein max 1", "mor max 1", "spor max 1", "spormax1", "sport max 1"), "${BASE_LOGO}mor_max_1.png"),
+        WioChannel("mor_max_2", "🟣 Mor Spor Max 2", GROUP_MOR, "beIN Sports Max 2", listOf("beinsportsmax2", "beinmax2", "beinsportmax2", "bein max 2", "mor max 2", "spor max 2", "spormax2", "sport max 2"), "${BASE_LOGO}mor_max_2.png"),
+        WioChannel("mor_haber", "🟣 Mor Spor Haber", GROUP_MOR, "beIN Sports Haber", listOf("beinsportshaber", "beinhaber", "beinsport haber", "mor spor haber", "mor haber", "spor haber", "sporhaber", "sport haber"), "${BASE_LOGO}mor_haber.png"),
 
         // 🟢 Yeşil Spor (tabii Spor 1..6)
-        WioChannel("yesil_1", "🟢 Yeşil Spor 1", GROUP_YESIL, "tabii Spor 1", listOf("tabiispor1", "tabiispor", "tabii1", "tabii spor 1", "yesil spor 1", "yesil 1"), "${BASE_LOGO}yesil_1.png"),
-        WioChannel("yesil_2", "🟢 Yeşil Spor 2", GROUP_YESIL, "tabii Spor 2", listOf("tabiispor2", "tabii2", "tabii spor 2", "yesil spor 2", "yesil 2"), "${BASE_LOGO}yesil_2.png"),
-        WioChannel("yesil_3", "🟢 Yeşil Spor 3", GROUP_YESIL, "tabii Spor 3", listOf("tabiispor3", "tabii3", "tabii spor 3", "yesil spor 3", "yesil 3"), "${BASE_LOGO}yesil_3.png"),
-        WioChannel("yesil_4", "🟢 Yeşil Spor 4", GROUP_YESIL, "tabii Spor 4", listOf("tabiispor4", "tabii4", "tabii spor 4", "yesil spor 4", "yesil 4"), "${BASE_LOGO}yesil_4.png"),
-        WioChannel("yesil_5", "🟢 Yeşil Spor 5", GROUP_YESIL, "tabii Spor 5", listOf("tabiispor5", "tabii5", "tabii spor 5", "yesil spor 5", "yesil 5"), "${BASE_LOGO}yesil_5.png"),
-        WioChannel("yesil_6", "🟢 Yeşil Spor 6", GROUP_YESIL, "tabii Spor 6", listOf("tabiispor6", "tabii6", "tabii spor 6", "yesil spor 6", "yesil 6"), "${BASE_LOGO}yesil_6.png"),
+        WioChannel("yesil_1", "🟢 Yeşil Spor 1", GROUP_YESIL, "tabii Spor 1", listOf("tabiispor1", "tabiispor", "tabii1", "tabii spor 1", "yesil spor 1", "yesil 1", "tabi spor 1", "tabispor1", "tabi1"), "${BASE_LOGO}yesil_1.png"),
+        WioChannel("yesil_2", "🟢 Yeşil Spor 2", GROUP_YESIL, "tabii Spor 2", listOf("tabiispor2", "tabii2", "tabii spor 2", "yesil spor 2", "yesil 2", "tabi spor 2", "tabispor2", "tabi2"), "${BASE_LOGO}yesil_2.png"),
+        WioChannel("yesil_3", "🟢 Yeşil Spor 3", GROUP_YESIL, "tabii Spor 3", listOf("tabiispor3", "tabii3", "tabii spor 3", "yesil spor 3", "yesil 3", "tabi spor 3", "tabispor3", "tabi3"), "${BASE_LOGO}yesil_3.png"),
+        WioChannel("yesil_4", "🟢 Yeşil Spor 4", GROUP_YESIL, "tabii Spor 4", listOf("tabiispor4", "tabii4", "tabii spor 4", "yesil spor 4", "yesil 4", "tabi spor 4", "tabispor4", "tabi4"), "${BASE_LOGO}yesil_4.png"),
+        WioChannel("yesil_5", "🟢 Yeşil Spor 5", GROUP_YESIL, "tabii Spor 5", listOf("tabiispor5", "tabii5", "tabii spor 5", "yesil spor 5", "yesil 5", "tabi spor 5", "tabispor5", "tabi5"), "${BASE_LOGO}yesil_5.png"),
+        WioChannel("yesil_6", "🟢 Yeşil Spor 6", GROUP_YESIL, "tabii Spor 6", listOf("tabiispor6", "tabii6", "tabii spor 6", "yesil spor 6", "yesil 6", "tabi spor 6", "tabispor6", "tabi6"), "${BASE_LOGO}yesil_6.png"),
 
         // 🟠 Turuncu Spor (Tivibu Spor 1..4)
         WioChannel("turuncu_1", "🟠 Turuncu Spor 1", GROUP_TURUNCU, "Tivibu Spor 1", listOf("tivibuspor", "tivibuspor1", "tivibu1", "tivibu spor 1", "turuncu spor 1", "turuncu 1"), "${BASE_LOGO}turuncu_1.png"),
@@ -71,9 +71,9 @@ object WioChannels {
         WioChannel("sari_8", "🟡 Sarı Spor 8", GROUP_SARI, "Exxen Spor 8", listOf("exxenspor8", "exxen8", "exxen 8", "exxen sports 8", "sari spor 8", "sari 8"), "${BASE_LOGO}sari_8.png"),
 
         // 🔵 Mavi Spor (S Sport 1..2 & Plus 1..5)
-        WioChannel("mavi_1", "🔵 Mavi Spor 1", GROUP_MAVI, "S Sport", listOf("ssport", "ssport1", "s sport 1", "s sport", "mavi spor 1", "mavi 1"), "${BASE_LOGO}mavi_1.png"),
-        WioChannel("mavi_2", "🔵 Mavi Spor 2", GROUP_MAVI, "S Sport 2", listOf("ssport2", "s sport 2", "mavi spor 2", "mavi 2"), "${BASE_LOGO}mavi_2.png"),
-        WioChannel("mavi_plus_1", "🔵 Mavi Spor Plus 1", GROUP_MAVI, "S Sport Plus 1", listOf("ssportplus1", "splus1", "ssportplus", "splus", "s+1", "s+", "mavi plus 1"), "${BASE_LOGO}mavi_plus_1.png"),
+        WioChannel("mavi_1", "🔵 Mavi Spor 1", GROUP_MAVI, "S Sport", listOf("ssport", "ssport1", "s sport 1", "s sport", "mavi spor 1", "mavi 1", "ssports", "s sports"), "${BASE_LOGO}mavi_1.png"),
+        WioChannel("mavi_2", "🔵 Mavi Spor 2", GROUP_MAVI, "S Sport 2", listOf("ssport2", "s sport 2", "mavi spor 2", "mavi 2", "ssports 2", "s sports 2", "ssports2"), "${BASE_LOGO}mavi_2.png"),
+        WioChannel("mavi_plus_1", "🔵 Mavi Spor Plus 1", GROUP_MAVI, "S Sport Plus 1", listOf("ssportplus1", "splus1", "ssportplus", "splus", "s+1", "s+", "mavi plus 1", "ssport plus"), "${BASE_LOGO}mavi_plus_1.png"),
         WioChannel("mavi_plus_2", "🔵 Mavi Spor Plus 2", GROUP_MAVI, "S Sport Plus 2", listOf("ssportplus2", "splus2", "s+2", "mavi plus 2"), "${BASE_LOGO}mavi_plus_2.png"),
         WioChannel("mavi_plus_3", "🔵 Mavi Spor Plus 3", GROUP_MAVI, "S Sport Plus 3", listOf("ssportplus3", "splus3", "s+3", "mavi plus 3"), "${BASE_LOGO}mavi_plus_3.png"),
         WioChannel("mavi_plus_4", "🔵 Mavi Spor Plus 4", GROUP_MAVI, "S Sport Plus 4", listOf("ssportplus4", "splus4", "s+4", "mavi plus 4"), "${BASE_LOGO}mavi_plus_4.png"),
@@ -82,8 +82,8 @@ object WioChannels {
         // ⭐ Yıldız Spor (Eurosport 1..2 & Spor Smart 1..2)
         WioChannel("yildiz_euro_1", "⭐ Yıldız Spor 1", GROUP_YILDIZ, "Eurosport 1", listOf("eurosport1", "eurosport 1", "eurosport", "yildiz spor 1"), "${BASE_LOGO}yildiz_euro_1.png"),
         WioChannel("yildiz_euro_2", "⭐ Yıldız Spor 2", GROUP_YILDIZ, "Eurosport 2", listOf("eurosport2", "eurosport 2", "yildiz spor 2"), "${BASE_LOGO}yildiz_euro_2.png"),
-        WioChannel("yildiz_smart_1", "⭐ Yıldız Smart 1", GROUP_YILDIZ, "Spor Smart", listOf("sporsmart", "sporsmart1", "smartspor", "smartspor1", "spor smart 1", "yildiz smart 1"), "${BASE_LOGO}yildiz_smart_1.png"),
-        WioChannel("yildiz_smart_2", "⭐ Yıldız Smart 2", GROUP_YILDIZ, "Spor Smart 2", listOf("sporsmart2", "smartspor2", "spor smart 2", "yildiz smart 2"), "${BASE_LOGO}yildiz_smart_2.png"),
+        WioChannel("yildiz_smart_1", "⭐ Yıldız Smart 1", GROUP_YILDIZ, "Spor Smart", listOf("sporsmart", "sporsmart1", "smartspor", "smartspor1", "spor smart 1", "yildiz smart 1", "smart spor", "smart spor 1"), "${BASE_LOGO}yildiz_smart_1.png"),
+        WioChannel("yildiz_smart_2", "⭐ Yıldız Smart 2", GROUP_YILDIZ, "Spor Smart 2", listOf("sporsmart2", "smartspor2", "spor smart 2", "yildiz smart 2", "smart spor 2"), "${BASE_LOGO}yildiz_smart_2.png"),
 
         // 📺 Ulusal Kanallar
         WioChannel("ulusal_trt_spor", "📺 TRT Spor", GROUP_ULUSAL, "TRT Spor", listOf("trtspor", "trtspor1", "trt spor"), "${BASE_LOGO}ulusal_trt_spor.png"),
@@ -216,6 +216,24 @@ object WioChannels {
             // Channel has NO number (e.g. S Sport, beIN Haber, TRT Spor). Candidate should not have an unrelated number.
             if (candNumber != null && candNumber !in listOf("1", "24", "7")) return false
         }
+
+        // Brand conflict check to prevent e.g. "Spor 1" alias on Mor Spor from matching "Tivibu Spor 1" or "Tabii Spor 1"
+        val hasBrandConflict = when {
+            channel.standardTitle.contains("beIN", ignoreCase = true) ->
+                listOf("tivibu", "tabii", "tabi", "exxen", "ssport", "s sport", "smart", "trt", "aspor", "htspor", "eurosport").any { normTitle.contains(it) }
+            channel.standardTitle.contains("tabii", ignoreCase = true) ->
+                listOf("tivibu", "bein", "exxen", "ssport", "smart", "eurosport").any { normTitle.contains(it) }
+            channel.standardTitle.contains("Tivibu", ignoreCase = true) ->
+                listOf("tabii", "tabi", "bein", "exxen", "ssport", "smart", "eurosport").any { normTitle.contains(it) }
+            channel.standardTitle.contains("Exxen", ignoreCase = true) ->
+                listOf("tivibu", "tabii", "tabi", "bein", "ssport", "smart", "eurosport").any { normTitle.contains(it) }
+            channel.standardTitle.contains("S Sport", ignoreCase = true) ->
+                listOf("tivibu", "tabii", "tabi", "exxen", "bein", "smart", "eurosport").any { normTitle.contains(it) }
+            channel.standardTitle.contains("Eurosport", ignoreCase = true) ->
+                listOf("tivibu", "tabii", "tabi", "exxen", "bein", "smart", "ssport").any { normTitle.contains(it) }
+            else -> false
+        }
+        if (hasBrandConflict) return false
 
         // Check against aliases
         for (alias in channel.aliases) {

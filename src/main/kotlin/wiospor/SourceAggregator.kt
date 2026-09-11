@@ -107,6 +107,9 @@ class SourceAggregator(private val context: Context) {
     private val inatBoxArtwork by lazy { turkspor.shared.ChannelArtwork(context, "inatbox") }
     private val inatBoxApi by lazy { turkspor.inatbox.InatBox(inatBoxCatalogue, inatBoxArtwork) }
 
+    private val domatesApi by lazy { turkspor.domates.DomatesTVProvider() }
+    private val dominoApi by lazy { turkspor.domino.DominoTVProvider() }
+
     val workers: List<SourceWorker> by lazy {
         val list = mutableListOf<SourceWorker>()
 
@@ -333,7 +336,57 @@ class SourceAggregator(private val context: Context) {
             }
         })
 
-        // 14..40. Aslan IPTV Listeleri (27 Adet Aktif Kaynak)
+        // 14. Domates TV
+        list.add(object : SourceWorker {
+            override val id: String = "domates"
+            override val displayName: String = "Domates TV"
+
+            override suspend fun checkOnline(): Boolean = runCatching {
+                domatesApi.getChannels().isNotEmpty()
+            }.getOrDefault(false)
+
+            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
+                var emitted = false
+                try {
+                    val channels = domatesApi.getChannels()
+                    val match = channels.firstOrNull { WioChannels.matches(channel, it.title, it.id) } ?: return false
+                    domatesApi.loadLinks(match.pageUrl(), false, {}) { link ->
+                        emitted = true
+                        callback(wrapLink("Domates", channel, link))
+                    }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (_: Exception) { }
+                return emitted
+            }
+        })
+
+        // 15. Domino TV
+        list.add(object : SourceWorker {
+            override val id: String = "domino"
+            override val displayName: String = "Domino TV"
+
+            override suspend fun checkOnline(): Boolean = runCatching {
+                dominoApi.getChannels().isNotEmpty()
+            }.getOrDefault(false)
+
+            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
+                var emitted = false
+                try {
+                    val channels = dominoApi.getChannels()
+                    val match = channels.firstOrNull { WioChannels.matches(channel, it.title, it.id.toString()) } ?: return false
+                    dominoApi.loadLinks(match.pageUrl(), false, {}) { link ->
+                        emitted = true
+                        callback(wrapLink("Domino", channel, link))
+                    }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (_: Exception) { }
+                return emitted
+            }
+        })
+
+        // 16..42. Aslan IPTV Listeleri (27 Adet Aktif Kaynak)
         val aslanRegistry = turkspor.aslan.AslanRegistry(
             context.getSharedPreferences("wiospor_aslan_registry", Context.MODE_PRIVATE)
         )

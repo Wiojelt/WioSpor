@@ -1,7 +1,7 @@
 {
   "name": "WioSpor",
   "description": "Renk gruplarıyla düzenlenmiş canlı TV ve spor kanalları",
-  "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/banner.svg",
+  "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png",
   "manifestVersion": 1,
   "pluginLists": [
     "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/plugins.json"
