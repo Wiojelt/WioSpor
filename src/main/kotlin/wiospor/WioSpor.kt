@@ -68,9 +68,7 @@ class WioSpor(private val aggregator: SourceAggregator) : MainAPI() {
 
         return newLiveStreamLoadResponse(channel.name, url, channelUrl(channel)) {
             posterUrl = channel.logo
-            plot = "${channel.name} • Kesintisiz Canlı Yayın ve Çoklu Alternatif Kaynak Desteği\n\n" +
-                    "Bir yayını açtığınızda tüm çalışan kaynaklar (Selçuk, Taraftarium, İnat, Aslan, Domino vb.) " +
-                    "aynı anda taranır ve oynatıcıda alternatif olarak listelenir."
+            plot = "\u200B"
         }
     }
 

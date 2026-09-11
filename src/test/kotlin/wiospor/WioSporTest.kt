@@ -112,7 +112,7 @@ class WioSporTest {
         for (channel in WioChannels.all) {
             assertTrue(
                 "Kanal ${channel.id} WioSpor logo URL içermeli",
-                channel.logo.startsWith("https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/channels/")
+                channel.logo.startsWith("https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/banners/")
             )
             assertTrue(channel.logo.endsWith(".png"))
         }

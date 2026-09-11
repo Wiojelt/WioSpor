@@ -33,7 +33,7 @@ object WioChannels {
         GROUP_WORLD
     )
 
-    private const val BASE_LOGO = "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/channels/"
+    private const val BASE_LOGO = "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/banners/"
 
     val all: List<WioChannel> = listOf(
         // 🟣 Mor Spor (beIN Sports)
