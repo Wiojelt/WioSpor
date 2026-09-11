@@ -25,6 +25,11 @@ class WioSporTest {
         assertTrue(WioChannels.matches(mor1, "selcukbeinsports1"))
         assertTrue(WioChannels.matches(mor1, "VIP: beIN 1"))
         assertTrue(WioChannels.matches(mor1, "[TR] beIN SPORTS 1 FHD"))
+        assertTrue(WioChannels.matches(mor1, "Beşiktaş - Erzurumspor", "selcukbeinsports1"))
+        assertTrue(WioChannels.matches(mor1, "Beşiktaş - Erzurumspor", "patron"))
+        assertTrue(WioChannels.matches(mor1, "beIN 1", "bein-1"))
+        assertTrue(WioChannels.matches(mor1, "BEIN SPORTS 1", "bein-sports-1"))
+        assertTrue(WioChannels.matches(mor1, "BeIN Sports 1", "patron"))
 
         // Must NOT match other channels
         assertFalse(WioChannels.matches(mor1, "beIN Sports 2"))

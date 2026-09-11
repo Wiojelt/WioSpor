@@ -519,12 +519,12 @@ class SourceAggregator(private val context: Context) {
 
         // Tier 1: 1080p IPTV sağlayıcılar — hemen yayın açar
         val tier1Ids = setOf("beyazelma", "domino", "domates")
-        // Tier 2: Web tabanlı kaynaklar + hızlı AslanTV kaynakları
-        val tier2FastAslan = setOf("aslan_markusta", "aslan_turkiyeizle")
-        val tier2WebIds = setOf("selcuk", "taraftarium", "inat", "kralsportshd", "mahsunsports",
-            "ardaspor", "crex", "intersportv", "mackeyfi", "zbahistv", "betmatiktv", "inatbox")
-        val tier2Ids = tier2WebIds + tier2FastAslan
-        // Tier 3: Kalan AslanTV listeleri (arka planda)
+        // Tier 2: Web tabanlı kaynaklar
+        val tier2Ids = setOf(
+            "selcuk", "taraftarium", "inat", "kralspor", "mahsun",
+            "arda", "crex", "intersportv", "mackeyfi", "zbahistv", "betmatiktv", "inatbox"
+        )
+        // Tier 3: Kalan AslanTV listeleri
 
         val tier1 = activeWorkers.filter { it.id in tier1Ids }
         val tier2 = activeWorkers.filter { it.id in tier2Ids }
@@ -534,7 +534,7 @@ class SourceAggregator(private val context: Context) {
 
         suspend fun runWorker(worker: SourceWorker, timeoutMs: Long) {
             try {
-                withTimeout(timeoutMs) {
+                withTimeoutOrNull(timeoutMs) {
                     worker.fetchLinks(channel) { link ->
                         synchronized(callback) {
                             foundAny = true
@@ -543,24 +543,25 @@ class SourceAggregator(private val context: Context) {
                     }
                 }
             } catch (e: CancellationException) {
-                throw e
+                currentCoroutineContext().ensureActive()
             } catch (_: Exception) { }
         }
 
-        // Tier 1: 1080p IPTV kaynaklar — hızlı yükle, bekle
-        tier1.map { worker ->
-            async(Dispatchers.IO) { runWorker(worker, 5000L) }
-        }.awaitAll()
-
-        // Tier 2: Web kaynaklar + markusta/turkiyeizle — paralel, kısmen bekle
-        tier2.map { worker ->
-            async(Dispatchers.IO) { runWorker(worker, 8000L) }
-        }.awaitAll()
-
-        // Tier 3: Geri kalan AslanTV listeleri — arka planda akış
-        tier3.forEach { worker ->
-            launch(Dispatchers.IO) { runWorker(worker, 12000L) }
+        // Tier 1 (IPTV) ve Tier 2 (Web) paralel başlatılır — linkler geldikçe anında callback'e akar
+        val primaryJobs = (tier1 + tier2).map { worker ->
+            async(Dispatchers.IO) { runWorker(worker, 7000L) }
         }
+
+        // Tier 3: Aslan IPTV listeleri de paralel çalışır
+        val tier3Jobs = tier3.map { worker ->
+            async(Dispatchers.IO) { runWorker(worker, 8000L) }
+        }
+
+        // Önce hızlı birincil kaynakların (Tier 1 + Tier 2) tamamlanmasını bekle
+        primaryJobs.awaitAll()
+
+        // Tier 3 kaynaklarının tamamlanmasını bekle
+        tier3Jobs.awaitAll()
 
         foundAny
     }

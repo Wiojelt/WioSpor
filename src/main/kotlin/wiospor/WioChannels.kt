@@ -47,7 +47,7 @@ object WioChannels {
 
     val all: List<WioChannel> = listOf(
         // 🟣 Mor Spor (beIN Sports)
-        WioChannel("mor_1", "🟣 Mor Spor 1", GROUP_MOR, "beIN Sports 1", listOf("beinsports1", "bein1", "beinsport1", "bein sports 1", "mor spor 1", "mor 1", "bein 1", "b1", "bs1", "beinsport 1", "spor 1", "sport 1"), "${BASE_LOGO}mor_1.png"),
+        WioChannel("mor_1", "🟣 Mor Spor 1", GROUP_MOR, "beIN Sports 1", listOf("beinsports1", "bein1", "beinsport1", "bein sports 1", "mor spor 1", "mor 1", "bein 1", "b1", "bs1", "beinsport 1", "spor 1", "sport 1", "patron"), "${BASE_LOGO}mor_1.png"),
         WioChannel("mor_2", "🟣 Mor Spor 2", GROUP_MOR, "beIN Sports 2", listOf("beinsports2", "bein2", "beinsport2", "bein sports 2", "mor spor 2", "mor 2", "bein 2", "b2", "bs2", "beinsport 2", "spor 2", "sport 2"), "${BASE_LOGO}mor_2.png"),
         WioChannel("mor_3", "🟣 Mor Spor 3", GROUP_MOR, "beIN Sports 3", listOf("beinsports3", "bein3", "beinsport3", "bein sports 3", "mor spor 3", "mor 3", "bein 3", "b3", "bs3", "beinsport 3", "spor 3", "sport 3"), "${BASE_LOGO}mor_3.png"),
         WioChannel("mor_4", "🟣 Mor Spor 4", GROUP_MOR, "beIN Sports 4", listOf("beinsports4", "bein4", "beinsport4", "bein sports 4", "mor spor 4", "mor 4", "bein 4", "b4", "bs4", "beinsport 4", "spor 4", "sport 4"), "${BASE_LOGO}mor_4.png"),
@@ -178,8 +178,8 @@ object WioChannels {
         var s = raw.lowercase(Locale.ROOT).trim()
             // Strip tags like [TR], [GB], [MENA], [FHD], [HD], (1080p), etc.
             .replace(Regex("""\[[^\]]*]|\([^)]*\)"""), " ")
-            // Strip common prefixes
-            .replace(Regex("""^(?:tr|de|en|ru|az|fr|es|it|nl|pt|gb|uk|us|vip|gold|net|atom|mahsun|inadina|pasizle|selcuk|selçuk|canli|yayin|andro|deathless|soner bozkurt yerli kanallar)[:|\-\s_]+"""), " ")
+            // Strip common prefixes (allow with or without punctuation)
+            .replace(Regex("""^(?:tr|de|en|ru|az|fr|es|it|nl|pt|gb|uk|us|vip|gold|net|atom|mahsun|inadina|pasizle|selcuk|selçuk|canli|yayin|andro|deathless|soner bozkurt yerli kanallar)[:|\-\s_]*"""), " ")
             .replace(Regex("""\b(?:7/24|24/7|724|247)\b"""), " ")
             .replace(Regex("""\b(?:1080p|720p|480p|360p|fhd|uhd|hd|sd|hevc|4k|2k|50fps|60fps)\b"""), " ")
             .replace('ı', 'i').replace('ğ', 'g').replace('ü', 'u')
@@ -193,17 +193,32 @@ object WioChannels {
     fun noSpaces(s: String): String = s.replace(Regex("[^a-z0-9]"), "")
 
     fun matches(channel: WioChannel, candidateTitle: String, candidateId: String = ""): Boolean {
-        val normTitle = normalize(candidateTitle)
-        val normId = normalize(candidateId)
+        if (candidateId.isNotBlank() && matchesText(channel, candidateId)) return true
+        if (candidateTitle.isNotBlank() && matchesText(channel, candidateTitle)) return true
+        if (candidateId.isNotBlank() && candidateTitle.isNotBlank() &&
+            matchesText(channel, "$candidateTitle $candidateId")) return true
+        return false
+    }
+
+    private fun matchesText(channel: WioChannel, rawCandidate: String): Boolean {
+        val normTitle = normalize(rawCandidate)
         val normStd = normalize(channel.standardTitle)
-
-        // Exact match with standard title
-        if (normTitle == normStd || normId == normStd) return true
-
-        val cleanedCandidate = cleanCandidate(candidateTitle)
+        val cleanedCandidate = cleanCandidate(rawCandidate)
         val normCleaned = normalize(cleanedCandidate)
 
-        if (normCleaned == normStd) return true
+        val nsCleaned = noSpaces(normCleaned)
+        val nsStd = noSpaces(normStd)
+        val nsTitle = noSpaces(normTitle)
+        if (normTitle == normStd || normCleaned == normStd || nsCleaned == nsStd || nsTitle == nsStd) return true
+
+        // Exact alias check
+        for (alias in channel.aliases) {
+            val normAlias = normalize(alias)
+            val nsAlias = noSpaces(normAlias)
+            if (normTitle == normAlias || normCleaned == normAlias || nsTitle == nsAlias || nsCleaned == nsAlias) {
+                return true
+            }
+        }
 
         // Keyword guard for special designations: max, haber, plus, yildiz
         val stdLower = channel.standardTitle.lowercase(Locale.ROOT)
@@ -212,7 +227,7 @@ object WioChannels {
         val isStdPlus = "plus" in stdLower || "+" in stdLower
         val isStdYildiz = "yildiz" in stdLower || "yıldız" in stdLower
 
-        val candLower = candidateTitle.lowercase(Locale.ROOT)
+        val candLower = rawCandidate.lowercase(Locale.ROOT)
         val isCandMax = "max" in candLower
         val isCandHaber = "haber" in candLower
         val isCandPlus = "plus" in candLower || "+" in candLower
@@ -240,8 +255,8 @@ object WioChannels {
             if (candNumber != null && candNumber !in listOf("1", "24", "7")) return false
         }
 
-        // Full check context combines title, cleaned title, and id
-        val fullCand = "$normTitle $normCleaned $normId"
+        // Full check context combines title and cleaned title
+        val fullCand = "$normTitle $normCleaned"
 
         // Strict Brand conflict check
         val isEurosport = channel.standardTitle.contains("Eurosport", ignoreCase = true)
@@ -278,26 +293,19 @@ object WioChannels {
             return false
         }
 
-        // Space-insensitive exact match
-        val nsCleaned = noSpaces(normCleaned)
-        val nsStd = noSpaces(normStd)
-        val nsTitle = noSpaces(normTitle)
-        val nsId = noSpaces(normId)
-        if (nsCleaned == nsStd || nsTitle == nsStd || nsId == nsStd) return true
-
         // Check against aliases
         for (alias in channel.aliases) {
             val normAlias = normalize(alias)
             val nsAlias = noSpaces(normAlias)
-            if (normTitle == normAlias || normId == normAlias || normCleaned == normAlias) return true
-            if (nsCleaned == nsAlias || nsTitle == nsAlias || nsId == nsAlias) return true
+            if (normTitle == normAlias || normCleaned == normAlias) return true
+            if (nsCleaned == nsAlias || nsTitle == nsAlias) return true
             if (normAlias.length >= 4) {
-                if (normTitle.contains(normAlias) || normCleaned.contains(normAlias) || normId.contains(normAlias)) {
+                if (normTitle.contains(normAlias) || normCleaned.contains(normAlias)) {
                     return true
                 }
             }
             if (nsAlias.length >= 4) {
-                if (nsCleaned.contains(nsAlias) || nsTitle.contains(nsAlias) || nsId.contains(nsAlias)) {
+                if (nsCleaned.contains(nsAlias) || nsTitle.contains(nsAlias)) {
                     return true
                 }
             }
