@@ -7,7 +7,6 @@
 
 <h1 align="center">WioSpor</h1>
 
-
 <p align="center"> CloudStream için oluşturulmuş rengarenk bir eklenti.</p>
 
 <p align="center">
