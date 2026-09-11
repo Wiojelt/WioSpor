@@ -1,7 +1,7 @@
 ﻿<p align="center"><img src="assets/logo.png" alt="WioSpor" width="140"></p>
 
 <h1 align="center">WioSpor</h1>
-<p align="center">Renk gruplarıyla düzenlenmiş canlı TV ve spor kanalları için CloudStream eklentisi.</p>
+<p align="center"> CloudStream için oluşturulmuş rengarenk bir eklenti.</p>
 
 <p align="center">
   <a href="https://t.me/wiolandcs3"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=flat&logo=telegram&logoColor=white" alt="Telegram"></a>
@@ -20,7 +20,8 @@ CloudStream içinde **Eklentiler → Depolar → Depo ekle** yolunu açıp kısa
 https://raw.githubusercontent.com/Wiojelt/WioSpor/main/repo.json
 ```
 
-> **Not:** CloudStream beta kullanıyorsanız VPN gerekmez. Normal sürümde depoyu eklemek için VPN gerekebilir.
+> **Not:** CloudStream beta(kırmızı logo olan) kullanıyorsanız VPN gerekmez.
+> Clodstream normal(mavi logo olan) sürümde depoyu eklemek için VPN gerekebilir.
 
 ---
 
@@ -28,15 +29,17 @@ https://raw.githubusercontent.com/Wiojelt/WioSpor/main/repo.json
 
 | Grup | Kanallar |
 |------|---------|
-| 🟣 Mor Spor | beIN Sports 1 2 3 4 5 Extra 1 2 |
-| 🟠 Turuncu Spor | Tivibu Spor 1 2 3 4 5 |
-| 🟢 Yeşil Spor | tabii Spor 1 2 3 4 5 |
-| 🟡 Sarı Spor | Exxen Spor 1 2 |
-| 🔵 Mavi Spor | S Sport 1 2 |
-| ⭐ Yıldız Spor | Eurosport 1 2 · Smart Spor |
-| 📺 Ulusal | A Spor · TRT Spor · TRT Spor Yıldız |
+| 🟣 Mor Spor |  1 2 3 4 5 Extra 1 2 |
+| 🟠 Turuncu Spor |  1 2 3 4 5 |
+| 🟢 Yeşil Spor | 1 2 3 4 5 |
+| 🟡 Sarı Spor |  1 2 |
+| 🔵 Mavi Spor |  1 2 |
+| ⭐ Yıldız Spor |  1 2 |
+| 📺 Ulusal | ... |
 
-Bir kanalı açtığınızda tüm aktif kaynaklar tek ekranda listelenir. Ayarlar bölümünden **kaynak kontrolü** yapabilir ve **web linklerini yenileyebilirsiniz**.
+Bir kanalı açtığınızda tüm aktif kaynaklar tek ekranda listelenir. 
+
+Ayarlar bölümünden **kaynak kontrolü** yapabilir ve **web linklerini yenileyebilirsiniz**.
 
 ---
 
