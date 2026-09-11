@@ -153,8 +153,7 @@ object WioChannels {
         WioChannel("world_sporttv_1", "🌐 World Sport TV 1", GROUP_WORLD_OTHER, "Sport TV 1", listOf("sporttv1", "sport tv 1"), "${BASE_LOGO}world_sporttv_1.png"),
         WioChannel("world_digisport_1", "🌐 World Digi Sport 1", GROUP_WORLD_OTHER, "Digi Sport 1", listOf("digisport1", "digi sport 1"), "${BASE_LOGO}world_digisport_1.png"),
         WioChannel("world_cosmote_1", "🌐 World Cosmote Sport 1", GROUP_WORLD_OTHER, "Cosmote Sport 1", listOf("cosmotesport1", "cosmote sport 1"), "${BASE_LOGO}world_cosmote_1.png"),
-        WioChannel("world_arena_1", "🌐 World Arena Sport 1", GROUP_WORLD_OTHER, "Arena Sport 1", listOf("arenasport1", "arena sport 1"), "${BASE_LOGO}world_arena_1.png"),
-        WioChannel("world_bein_qa", "🌐 World beIN Sports QA", GROUP_WORLD_OTHER, "beIN Sports QA", listOf("beinqa", "beinsportsqa", "bein sports qa", "bein 1 qa"), "${BASE_LOGO}world_bein_qa.png")
+        WioChannel("world_arena_1", "🌐 World Arena Sport 1", GROUP_WORLD_OTHER, "Arena Sport 1", listOf("arenasport1", "arena sport 1"), "${BASE_LOGO}world_arena_1.png")
     )
 
     private val channelMap = all.associateBy { it.id }

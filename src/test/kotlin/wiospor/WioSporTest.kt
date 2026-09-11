@@ -8,7 +8,7 @@ class WioSporTest {
     @Test
     fun testChannelGroupsExist() {
         assertEquals(13, WioChannels.GROUPS.size)
-        assertEquals(84, WioChannels.all.size)
+        assertEquals(83, WioChannels.all.size)
 
         val groupsPresent = WioChannels.all.map { it.group }.distinct()
         for (g in WioChannels.GROUPS) {
