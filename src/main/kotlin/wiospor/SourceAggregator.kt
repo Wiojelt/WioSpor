@@ -516,9 +516,20 @@ class SourceAggregator(private val context: Context) {
         callback: (ExtractorLink) -> Unit
     ): Boolean = coroutineScope {
         val activeWorkers = workers.filter { isSourceEnabled(it.id) }
-        val tier1Ids = setOf("beyazelma", "selcuk", "taraftarium", "inat", "domino", "domates")
+
+        // Tier 1: 1080p IPTV sağlayıcılar — hemen yayın açar
+        val tier1Ids = setOf("beyazelma", "domino", "domates")
+        // Tier 2: Web tabanlı kaynaklar + hızlı AslanTV kaynakları
+        val tier2FastAslan = setOf("aslan_markusta", "aslan_turkiyeizle")
+        val tier2WebIds = setOf("selcuk", "taraftarium", "inat", "kralsportshd", "mahsunsports",
+            "ardaspor", "crex", "intersportv", "mackeyfi", "zbahistv", "betmatiktv", "inatbox")
+        val tier2Ids = tier2WebIds + tier2FastAslan
+        // Tier 3: Kalan AslanTV listeleri (arka planda)
+
         val tier1 = activeWorkers.filter { it.id in tier1Ids }
-        val tier2 = activeWorkers.filter { it.id !in tier1Ids }
+        val tier2 = activeWorkers.filter { it.id in tier2Ids }
+        val tier3 = activeWorkers.filter { it.id !in tier1Ids && it.id !in tier2Ids }
+
         var foundAny = false
 
         suspend fun runWorker(worker: SourceWorker, timeoutMs: Long) {
@@ -536,14 +547,19 @@ class SourceAggregator(private val context: Context) {
             } catch (_: Exception) { }
         }
 
-        // Tier 1: fast sources, wait for them before emitting
+        // Tier 1: 1080p IPTV kaynaklar — hızlı yükle, bekle
         tier1.map { worker ->
             async(Dispatchers.IO) { runWorker(worker, 5000L) }
         }.awaitAll()
 
-        // Tier 2: heavier sources, run in background — results stream in as they arrive
-        tier2.forEach { worker ->
-            launch(Dispatchers.IO) { runWorker(worker, 10000L) }
+        // Tier 2: Web kaynaklar + markusta/turkiyeizle — paralel, kısmen bekle
+        tier2.map { worker ->
+            async(Dispatchers.IO) { runWorker(worker, 8000L) }
+        }.awaitAll()
+
+        // Tier 3: Geri kalan AslanTV listeleri — arka planda akış
+        tier3.forEach { worker ->
+            launch(Dispatchers.IO) { runWorker(worker, 12000L) }
         }
 
         foundAny

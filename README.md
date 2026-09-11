@@ -1,30 +1,51 @@
-<p align="center"><img src="assets/banner.svg" alt="WioSpor" width="100%"></p>
+﻿<p align="center"><img src="assets/logo.png" alt="WioSpor" width="140"></p>
 
-# WioSpor
+<h1 align="center">WioSpor</h1>
+<p align="center">Renk gruplarıyla düzenlenmiş canlı TV ve spor kanalları için CloudStream eklentisi.</p>
 
-Renk gruplarıyla düzenlenmiş canlı TV ve spor kanalları için CloudStream eklentisi.
+<p align="center">
+  <a href="https://t.me/wiolandcs3"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=flat&logo=telegram&logoColor=white" alt="Telegram"></a>
+  <a href="https://buymeacoffee.com/wiojelt"><img src="https://img.shields.io/badge/Destek_ol-FFDD00?style=flat&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee"></a>
+</p>
 
-## CloudStream'e ekle
+---
 
-KISAKOD: !wiospor
-cloudstream beta kullanıyorsanız depoyu eklemek için vpne ihityacınız yok ama normal sürüm kullanıyorsanız depoyu eklemek için vpne ihtiyaç duyabilirsiniz. 
+## CloudStream'e Ekle
 
-CloudStream içinde **Eklentiler → Depolar → Depo ekle** yolunu açıp aşağıdaki bağlantıyı girin:
+**Kısa kod:** `!wiospor`
+
+CloudStream içinde **Eklentiler → Depolar → Depo ekle** yolunu açıp kısa kodu veya aşağıdaki bağlantıyı girin:
 
 ```
 https://raw.githubusercontent.com/Wiojelt/WioSpor/main/repo.json
 ```
 
-Kısa kod: ` `
+> **Not:** CloudStream beta kullanıyorsanız VPN gerekmez. Normal sürümde depoyu eklemek için VPN gerekebilir.
+
+---
 
 ## Kanallar
 
-- 🟣 Mor Spor 1 2 3 4 5 extra 1 2 ... 
-- 🟠 Turuncu Spor 1 2 3 4 5 extra 1 2 ...
-- 🟢 Yeşil Spor 1 2 3 4 5 extra 1 2 ... 
-- 🟡 Sarı Spor 1 2 3 4 5 extra 1 2 ...
-- 🔵 Mavi Spor 1 2 3 4 5 extra 1 2 ... 
-- ⭐ Yıldız Spor 1 2 3 4 5 extra 1 2 ... 
-- 📺 Ulusal Kanallar 
+| Grup | Kanallar |
+|------|---------|
+| 🟣 Mor Spor | beIN Sports 1 2 3 4 5 Extra 1 2 |
+| 🟠 Turuncu Spor | Tivibu Spor 1 2 3 4 5 |
+| 🟢 Yeşil Spor | tabii Spor 1 2 3 4 5 |
+| 🟡 Sarı Spor | Exxen Spor 1 2 |
+| 🔵 Mavi Spor | S Sport 1 2 |
+| ⭐ Yıldız Spor | Eurosport 1 2 · Smart Spor |
+| 📺 Ulusal | A Spor · TRT Spor · TRT Spor Yıldız |
 
-Bir kanalı açtığınızda, kullanılabilir kaynaklar tek ekranda listelenir. Eklenti ayarındaki **kaynak kontrolü** güncel cevap veren kaynak sayısını gösterir.
+Bir kanalı açtığınızda tüm aktif kaynaklar tek ekranda listelenir. Ayarlar bölümünden **kaynak kontrolü** yapabilir ve **web linklerini yenileyebilirsiniz**.
+
+---
+
+## Telegram
+
+Güncel linkler, eklenti haberleri ve istekler için Telegram kanalına katıl:
+
+👉 **[t.me/wiolandcs3](https://t.me/wiolandcs3)**
+
+---
+
+<p align="center">made by <a href="https://github.com/Wiojelt">@Wiojelt</a> with ♥</p>
