@@ -20,7 +20,12 @@ object WioChannels {
     const val GROUP_MAVI = "🔵 Mavi Spor"
     const val GROUP_YILDIZ = "⭐ Yıldız Spor"
     const val GROUP_ULUSAL = "📺 Ulusal Kanallar"
-    const val GROUP_WORLD = "🌐 World"
+    const val GROUP_WORLD_TNT = "🌐 World TNT"
+    const val GROUP_WORLD_SKY = "🌐 World Sky"
+    const val GROUP_WORLD_DAZN = "🌐 World DAZN"
+    const val GROUP_WORLD_CANAL = "🌐 World Canal+"
+    const val GROUP_WORLD_ESPN = "🌐 World ESPN"
+    const val GROUP_WORLD_OTHER = "🌐 World Diğer"
 
     val GROUPS = listOf(
         GROUP_MOR,
@@ -30,7 +35,12 @@ object WioChannels {
         GROUP_MAVI,
         GROUP_YILDIZ,
         GROUP_ULUSAL,
-        GROUP_WORLD
+        GROUP_WORLD_TNT,
+        GROUP_WORLD_SKY,
+        GROUP_WORLD_DAZN,
+        GROUP_WORLD_CANAL,
+        GROUP_WORLD_ESPN,
+        GROUP_WORLD_OTHER
     )
 
     private const val BASE_LOGO = "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/banners/"
@@ -110,31 +120,41 @@ object WioChannels {
         WioChannel("ulusal_sozcu", "📺 Sözcü TV", GROUP_ULUSAL, "Sözcü TV", listOf("sozcutv", "sozcu tv", "sozcu"), "${BASE_LOGO}ulusal_sozcu.png"),
         WioChannel("ulusal_trthaber", "📺 TRT Haber", GROUP_ULUSAL, "TRT Haber", listOf("trthaber", "trt haber"), "${BASE_LOGO}ulusal_trthaber.png"),
 
-        // 🌐 World
-        WioChannel("world_tnt_1", "🌐 World TNT Sports 1", GROUP_WORLD, "TNT Sports 1", listOf("tntsports1", "tnt1", "tnt sports 1", "bt sport 1"), "${BASE_LOGO}world_tnt_1.png"),
-        WioChannel("world_tnt_2", "🌐 World TNT Sports 2", GROUP_WORLD, "TNT Sports 2", listOf("tntsports2", "tnt2", "tnt sports 2", "bt sport 2"), "${BASE_LOGO}world_tnt_2.png"),
-        WioChannel("world_tnt_3", "🌐 World TNT Sports 3", GROUP_WORLD, "TNT Sports 3", listOf("tntsports3", "tnt3", "tnt sports 3", "bt sport 3"), "${BASE_LOGO}world_tnt_3.png"),
-        WioChannel("world_tnt_4", "🌐 World TNT Sports 4", GROUP_WORLD, "TNT Sports 4", listOf("tntsports4", "tnt4", "tnt sports 4", "bt sport 4"), "${BASE_LOGO}world_tnt_4.png"),
-        WioChannel("world_sky_calcio", "🌐 World Sky Sport Calcio", GROUP_WORLD, "Sky Sport Calcio", listOf("skycalcio", "sky sport calcio"), "${BASE_LOGO}world_sky_calcio.png"),
-        WioChannel("world_sky_austria_1", "🌐 World Sky Sport Austria 1", GROUP_WORLD, "Sky Sport Austria 1", listOf("skysportaustria1", "sky sport austria 1"), "${BASE_LOGO}world_sky_austria_1.png"),
-        WioChannel("world_sky_austria_2", "🌐 World Sky Sport Austria 2", GROUP_WORLD, "Sky Sport Austria 2", listOf("skysportaustria2", "sky sport austria 2"), "${BASE_LOGO}world_sky_austria_2.png"),
-        WioChannel("world_sky_uno", "🌐 World Sky Sport Uno", GROUP_WORLD, "Sky Sport Uno", listOf("skyuno", "sky sport uno"), "${BASE_LOGO}world_sky_uno.png"),
-        WioChannel("world_dazn_1", "🌐 World DAZN 1", GROUP_WORLD, "DAZN 1", listOf("dazn1", "dazn 1"), "${BASE_LOGO}world_dazn_1.png"),
-        WioChannel("world_dazn_2", "🌐 World DAZN 2", GROUP_WORLD, "DAZN 2", listOf("dazn2", "dazn 2"), "${BASE_LOGO}world_dazn_2.png"),
-        WioChannel("world_canal_sport", "🌐 World Canal+ Sport", GROUP_WORLD, "Canal+ Sport", listOf("canalsport", "canalplus sport", "canal+ sport"), "${BASE_LOGO}world_canal_sport.png"),
-        WioChannel("world_canal_foot", "🌐 World Canal+ Foot", GROUP_WORLD, "Canal+ Foot", listOf("canalfoot", "canalplus foot", "canal+ foot"), "${BASE_LOGO}world_canal_foot.png"),
-        WioChannel("world_canal_live_1", "🌐 World Canal+ Live 1", GROUP_WORLD, "Canal+ Live 1", listOf("canallive1", "canal+ live 1"), "${BASE_LOGO}world_canal_live_1.png"),
-        WioChannel("world_canal_extra_1", "🌐 World Canal+ Extra 1", GROUP_WORLD, "Canal+ Extra 1", listOf("canalextra1", "canal+ extra 1"), "${BASE_LOGO}world_canal_extra_1.png"),
-        WioChannel("world_ziggo_1", "🌐 World Ziggo Sport 1", GROUP_WORLD, "Ziggo Sport 1", listOf("ziggosport1", "ziggo sport 1", "ziggo sport"), "${BASE_LOGO}world_ziggo_1.png"),
-        WioChannel("world_ziggo_2", "🌐 World Ziggo Sport 2", GROUP_WORLD, "Ziggo Sport 2", listOf("ziggosport2", "ziggo sport 2"), "${BASE_LOGO}world_ziggo_2.png"),
-        WioChannel("world_movistar_liga", "🌐 World M+ Liga de Campeones", GROUP_WORLD, "M+ Liga de Campeones", listOf("movistarligadecampeones", "liga de campeones", "m+ liga"), "${BASE_LOGO}world_movistar_liga.png"),
-        WioChannel("world_sporttv_1", "🌐 World Sport TV 1", GROUP_WORLD, "Sport TV 1", listOf("sporttv1", "sport tv 1"), "${BASE_LOGO}world_sporttv_1.png"),
-        WioChannel("world_digisport_1", "🌐 World Digi Sport 1", GROUP_WORLD, "Digi Sport 1", listOf("digisport1", "digi sport 1"), "${BASE_LOGO}world_digisport_1.png"),
-        WioChannel("world_cosmote_1", "🌐 World Cosmote Sport 1", GROUP_WORLD, "Cosmote Sport 1", listOf("cosmotesport1", "cosmote sport 1"), "${BASE_LOGO}world_cosmote_1.png"),
-        WioChannel("world_arena_1", "🌐 World Arena Sport 1", GROUP_WORLD, "Arena Sport 1", listOf("arenasport1", "arena sport 1"), "${BASE_LOGO}world_arena_1.png"),
-        WioChannel("world_espn_1", "🌐 World ESPN 1", GROUP_WORLD, "ESPN 1", listOf("espn1", "espn 1", "espn"), "${BASE_LOGO}world_espn_1.png"),
-        WioChannel("world_espn_2", "🌐 World ESPN 2", GROUP_WORLD, "ESPN 2", listOf("espn2", "espn 2"), "${BASE_LOGO}world_espn_2.png"),
-        WioChannel("world_bein_qa", "🌐 World beIN Sports QA", GROUP_WORLD, "beIN Sports QA", listOf("beinqa", "beinsportsqa", "bein sports qa", "bein 1 qa"), "${BASE_LOGO}world_bein_qa.png")
+        // 🌐 World TNT
+        WioChannel("world_tnt_1", "🌐 World TNT Sports 1", GROUP_WORLD_TNT, "TNT Sports 1", listOf("tntsports1", "tnt1", "tnt sports 1", "bt sport 1"), "${BASE_LOGO}world_tnt_1.png"),
+        WioChannel("world_tnt_2", "🌐 World TNT Sports 2", GROUP_WORLD_TNT, "TNT Sports 2", listOf("tntsports2", "tnt2", "tnt sports 2", "bt sport 2"), "${BASE_LOGO}world_tnt_2.png"),
+        WioChannel("world_tnt_3", "🌐 World TNT Sports 3", GROUP_WORLD_TNT, "TNT Sports 3", listOf("tntsports3", "tnt3", "tnt sports 3", "bt sport 3"), "${BASE_LOGO}world_tnt_3.png"),
+        WioChannel("world_tnt_4", "🌐 World TNT Sports 4", GROUP_WORLD_TNT, "TNT Sports 4", listOf("tntsports4", "tnt4", "tnt sports 4", "bt sport 4"), "${BASE_LOGO}world_tnt_4.png"),
+
+        // 🌐 World Sky
+        WioChannel("world_sky_calcio", "🌐 World Sky Sport Calcio", GROUP_WORLD_SKY, "Sky Sport Calcio", listOf("skycalcio", "sky sport calcio"), "${BASE_LOGO}world_sky_calcio.png"),
+        WioChannel("world_sky_austria_1", "🌐 World Sky Sport Austria 1", GROUP_WORLD_SKY, "Sky Sport Austria 1", listOf("skysportaustria1", "sky sport austria 1"), "${BASE_LOGO}world_sky_austria_1.png"),
+        WioChannel("world_sky_austria_2", "🌐 World Sky Sport Austria 2", GROUP_WORLD_SKY, "Sky Sport Austria 2", listOf("skysportaustria2", "sky sport austria 2"), "${BASE_LOGO}world_sky_austria_2.png"),
+        WioChannel("world_sky_uno", "🌐 World Sky Sport Uno", GROUP_WORLD_SKY, "Sky Sport Uno", listOf("skyuno", "sky sport uno"), "${BASE_LOGO}world_sky_uno.png"),
+
+        // 🌐 World DAZN
+        WioChannel("world_dazn_1", "🌐 World DAZN 1", GROUP_WORLD_DAZN, "DAZN 1", listOf("dazn1", "dazn 1"), "${BASE_LOGO}world_dazn_1.png"),
+        WioChannel("world_dazn_2", "🌐 World DAZN 2", GROUP_WORLD_DAZN, "DAZN 2", listOf("dazn2", "dazn 2"), "${BASE_LOGO}world_dazn_2.png"),
+
+        // 🌐 World Canal+
+        WioChannel("world_canal_sport", "🌐 World Canal+ Sport", GROUP_WORLD_CANAL, "Canal+ Sport", listOf("canalsport", "canalplus sport", "canal+ sport"), "${BASE_LOGO}world_canal_sport.png"),
+        WioChannel("world_canal_foot", "🌐 World Canal+ Foot", GROUP_WORLD_CANAL, "Canal+ Foot", listOf("canalfoot", "canalplus foot", "canal+ foot"), "${BASE_LOGO}world_canal_foot.png"),
+        WioChannel("world_canal_live_1", "🌐 World Canal+ Live 1", GROUP_WORLD_CANAL, "Canal+ Live 1", listOf("canallive1", "canal+ live 1"), "${BASE_LOGO}world_canal_live_1.png"),
+        WioChannel("world_canal_extra_1", "🌐 World Canal+ Extra 1", GROUP_WORLD_CANAL, "Canal+ Extra 1", listOf("canalextra1", "canal+ extra 1"), "${BASE_LOGO}world_canal_extra_1.png"),
+
+        // 🌐 World ESPN
+        WioChannel("world_espn_1", "🌐 World ESPN 1", GROUP_WORLD_ESPN, "ESPN 1", listOf("espn1", "espn 1", "espn"), "${BASE_LOGO}world_espn_1.png"),
+        WioChannel("world_espn_2", "🌐 World ESPN 2", GROUP_WORLD_ESPN, "ESPN 2", listOf("espn2", "espn 2"), "${BASE_LOGO}world_espn_2.png"),
+
+        // 🌐 World Diğer
+        WioChannel("world_ziggo_1", "🌐 World Ziggo Sport 1", GROUP_WORLD_OTHER, "Ziggo Sport 1", listOf("ziggosport1", "ziggo sport 1", "ziggo sport"), "${BASE_LOGO}world_ziggo_1.png"),
+        WioChannel("world_ziggo_2", "🌐 World Ziggo Sport 2", GROUP_WORLD_OTHER, "Ziggo Sport 2", listOf("ziggosport2", "ziggo sport 2"), "${BASE_LOGO}world_ziggo_2.png"),
+        WioChannel("world_movistar_liga", "🌐 World M+ Liga de Campeones", GROUP_WORLD_OTHER, "M+ Liga de Campeones", listOf("movistarligadecampeones", "liga de campeones", "m+ liga"), "${BASE_LOGO}world_movistar_liga.png"),
+        WioChannel("world_sporttv_1", "🌐 World Sport TV 1", GROUP_WORLD_OTHER, "Sport TV 1", listOf("sporttv1", "sport tv 1"), "${BASE_LOGO}world_sporttv_1.png"),
+        WioChannel("world_digisport_1", "🌐 World Digi Sport 1", GROUP_WORLD_OTHER, "Digi Sport 1", listOf("digisport1", "digi sport 1"), "${BASE_LOGO}world_digisport_1.png"),
+        WioChannel("world_cosmote_1", "🌐 World Cosmote Sport 1", GROUP_WORLD_OTHER, "Cosmote Sport 1", listOf("cosmotesport1", "cosmote sport 1"), "${BASE_LOGO}world_cosmote_1.png"),
+        WioChannel("world_arena_1", "🌐 World Arena Sport 1", GROUP_WORLD_OTHER, "Arena Sport 1", listOf("arenasport1", "arena sport 1"), "${BASE_LOGO}world_arena_1.png"),
+        WioChannel("world_bein_qa", "🌐 World beIN Sports QA", GROUP_WORLD_OTHER, "beIN Sports QA", listOf("beinqa", "beinsportsqa", "bein sports qa", "bein 1 qa"), "${BASE_LOGO}world_bein_qa.png")
     )
 
     private val channelMap = all.associateBy { it.id }

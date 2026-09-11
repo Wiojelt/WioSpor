@@ -496,6 +496,22 @@ class SourceAggregator(private val context: Context) {
         HealthStatus(workers.size, online, results)
     }
 
+    suspend fun refreshWebDomains(): String = withContext(Dispatchers.IO) {
+        val tasks = listOf(
+            async { runCatching { selcukResolver.resolve(force = true); 1 }.getOrDefault(0) },
+            async { runCatching { taraftariumResolver.resolve(force = true); 1 }.getOrDefault(0) },
+            async { runCatching { inatResolver.resolve(force = true); 1 }.getOrDefault(0) },
+            async { runCatching { ardaResolver.resolve(force = true); 1 }.getOrDefault(0) },
+            async { runCatching { mahsunResolver.resolve(force = true); 1 }.getOrDefault(0) },
+            async { runCatching { kralsporResolver.resolve(force = true); 1 }.getOrDefault(0) },
+            async { runCatching { crexResolver.resolve(force = true); 1 }.getOrDefault(0) }
+        ) + turkspor.shared.SourceSpec.all.values.map { spec ->
+            async { runCatching { turkspor.shared.DomainResolver(prefs, spec).resolve(force = true); 1 }.getOrDefault(0) }
+        }
+        val refreshedCount = tasks.awaitAll().sum()
+        "$refreshedCount web kaynağının güncel adresleri yenilendi."
+    }
+
     suspend fun fetchAlternativeLinks(
         channel: WioChannel,
         callback: (ExtractorLink) -> Unit

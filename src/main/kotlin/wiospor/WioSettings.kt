@@ -66,6 +66,25 @@ object WioSettings {
             }
         }
         root.addView(healthButton, LinearLayout.LayoutParams(-1, dp(48)).apply {
+            bottomMargin = dp(6)
+        })
+
+        val domainRefreshButton = MaterialButton(context).apply {
+            text = "🌐 Web Linklerini & Domainleri Yenile"
+            isAllCaps = false
+            setOnClickListener {
+                isEnabled = false
+                healthText.setTextColor(Color.parseColor("#FFA000"))
+                healthText.text = "Web kaynaklarının güncel adresleri taranıyor..."
+                CoroutineScope(Dispatchers.Main).launch {
+                    val msg = aggregator.refreshWebDomains()
+                    healthText.setTextColor(Color.parseColor("#4CAF50"))
+                    healthText.text = "✓ $msg"
+                    isEnabled = true
+                }
+            }
+        }
+        root.addView(domainRefreshButton, LinearLayout.LayoutParams(-1, dp(48)).apply {
             bottomMargin = dp(8)
         })
 
