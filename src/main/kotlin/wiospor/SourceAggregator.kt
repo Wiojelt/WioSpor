@@ -113,7 +113,10 @@ class SourceAggregator(private val context: Context) {
     val workers: List<SourceWorker> by lazy {
         val list = mutableListOf<SourceWorker>()
 
-        // 1. SelçukSports
+        // 1. BeyazElma (first priority)
+        createSharedWorker("beyazelma", "BeyazElma")?.let { list.add(it) }
+
+        // 2. SelçukSports
         list.add(object : SourceWorker {
             override val id: String = "selcuk"
             override val displayName: String = "SelçukSports"
@@ -307,10 +310,7 @@ class SourceAggregator(private val context: Context) {
         // 11. BetmatikTV
         createSharedWorker("betmatiktv", "BetmatikTV")?.let { list.add(it) }
 
-        // 12. BeyazElma
-        createSharedWorker("beyazelma", "BeyazElma")?.let { list.add(it) }
-
-        // 13. İnat Box
+        // 12. İnat Box
         list.add(object : SourceWorker {
             override val id: String = "inatbox"
             override val displayName: String = "İnat Box"
@@ -491,7 +491,6 @@ class SourceAggregator(private val context: Context) {
                 worker.id to (runCatching { worker.checkOnline() }.getOrDefault(false))
             }
         }.awaitAll().toMap()
-
         val online = results.values.count { it }
         HealthStatus(workers.size, online, results)
     }
@@ -517,24 +516,35 @@ class SourceAggregator(private val context: Context) {
         callback: (ExtractorLink) -> Unit
     ): Boolean = coroutineScope {
         val activeWorkers = workers.filter { isSourceEnabled(it.id) }
+        val tier1Ids = setOf("beyazelma", "selcuk", "taraftarium", "inat", "domino", "domates")
+        val tier1 = activeWorkers.filter { it.id in tier1Ids }
+        val tier2 = activeWorkers.filter { it.id !in tier1Ids }
         var foundAny = false
 
-        activeWorkers.map { worker ->
-            async(Dispatchers.IO) {
-                try {
-                    withTimeout(15000L) {
-                        worker.fetchLinks(channel) { link ->
-                            synchronized(callback) {
-                                foundAny = true
-                                callback(link)
-                            }
+        suspend fun runWorker(worker: SourceWorker, timeoutMs: Long) {
+            try {
+                withTimeout(timeoutMs) {
+                    worker.fetchLinks(channel) { link ->
+                        synchronized(callback) {
+                            foundAny = true
+                            callback(link)
                         }
                     }
-                } catch (e: CancellationException) {
-                    throw e
-                } catch (_: Exception) { }
-            }
+                }
+            } catch (e: CancellationException) {
+                throw e
+            } catch (_: Exception) { }
+        }
+
+        // Tier 1: fast sources, wait for them before emitting
+        tier1.map { worker ->
+            async(Dispatchers.IO) { runWorker(worker, 5000L) }
         }.awaitAll()
+
+        // Tier 2: heavier sources, run in background — results stream in as they arrive
+        tier2.forEach { worker ->
+            launch(Dispatchers.IO) { runWorker(worker, 10000L) }
+        }
 
         foundAny
     }
