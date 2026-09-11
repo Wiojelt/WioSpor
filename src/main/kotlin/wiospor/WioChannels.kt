@@ -47,14 +47,14 @@ object WioChannels {
 
     val all: List<WioChannel> = listOf(
         // 🟣 Mor Spor (beIN Sports)
-        WioChannel("mor_1", "🟣 Mor Spor 1", GROUP_MOR, "beIN Sports 1", listOf("beinsports1", "bein1", "beinsport1", "bein sports 1", "mor spor 1", "mor 1", "spor 1", "spor1", "sport 1", "sport1"), "${BASE_LOGO}mor_1.png"),
-        WioChannel("mor_2", "🟣 Mor Spor 2", GROUP_MOR, "beIN Sports 2", listOf("beinsports2", "bein2", "beinsport2", "bein sports 2", "mor spor 2", "mor 2", "spor 2", "spor2", "sport 2", "sport2"), "${BASE_LOGO}mor_2.png"),
-        WioChannel("mor_3", "🟣 Mor Spor 3", GROUP_MOR, "beIN Sports 3", listOf("beinsports3", "bein3", "beinsport3", "bein sports 3", "mor spor 3", "mor 3", "spor 3", "spor3", "sport 3", "sport3"), "${BASE_LOGO}mor_3.png"),
-        WioChannel("mor_4", "🟣 Mor Spor 4", GROUP_MOR, "beIN Sports 4", listOf("beinsports4", "bein4", "beinsport4", "bein sports 4", "mor spor 4", "mor 4", "spor 4", "spor4", "sport 4", "sport4"), "${BASE_LOGO}mor_4.png"),
-        WioChannel("mor_5", "🟣 Mor Spor 5", GROUP_MOR, "beIN Sports 5", listOf("beinsports5", "bein5", "beinsport5", "bein sports 5", "mor spor 5", "mor 5", "spor 5", "spor5", "sport 5", "sport5"), "${BASE_LOGO}mor_5.png"),
-        WioChannel("mor_max_1", "🟣 Mor Spor Max 1", GROUP_MOR, "beIN Sports Max 1", listOf("beinsportsmax1", "beinmax1", "beinsportmax1", "bein max 1", "mor max 1", "spor max 1", "spormax1", "sport max 1"), "${BASE_LOGO}mor_max_1.png"),
-        WioChannel("mor_max_2", "🟣 Mor Spor Max 2", GROUP_MOR, "beIN Sports Max 2", listOf("beinsportsmax2", "beinmax2", "beinsportmax2", "bein max 2", "mor max 2", "spor max 2", "spormax2", "sport max 2"), "${BASE_LOGO}mor_max_2.png"),
-        WioChannel("mor_haber", "🟣 Mor Spor Haber", GROUP_MOR, "beIN Sports Haber", listOf("beinsportshaber", "beinhaber", "beinsport haber", "mor spor haber", "mor haber", "spor haber", "sporhaber", "sport haber"), "${BASE_LOGO}mor_haber.png"),
+        WioChannel("mor_1", "🟣 Mor Spor 1", GROUP_MOR, "beIN Sports 1", listOf("beinsports1", "bein1", "beinsport1", "bein sports 1", "mor spor 1", "mor 1", "bein 1", "b1", "bs1", "beinsport 1", "spor 1", "sport 1"), "${BASE_LOGO}mor_1.png"),
+        WioChannel("mor_2", "🟣 Mor Spor 2", GROUP_MOR, "beIN Sports 2", listOf("beinsports2", "bein2", "beinsport2", "bein sports 2", "mor spor 2", "mor 2", "bein 2", "b2", "bs2", "beinsport 2", "spor 2", "sport 2"), "${BASE_LOGO}mor_2.png"),
+        WioChannel("mor_3", "🟣 Mor Spor 3", GROUP_MOR, "beIN Sports 3", listOf("beinsports3", "bein3", "beinsport3", "bein sports 3", "mor spor 3", "mor 3", "bein 3", "b3", "bs3", "beinsport 3", "spor 3", "sport 3"), "${BASE_LOGO}mor_3.png"),
+        WioChannel("mor_4", "🟣 Mor Spor 4", GROUP_MOR, "beIN Sports 4", listOf("beinsports4", "bein4", "beinsport4", "bein sports 4", "mor spor 4", "mor 4", "bein 4", "b4", "bs4", "beinsport 4", "spor 4", "sport 4"), "${BASE_LOGO}mor_4.png"),
+        WioChannel("mor_5", "🟣 Mor Spor 5", GROUP_MOR, "beIN Sports 5", listOf("beinsports5", "bein5", "beinsport5", "bein sports 5", "mor spor 5", "mor 5", "bein 5", "b5", "bs5", "beinsport 5", "spor 5", "sport 5"), "${BASE_LOGO}mor_5.png"),
+        WioChannel("mor_max_1", "🟣 Mor Spor Max 1", GROUP_MOR, "beIN Sports Max 1", listOf("beinsportsmax1", "beinmax1", "beinsportmax1", "bein max 1", "mor max 1", "bein max1", "spor max 1", "sport max 1"), "${BASE_LOGO}mor_max_1.png"),
+        WioChannel("mor_max_2", "🟣 Mor Spor Max 2", GROUP_MOR, "beIN Sports Max 2", listOf("beinsportsmax2", "beinmax2", "beinsportmax2", "bein max 2", "mor max 2", "bein max2", "spor max 2", "sport max 2"), "${BASE_LOGO}mor_max_2.png"),
+        WioChannel("mor_haber", "🟣 Mor Spor Haber", GROUP_MOR, "beIN Sports Haber", listOf("beinsportshaber", "beinhaber", "beinsport haber", "mor spor haber", "mor haber", "bein haber", "spor haber", "sport haber"), "${BASE_LOGO}mor_haber.png"),
 
         // 🟢 Yeşil Spor (tabii Spor 1..6)
         WioChannel("yesil_1", "🟢 Yeşil Spor 1", GROUP_YESIL, "tabii Spor 1", listOf("tabiispor1", "tabiispor", "tabii1", "tabii spor 1", "yesil spor 1", "yesil 1", "tabi spor 1", "tabispor1", "tabi1"), "${BASE_LOGO}yesil_1.png"),
@@ -90,10 +90,10 @@ object WioChannels {
         WioChannel("mavi_plus_5", "🔵 Mavi Spor Plus 5", GROUP_MAVI, "S Sport Plus 5", listOf("ssportplus5", "splus5", "s+5", "mavi plus 5"), "${BASE_LOGO}mavi_plus_5.png"),
 
         // ⭐ Yıldız Spor (Eurosport 1..2 & Spor Smart 1..2)
-        WioChannel("yildiz_euro_1", "⭐ Yıldız Spor 1", GROUP_YILDIZ, "Eurosport 1", listOf("eurosport1", "eurosport 1", "eurosport", "yildiz spor 1"), "${BASE_LOGO}yildiz_euro_1.png"),
-        WioChannel("yildiz_euro_2", "⭐ Yıldız Spor 2", GROUP_YILDIZ, "Eurosport 2", listOf("eurosport2", "eurosport 2", "yildiz spor 2"), "${BASE_LOGO}yildiz_euro_2.png"),
-        WioChannel("yildiz_smart_1", "⭐ Yıldız Smart 1", GROUP_YILDIZ, "Spor Smart", listOf("sporsmart", "sporsmart1", "smartspor", "smartspor1", "spor smart 1", "yildiz smart 1", "smart spor", "smart spor 1"), "${BASE_LOGO}yildiz_smart_1.png"),
-        WioChannel("yildiz_smart_2", "⭐ Yıldız Smart 2", GROUP_YILDIZ, "Spor Smart 2", listOf("sporsmart2", "smartspor2", "spor smart 2", "yildiz smart 2", "smart spor 2"), "${BASE_LOGO}yildiz_smart_2.png"),
+        WioChannel("yildiz_euro_1", "⭐ Yıldız Spor 1", GROUP_YILDIZ, "Eurosport 1", listOf("eurosport1", "eurosport 1", "eurosport", "euro sport 1", "euro sports 1", "eurosports 1", "euro sport", "eu1", "es1", "yildiz spor 1", "yildiz 1"), "${BASE_LOGO}yildiz_euro_1.png"),
+        WioChannel("yildiz_euro_2", "⭐ Yıldız Spor 2", GROUP_YILDIZ, "Eurosport 2", listOf("eurosport2", "eurosport 2", "euro sport 2", "euro sports 2", "eurosports 2", "euro sport 2", "eu2", "es2", "yildiz spor 2", "yildiz 2"), "${BASE_LOGO}yildiz_euro_2.png"),
+        WioChannel("yildiz_smart_1", "⭐ Yıldız Smart 1", GROUP_YILDIZ, "Spor Smart", listOf("sporsmart", "sporsmart1", "smartspor", "smartspor1", "spor smart 1", "smart spor 1", "smart spor", "smart1", "sm1", "yildiz smart 1"), "${BASE_LOGO}yildiz_smart_1.png"),
+        WioChannel("yildiz_smart_2", "⭐ Yıldız Smart 2", GROUP_YILDIZ, "Spor Smart 2", listOf("sporsmart2", "smartspor2", "spor smart 2", "smart spor 2", "smart2", "sm2", "yildiz smart 2"), "${BASE_LOGO}yildiz_smart_2.png"),
 
         // 📺 Ulusal Kanallar
         WioChannel("ulusal_trt_spor", "📺 TRT Spor", GROUP_ULUSAL, "TRT Spor", listOf("trtspor", "trtspor1", "trt spor"), "${BASE_LOGO}ulusal_trt_spor.png"),
@@ -179,13 +179,18 @@ object WioChannels {
             // Strip tags like [TR], [GB], [MENA], [FHD], [HD], (1080p), etc.
             .replace(Regex("""\[[^\]]*]|\([^)]*\)"""), " ")
             // Strip common prefixes
-            .replace(Regex("""^(?:vip|gold|net|atom|mahsun|inadina|pasizle|selcuk|selçuk|canli|yayin)[:|\-\s]+"""), " ")
+            .replace(Regex("""^(?:tr|de|en|ru|az|fr|es|it|nl|pt|gb|uk|us|vip|gold|net|atom|mahsun|inadina|pasizle|selcuk|selçuk|canli|yayin|andro|deathless|soner bozkurt yerli kanallar)[:|\-\s_]+"""), " ")
+            .replace(Regex("""\b(?:7/24|24/7|724|247)\b"""), " ")
+            .replace(Regex("""\b(?:1080p|720p|480p|360p|fhd|uhd|hd|sd|hevc|4k|2k|50fps|60fps)\b"""), " ")
             .replace('ı', 'i').replace('ğ', 'g').replace('ü', 'u')
             .replace('ş', 's').replace('ö', 'o').replace('ç', 'c')
         s = Normalizer.normalize(s, Normalizer.Form.NFD)
             .replace(Regex("\\p{InCombiningDiacriticalMarks}+"), "")
+        s = s.replace(Regex("""\bsports\b"""), "sport")
         return s.replace(Regex("[^a-z0-9]+"), " ").trim()
     }
+
+    fun noSpaces(s: String): String = s.replace(Regex("[^a-z0-9]"), "")
 
     fun matches(channel: WioChannel, candidateTitle: String, candidateId: String = ""): Boolean {
         val normTitle = normalize(candidateTitle)
@@ -226,7 +231,6 @@ object WioChannels {
             // Channel has a number (e.g. 1 in beIN 1). Candidate MUST have the same number!
             if (candNumber != null && candNumber != stdNumber) return false
             if (candNumber == null && !normTitle.endsWith(stdNumber)) {
-                // Check if candidate ends with the number without word boundary
                 if (!Regex("""${stdNumber}(?:fhd|hd|sd|hevc|4k|p|$)""").containsMatchIn(candLower)) {
                     return false
                 }
@@ -236,30 +240,64 @@ object WioChannels {
             if (candNumber != null && candNumber !in listOf("1", "24", "7")) return false
         }
 
-        // Brand conflict check to prevent e.g. "Spor 1" alias on Mor Spor from matching "Tivibu Spor 1" or "Tabii Spor 1"
-        val hasBrandConflict = when {
-            channel.standardTitle.contains("beIN", ignoreCase = true) ->
-                listOf("tivibu", "tabii", "tabi", "exxen", "ssport", "s sport", "smart", "trt", "aspor", "htspor", "eurosport").any { normTitle.contains(it) }
-            channel.standardTitle.contains("tabii", ignoreCase = true) ->
-                listOf("tivibu", "bein", "exxen", "ssport", "smart", "eurosport").any { normTitle.contains(it) }
-            channel.standardTitle.contains("Tivibu", ignoreCase = true) ->
-                listOf("tabii", "tabi", "bein", "exxen", "ssport", "smart", "eurosport").any { normTitle.contains(it) }
-            channel.standardTitle.contains("Exxen", ignoreCase = true) ->
-                listOf("tivibu", "tabii", "tabi", "bein", "ssport", "smart", "eurosport").any { normTitle.contains(it) }
-            channel.standardTitle.contains("S Sport", ignoreCase = true) ->
-                listOf("tivibu", "tabii", "tabi", "exxen", "bein", "smart", "eurosport").any { normTitle.contains(it) }
-            channel.standardTitle.contains("Eurosport", ignoreCase = true) ->
-                listOf("tivibu", "tabii", "tabi", "exxen", "bein", "smart", "ssport").any { normTitle.contains(it) }
-            else -> false
+        // Full check context combines title, cleaned title, and id
+        val fullCand = "$normTitle $normCleaned $normId"
+
+        // Strict Brand conflict check
+        val isEurosport = channel.standardTitle.contains("Eurosport", ignoreCase = true)
+        val isBein = channel.standardTitle.contains("beIN", ignoreCase = true)
+        val isTabii = channel.standardTitle.contains("tabii", ignoreCase = true)
+        val isTivibu = channel.standardTitle.contains("Tivibu", ignoreCase = true)
+        val isExxen = channel.standardTitle.contains("Exxen", ignoreCase = true)
+        val isSSport = channel.standardTitle.contains("S Sport", ignoreCase = true)
+        val isSmart = channel.standardTitle.contains("Smart", ignoreCase = true)
+
+        // Eurosport channel MUST have euro/eu/es token and NO other brand
+        if (isEurosport) {
+            val hasEuro = listOf("euro", "eu1", "eu2", "es1", "es2").any { it in fullCand }
+            if (!hasEuro) return false
+            if (listOf("tivibu", "tabii", "tabi", "exxen", "bein", "smart", "ssport", "s sport", "trt").any { it in fullCand }) return false
         }
-        if (hasBrandConflict) return false
+
+        if (isBein && listOf("tivibu", "tabii", "tabi", "exxen", "ssport", "s sport", "smart", "trt", "aspor", "htspor", "euro", "dazn", "sky", "tnt").any { it in fullCand }) {
+            return false
+        }
+        if (isTabii && listOf("tivibu", "bein", "exxen", "ssport", "smart", "euro").any { it in fullCand }) {
+            return false
+        }
+        if (isTivibu && listOf("tabii", "tabi", "bein", "exxen", "ssport", "smart", "euro").any { it in fullCand }) {
+            return false
+        }
+        if (isExxen && listOf("tivibu", "tabii", "tabi", "bein", "ssport", "smart", "euro").any { it in fullCand }) {
+            return false
+        }
+        if (isSSport && listOf("tivibu", "tabii", "tabi", "exxen", "bein", "smart", "euro").any { it in fullCand }) {
+            return false
+        }
+        if (isSmart && listOf("tivibu", "tabii", "tabi", "exxen", "bein", "ssport", "euro").any { it in fullCand }) {
+            return false
+        }
+
+        // Space-insensitive exact match
+        val nsCleaned = noSpaces(normCleaned)
+        val nsStd = noSpaces(normStd)
+        val nsTitle = noSpaces(normTitle)
+        val nsId = noSpaces(normId)
+        if (nsCleaned == nsStd || nsTitle == nsStd || nsId == nsStd) return true
 
         // Check against aliases
         for (alias in channel.aliases) {
             val normAlias = normalize(alias)
+            val nsAlias = noSpaces(normAlias)
             if (normTitle == normAlias || normId == normAlias || normCleaned == normAlias) return true
+            if (nsCleaned == nsAlias || nsTitle == nsAlias || nsId == nsAlias) return true
             if (normAlias.length >= 4) {
                 if (normTitle.contains(normAlias) || normCleaned.contains(normAlias) || normId.contains(normAlias)) {
+                    return true
+                }
+            }
+            if (nsAlias.length >= 4) {
+                if (nsCleaned.contains(nsAlias) || nsTitle.contains(nsAlias) || nsId.contains(nsAlias)) {
                     return true
                 }
             }
