@@ -1,12 +1,18 @@
 package wiospor
 
+import android.app.ActivityManager
+import android.app.UiModeManager
 import android.content.Context
 import android.content.SharedPreferences
+import android.content.res.Configuration
 import com.lagradost.cloudstream3.utils.ExtractorLink
 import com.lagradost.cloudstream3.utils.ExtractorLinkType
 import com.lagradost.cloudstream3.utils.Qualities
 import kotlinx.coroutines.*
+import kotlinx.coroutines.sync.Semaphore
+import kotlinx.coroutines.sync.withPermit
 import java.net.URLEncoder
+import java.util.concurrent.atomic.AtomicInteger
 
 interface SourceWorker {
     val id: String
@@ -485,6 +491,27 @@ class SourceAggregator(private val context: Context) {
         prefs.edit().putStringSet("disabled_sources", disabledSet).apply()
     }
 
+    fun isAutoDetectedTvOrLowRam(): Boolean {
+        return runCatching {
+            val uiModeManager = context.getSystemService(Context.UI_MODE_SERVICE) as? UiModeManager
+            val isTv = uiModeManager?.currentModeType == Configuration.UI_MODE_TYPE_TELEVISION
+            val activityManager = context.getSystemService(Context.ACTIVITY_SERVICE) as? ActivityManager
+            val isLowRam = activityManager?.isLowRamDevice == true
+            isTv || isLowRam
+        }.getOrDefault(false)
+    }
+
+    fun isTvBoxMode(): Boolean {
+        if (!prefs.contains("tv_box_mode")) {
+            return isAutoDetectedTvOrLowRam()
+        }
+        return prefs.getBoolean("tv_box_mode", false)
+    }
+
+    fun setTvBoxMode(enabled: Boolean) {
+        prefs.edit().putBoolean("tv_box_mode", enabled).apply()
+    }
+
     suspend fun checkHealth(): HealthStatus = withContext(Dispatchers.IO) {
         val results = workers.map { worker ->
             async {
@@ -515,54 +542,85 @@ class SourceAggregator(private val context: Context) {
         channel: WioChannel,
         callback: (ExtractorLink) -> Unit
     ): Boolean = coroutineScope {
+        val tvMode = isTvBoxMode()
+        val maxConcurrency = if (tvMode) 2 else 3
+        val targetLinkCount = if (tvMode) 6 else 10
+        val semaphore = Semaphore(maxConcurrency)
+
         val activeWorkers = workers.filter { isSourceEnabled(it.id) }
 
-        // Tier 1: 1080p IPTV sağlayıcılar — hemen yayın açar
+        // Tier 1: 1080p IPTV sağlayıcılar — ultra hızlı açılış
         val tier1Ids = setOf("beyazelma", "domino", "domates")
-        // Tier 2: Web tabanlı kaynaklar
-        val tier2Ids = setOf(
-            "selcuk", "taraftarium", "inat", "kralspor", "mahsun",
-            "arda", "crex", "intersportv", "mackeyfi", "zbahistv", "betmatiktv", "inatbox"
-        )
-        // Tier 3: Kalan AslanTV listeleri
+        // Tier 2 Öncelikli: Hızlı ve en stabil popüler web kaynakları
+        val tier2PriorityIds = setOf("selcuk", "taraftarium", "inat", "mahsun", "arda")
+        // Tier 2 Diğerleri
+        val tier2OtherIds = setOf("kralspor", "crex", "intersportv", "mackeyfi", "zbahistv", "betmatiktv", "inatbox")
 
         val tier1 = activeWorkers.filter { it.id in tier1Ids }
-        val tier2 = activeWorkers.filter { it.id in tier2Ids }
-        val tier3 = activeWorkers.filter { it.id !in tier1Ids && it.id !in tier2Ids }
+        val tier2Priority = activeWorkers.filter { it.id in tier2PriorityIds }
+        val tier2Other = activeWorkers.filter { it.id in tier2OtherIds }
+        val tier3 = activeWorkers.filter { it.id !in tier1Ids && it.id !in tier2PriorityIds && it.id !in tier2OtherIds }
 
-        var foundAny = false
+        val foundCount = AtomicInteger(0)
 
         suspend fun runWorker(worker: SourceWorker, timeoutMs: Long) {
+            if (foundCount.get() >= targetLinkCount) return
             try {
-                withTimeoutOrNull(timeoutMs) {
-                    worker.fetchLinks(channel) { link ->
-                        synchronized(callback) {
-                            foundAny = true
-                            callback(link)
+                semaphore.withPermit {
+                    if (foundCount.get() >= targetLinkCount) return@withPermit
+                    withTimeoutOrNull(timeoutMs) {
+                        worker.fetchLinks(channel) { link ->
+                            val count = foundCount.incrementAndGet()
+                            synchronized(callback) {
+                                callback(link)
+                            }
+                            if (count >= targetLinkCount) {
+                                throw CancellationException("Target link quota reached")
+                            }
                         }
                     }
                 }
             } catch (e: CancellationException) {
-                currentCoroutineContext().ensureActive()
+                if (foundCount.get() >= targetLinkCount) {
+                    currentCoroutineContext().cancelChildren()
+                } else {
+                    currentCoroutineContext().ensureActive()
+                }
             } catch (_: Exception) { }
         }
 
-        // Tier 1 (IPTV) ve Tier 2 (Web) paralel başlatılır — linkler geldikçe anında callback'e akar
-        val primaryJobs = (tier1 + tier2).map { worker ->
-            async(Dispatchers.IO) { runWorker(worker, 7000L) }
+        // FAZ 1: Tier 1 (IPTV) ve Öncelikli Tier 2 (Web)
+        // En kaliteli ve hızlı kaynaklar önden taranır
+        val phase1Workers = tier1 + tier2Priority
+        val phase1Jobs = phase1Workers.map { worker ->
+            async(Dispatchers.IO) { runWorker(worker, if (tvMode) 5000L else 7000L) }
+        }
+        phase1Jobs.awaitAll()
+
+        // Erken Durdurma (Short-circuit): İlk fazdan yeterli link bulunduysa (TV'de 3, normalde 5)
+        // arka plandaki diğer 30+ kaynağı ve AslanTV listelerini HİÇ tarama!
+        if (foundCount.get() >= (if (tvMode) 3 else 5)) {
+            return@coroutineScope true
         }
 
-        // Tier 3: Aslan IPTV listeleri de paralel çalışır
-        val tier3Jobs = tier3.map { worker ->
-            async(Dispatchers.IO) { runWorker(worker, 8000L) }
+        // FAZ 2: Kalan Tier 2 Web Kaynakları (Yalnızca ilk faz yetersizse)
+        val phase2Jobs = tier2Other.map { worker ->
+            async(Dispatchers.IO) { runWorker(worker, if (tvMode) 5000L else 7000L) }
+        }
+        phase2Jobs.awaitAll()
+
+        if (foundCount.get() >= (if (tvMode) 2 else 4)) {
+            return@coroutineScope true
         }
 
-        // Önce hızlı birincil kaynakların (Tier 1 + Tier 2) tamamlanmasını bekle
-        primaryJobs.awaitAll()
+        // FAZ 3 (Yedek Kurtarıcı): Sadece yeterli link gelmediyse AslanTV listeleri devreye girer
+        // TV modunda 27 listeyi birden taramak yerine en popüler/ilgili ilk 5 listeyi tarar
+        val aslanCandidates = if (tvMode) tier3.take(5) else tier3
+        val phase3Jobs = aslanCandidates.map { worker ->
+            async(Dispatchers.IO) { runWorker(worker, 6000L) }
+        }
+        phase3Jobs.awaitAll()
 
-        // Tier 3 kaynaklarının tamamlanmasını bekle
-        tier3Jobs.awaitAll()
-
-        foundAny
+        foundCount.get() > 0
     }
 }

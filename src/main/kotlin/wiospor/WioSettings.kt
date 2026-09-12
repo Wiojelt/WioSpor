@@ -39,6 +39,58 @@ object WioSettings {
         }
         root.addView(summary)
 
+        val autoDetected = aggregator.isAutoDetectedTvOrLowRam()
+
+        val tvBoxCard = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            setPadding(dp(14), dp(12), dp(14), dp(12))
+            setBackgroundColor(Color.parseColor("#1E222D"))
+        }
+
+        val tvBoxHeader = LinearLayout(context).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+        }
+
+        val tvBoxTitle = TextView(context).apply {
+            text = "📺 TV Box / Düşük Bellek Modu"
+            textSize = 15f
+            typeface = Typeface.DEFAULT_BOLD
+            setTextColor(Color.WHITE)
+        }
+
+        val tvBoxSwitch = SwitchMaterial(context).apply {
+            isChecked = aggregator.isTvBoxMode()
+            setOnCheckedChangeListener { _, isChecked ->
+                aggregator.setTvBoxMode(isChecked)
+            }
+        }
+
+        tvBoxHeader.addView(tvBoxTitle, LinearLayout.LayoutParams(0, -2, 1f))
+        tvBoxHeader.addView(tvBoxSwitch)
+        tvBoxCard.addView(tvBoxHeader)
+
+        val tvBoxStatus = TextView(context).apply {
+            textSize = 12f
+            setTextColor(if (autoDetected) Color.parseColor("#4CAF50") else Color.parseColor("#9E9E9E"))
+            text = if (autoDetected) "✓ Cihazınız TV / Kısıtlı RAM olarak tespit edildi (Önerilen)"
+                   else "ℹ Standart mobil/tablet modu"
+            setPadding(0, dp(2), 0, dp(4))
+        }
+        tvBoxCard.addView(tvBoxStatus)
+
+        val tvBoxDesc = TextView(context).apply {
+            textSize = 11.5f
+            setTextColor(Color.parseColor("#B0BEC5"))
+            text = "Aynı anda çalışan bağlantıyı 2 ile sınırlar, ilk kaliteli linkler (6 adet) geldiğinde taramayı durdurarak TV Box'ların RAM yetersizliğinden kapanmasını önler."
+        }
+        tvBoxCard.addView(tvBoxDesc)
+
+        root.addView(tvBoxCard, LinearLayout.LayoutParams(-1, -2).apply {
+            topMargin = dp(4)
+            bottomMargin = dp(10)
+        })
+
         val healthText = TextView(context).apply {
             textSize = 13f
             setTextColor(Color.parseColor("#4CAF50"))
