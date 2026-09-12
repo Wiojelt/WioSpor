@@ -271,6 +271,20 @@ object WioSettings {
         tvBoxCard.addView(tvBoxDesc)
 
         root.addView(tvBoxCard, LinearLayout.LayoutParams(-1, -2).apply {
+            bottomMargin = dp(6)
+        })
+
+        // Kurulum Sihirbazı Yeniden Başlat Butonu
+        val wizardBtn = MaterialButton(context).apply {
+            text = "🧙 Mod Seçimi & Kurulum Sihirbazı"
+            textSize = 12f
+            styleButton(this, bgColor = Color.parseColor("#261016"), borderColor = brandRedTranslucent, radiusDp = 12)
+            setOnClickListener {
+                dialog.dismiss()
+                WioOnboarding.show(context, aggregator)
+            }
+        }
+        root.addView(wizardBtn, LinearLayout.LayoutParams(-1, dp(38)).apply {
             bottomMargin = dp(8)
         })
 
@@ -363,9 +377,22 @@ object WioSettings {
             summaryText.text = "$enabledCount / ${aggregator.workers.size} kaynak etkin"
         }
 
+        val recommendedBtn = MaterialButton(context).apply {
+            text = "Önerilen 5"
+            textSize = 11f
+            styleButton(this, bgColor = Color.parseColor("#33141E"), borderColor = brandRedBorder, radiusDp = 10)
+            setOnClickListener {
+                aggregator.enableOnlyRecommendedSources()
+                switches.forEach { (id, toggle) ->
+                    toggle.isChecked = aggregator.isSourceEnabled(id)
+                }
+                refreshSummary()
+            }
+        }
+
         val openAllBtn = MaterialButton(context).apply {
-            text = "Tümünü Aç"
-            textSize = 11.5f
+            text = "Tümü"
+            textSize = 11f
             styleButton(this, bgColor = Color.parseColor("#261118"), borderColor = brandRedTranslucent, radiusDp = 10)
             setOnClickListener {
                 switches.forEach { (id, toggle) ->
@@ -377,8 +404,8 @@ object WioSettings {
         }
 
         val closeAllBtn = MaterialButton(context).apply {
-            text = "Tümünü Kapat"
-            textSize = 11.5f
+            text = "Kapat"
+            textSize = 11f
             styleButton(this, bgColor = Color.parseColor("#261118"), borderColor = brandRedTranslucent, radiusDp = 10)
             setOnClickListener {
                 switches.forEach { (id, toggle) ->
@@ -389,6 +416,7 @@ object WioSettings {
             }
         }
 
+        sourcesHeader.addView(recommendedBtn, LinearLayout.LayoutParams(-2, dp(32)).apply { marginEnd = dp(4) })
         sourcesHeader.addView(openAllBtn, LinearLayout.LayoutParams(-2, dp(32)).apply { marginEnd = dp(4) })
         sourcesHeader.addView(closeAllBtn, LinearLayout.LayoutParams(-2, dp(32)))
 

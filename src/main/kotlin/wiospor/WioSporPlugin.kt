@@ -21,11 +21,23 @@ class WioSporPlugin : Plugin() {
         mainApi = api
         registerMainAPI(api)
 
+        showOnboardingIfDue(context, aggregator)
         showSupportNoticeIfDue(context)
 
         openSettings = { uiContext ->
             WioSettings.show(uiContext, aggregator)
         }
+    }
+
+    private fun showOnboardingIfDue(context: Context, aggregator: SourceAggregator) {
+        if (aggregator.isOnboardingCompleted()) return
+        val activity = context as? Activity ?: return
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (activity.isFinishing || activity.isDestroyed) return@postDelayed
+            runCatching {
+                WioOnboarding.show(activity, aggregator)
+            }
+        }, 500L)
     }
 
     private fun showSupportNoticeIfDue(context: Context) {
@@ -34,8 +46,8 @@ class WioSporPlugin : Plugin() {
         val today = Calendar.getInstance().run { "${get(Calendar.YEAR)}-${get(Calendar.DAY_OF_YEAR)}" }
         if (prefs.getString("last_day", "") == today) return
         prefs.edit().putString("last_day", today).apply()
-        Handler(Looper.getMainLooper()).post {
-            if (activity.isFinishing || activity.isDestroyed) return@post
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (activity.isFinishing || activity.isDestroyed) return@postDelayed
             runCatching {
                 MaterialAlertDialogBuilder(activity)
                     .setTitle("WioSpor")
@@ -49,7 +61,7 @@ class WioSporPlugin : Plugin() {
                     .setNegativeButton("Kapat", null)
                     .show()
             }
-        }
+        }, 1200L)
     }
 
     private fun openUrl(context: Context, url: String) {
