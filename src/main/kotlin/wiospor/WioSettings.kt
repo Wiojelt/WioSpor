@@ -5,7 +5,9 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
 import android.graphics.drawable.GradientDrawable
+import android.graphics.drawable.StateListDrawable
 import android.view.Gravity
+import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.ScrollView
@@ -35,19 +37,31 @@ object WioSettings {
         val successGreen = Color.parseColor("#00E676")
         val warningOrange = Color.parseColor("#FFA000")
 
-        fun glassDrawable(
-            bgColor: Int = cardBg,
-            borderColor: Int = brandRedTranslucent,
+        fun focusableGlassDrawable(
+            normalBg: Int = cardBg,
+            normalBorder: Int = brandRedBorder,
+            focusedBg: Int = Color.parseColor("#E6351520"),
+            focusedBorder: Int = Color.parseColor("#FFFF2E4C"),
             radiusDp: Float = 14f,
-            borderWidthDp: Int = 1
-        ): GradientDrawable {
-            return GradientDrawable().apply {
+            normalBorderDp: Int = 1,
+            focusedBorderDp: Int = 2
+        ): StateListDrawable {
+            val normal = GradientDrawable().apply {
                 shape = GradientDrawable.RECTANGLE
                 cornerRadius = dp(radiusDp.toInt()).toFloat()
-                setColor(bgColor)
-                if (borderWidthDp > 0) {
-                    setStroke(dp(borderWidthDp), borderColor)
-                }
+                setColor(normalBg)
+                if (normalBorderDp > 0) setStroke(dp(normalBorderDp), normalBorder)
+            }
+            val focused = GradientDrawable().apply {
+                shape = GradientDrawable.RECTANGLE
+                cornerRadius = dp(radiusDp.toInt()).toFloat()
+                setColor(focusedBg)
+                setStroke(dp(focusedBorderDp), focusedBorder)
+            }
+            return StateListDrawable().apply {
+                addState(intArrayOf(android.R.attr.state_focused), focused)
+                addState(intArrayOf(android.R.attr.state_pressed), focused)
+                addState(intArrayOf(), normal)
             }
         }
 
@@ -83,15 +97,40 @@ object WioSettings {
             borderColor: Int = brandRedBorder,
             radiusDp: Int = 12
         ) {
+            val btnBgStates = ColorStateList(
+                arrayOf(
+                    intArrayOf(android.R.attr.state_focused),
+                    intArrayOf(android.R.attr.state_pressed),
+                    intArrayOf()
+                ),
+                intArrayOf(
+                    Color.parseColor("#553E1722"),
+                    Color.parseColor("#774A1B28"),
+                    bgColor
+                )
+            )
+            val btnStrokeStates = ColorStateList(
+                arrayOf(
+                    intArrayOf(android.R.attr.state_focused),
+                    intArrayOf(android.R.attr.state_pressed),
+                    intArrayOf()
+                ),
+                intArrayOf(
+                    Color.parseColor("#FFFF2E4C"),
+                    Color.parseColor("#FFFF2E4C"),
+                    borderColor
+                )
+            )
             button.apply {
-                backgroundTintList = ColorStateList.valueOf(bgColor)
-                strokeColor = ColorStateList.valueOf(borderColor)
+                backgroundTintList = btnBgStates
+                strokeColor = btnStrokeStates
                 strokeWidth = dp(1)
                 cornerRadius = dp(radiusDp)
                 setTextColor(textPrimary)
                 rippleColor = ColorStateList.valueOf(brandRedTranslucent)
                 isAllCaps = false
                 elevation = 0f
+                isFocusable = true
             }
         }
 
@@ -174,7 +213,10 @@ object WioSettings {
         val tvBoxCard = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
             setPadding(dp(14), dp(10), dp(14), dp(10))
-            background = glassDrawable(cardBg, brandRedBorder, 16f, 1)
+            background = focusableGlassDrawable(cardBg, brandRedBorder, radiusDp = 16f)
+            isClickable = true
+            isFocusable = true
+            descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
         }
 
         val tvBoxHeader = LinearLayout(context).apply {
@@ -206,9 +248,14 @@ object WioSettings {
         val tvBoxSwitch = SwitchMaterial(context).apply {
             isChecked = aggregator.isTvBoxMode()
             styleSwitch(this)
+            isFocusable = false
+            isClickable = false
             setOnCheckedChangeListener { _, isChecked ->
                 aggregator.setTvBoxMode(isChecked)
             }
+        }
+        tvBoxCard.setOnClickListener {
+            tvBoxSwitch.isChecked = !tvBoxSwitch.isChecked
         }
 
         tvBoxHeader.addView(tvBoxTitleRow, LinearLayout.LayoutParams(0, -2, 1f))
@@ -381,10 +428,11 @@ object WioSettings {
             val itemCard = LinearLayout(context).apply {
                 orientation = LinearLayout.HORIZONTAL
                 gravity = Gravity.CENTER_VERTICAL
-                background = glassDrawable(cardBgSubtle, Color.parseColor("#22FF2040"), 12f, 1)
+                background = focusableGlassDrawable(cardBgSubtle, Color.parseColor("#22FF2040"), radiusDp = 12f)
                 setPadding(dp(12), dp(2), dp(8), dp(2))
                 isClickable = true
                 isFocusable = true
+                descendantFocusability = ViewGroup.FOCUS_BLOCK_DESCENDANTS
             }
 
             val label = TextView(context).apply {
@@ -398,6 +446,8 @@ object WioSettings {
                 contentDescription = "${worker.displayName} aktif"
                 isChecked = aggregator.isSourceEnabled(worker.id)
                 styleSwitch(this)
+                isFocusable = false
+                isClickable = false
                 setOnCheckedChangeListener { _, checked ->
                     aggregator.setSourceEnabled(worker.id, checked)
                     refreshSummary()
