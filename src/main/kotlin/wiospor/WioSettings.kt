@@ -1,9 +1,12 @@
 package wiospor
 
 import android.content.Context
+import android.content.res.ColorStateList
 import android.graphics.Color
 import android.graphics.Typeface
+import android.graphics.drawable.GradientDrawable
 import android.view.Gravity
+import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.ScrollView
 import android.widget.TextView
@@ -14,37 +17,164 @@ import com.google.android.material.switchmaterial.SwitchMaterial
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 object WioSettings {
     fun show(context: Context, aggregator: SourceAggregator) {
         fun dp(value: Int) = (value * context.resources.displayMetrics.density).toInt()
 
+        // WioSpor Brand Palette (Red / Crimson Translucent Glass)
+        val brandRed = Color.parseColor("#FF2040")
+        val brandRedTranslucent = Color.parseColor("#44FF2040")
+        val brandRedBorder = Color.parseColor("#66FF2A48")
+        val sheetBg = Color.parseColor("#F5100609")
+        val cardBg = Color.parseColor("#C81E0E14")
+        val cardBgSubtle = Color.parseColor("#99170A0F")
+        val textPrimary = Color.parseColor("#FFFFFF")
+        val textSecondary = Color.parseColor("#D4A5AF")
+        val textMuted = Color.parseColor("#9E7A82")
+        val successGreen = Color.parseColor("#00E676")
+        val warningOrange = Color.parseColor("#FFA000")
+
+        fun glassDrawable(
+            bgColor: Int = cardBg,
+            borderColor: Int = brandRedTranslucent,
+            radiusDp: Float = 14f,
+            borderWidthDp: Int = 1
+        ): GradientDrawable {
+            return GradientDrawable().apply {
+                shape = GradientDrawable.RECTANGLE
+                cornerRadius = dp(radiusDp.toInt()).toFloat()
+                setColor(bgColor)
+                if (borderWidthDp > 0) {
+                    setStroke(dp(borderWidthDp), borderColor)
+                }
+            }
+        }
+
+        val switchThumbStates = ColorStateList(
+            arrayOf(
+                intArrayOf(android.R.attr.state_checked),
+                intArrayOf(-android.R.attr.state_checked)
+            ),
+            intArrayOf(
+                brandRed,
+                Color.parseColor("#7A6369")
+            )
+        )
+        val switchTrackStates = ColorStateList(
+            arrayOf(
+                intArrayOf(android.R.attr.state_checked),
+                intArrayOf(-android.R.attr.state_checked)
+            ),
+            intArrayOf(
+                Color.parseColor("#77FF2040"),
+                Color.parseColor("#331820")
+            )
+        )
+
+        fun styleSwitch(switch: SwitchMaterial) {
+            switch.thumbTintList = switchThumbStates
+            switch.trackTintList = switchTrackStates
+        }
+
+        fun styleButton(
+            button: MaterialButton,
+            bgColor: Int = Color.parseColor("#260F16"),
+            borderColor: Int = brandRedBorder,
+            radiusDp: Int = 12
+        ) {
+            button.apply {
+                backgroundTintList = ColorStateList.valueOf(bgColor)
+                strokeColor = ColorStateList.valueOf(borderColor)
+                strokeWidth = dp(1)
+                cornerRadius = dp(radiusDp)
+                setTextColor(textPrimary)
+                rippleColor = ColorStateList.valueOf(brandRedTranslucent)
+                isAllCaps = false
+                elevation = 0f
+            }
+        }
+
         val dialog = BottomSheetDialog(context)
         val root = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(24), dp(20), dp(24), dp(20))
+            setPadding(dp(20), dp(16), dp(20), dp(16))
+            background = GradientDrawable().apply {
+                shape = GradientDrawable.RECTANGLE
+                cornerRadii = floatArrayOf(
+                    dp(24).toFloat(), dp(24).toFloat(),
+                    dp(24).toFloat(), dp(24).toFloat(),
+                    0f, 0f, 0f, 0f
+                )
+                setColor(sheetBg)
+                setStroke(dp(1), Color.parseColor("#33FF2040"))
+            }
         }
 
-        val title = TextView(context).apply {
-            text = "WioSpor Ayarları"
-            textSize = 22f
+        // --- 1. HEADER (Title, Summary Badge & Close Button) ---
+        val header = LinearLayout(context).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+        }
+
+        val titleCol = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+        }
+
+        val brandTitle = LinearLayout(context).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+        }
+
+        val titleWio = TextView(context).apply {
+            text = "WIO"
+            textSize = 21f
             typeface = Typeface.DEFAULT_BOLD
+            setTextColor(brandRed)
         }
-        root.addView(title)
-
-        val summary = TextView(context).apply {
-            textSize = 14f
-            setPadding(0, dp(6), 0, dp(4))
+        val titleSpor = TextView(context).apply {
+            text = "SPOR"
+            textSize = 21f
+            typeface = Typeface.DEFAULT_BOLD
+            setTextColor(textPrimary)
         }
-        root.addView(summary)
+        val titleSettings = TextView(context).apply {
+            text = " Ayarları"
+            textSize = 18f
+            typeface = Typeface.DEFAULT_BOLD
+            setTextColor(textSecondary)
+        }
+        brandTitle.addView(titleWio)
+        brandTitle.addView(titleSpor)
+        brandTitle.addView(titleSettings)
+        titleCol.addView(brandTitle)
 
+        val summaryText = TextView(context).apply {
+            textSize = 12.5f
+            setTextColor(textMuted)
+            setPadding(0, dp(1), 0, 0)
+        }
+        titleCol.addView(summaryText)
+
+        val closeBtn = MaterialButton(context).apply {
+            text = "✕ Kapat"
+            textSize = 13f
+            styleButton(this, bgColor = Color.parseColor("#2A1017"), borderColor = brandRedTranslucent, radiusDp = 18)
+            setOnClickListener { dialog.dismiss() }
+        }
+
+        header.addView(titleCol, LinearLayout.LayoutParams(0, -2, 1f))
+        header.addView(closeBtn, LinearLayout.LayoutParams(-2, dp(38)))
+        root.addView(header, LinearLayout.LayoutParams(-1, -2).apply {
+            bottomMargin = dp(10)
+        })
+
+        // --- 2. TV BOX / DÜŞÜK BELLEK MODU KARTI ---
         val autoDetected = aggregator.isAutoDetectedTvOrLowRam()
-
         val tvBoxCard = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
-            setPadding(dp(14), dp(12), dp(14), dp(12))
-            setBackgroundColor(Color.parseColor("#1E222D"))
+            setPadding(dp(14), dp(10), dp(14), dp(10))
+            background = glassDrawable(cardBg, brandRedBorder, 16f, 1)
         }
 
         val tvBoxHeader = LinearLayout(context).apply {
@@ -52,166 +182,256 @@ object WioSettings {
             gravity = Gravity.CENTER_VERTICAL
         }
 
+        val tvBoxTitleRow = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+        }
+
         val tvBoxTitle = TextView(context).apply {
             text = "📺 TV Box / Düşük Bellek Modu"
-            textSize = 15f
+            textSize = 14.5f
             typeface = Typeface.DEFAULT_BOLD
-            setTextColor(Color.WHITE)
+            setTextColor(textPrimary)
         }
+
+        val tvBoxStatus = TextView(context).apply {
+            textSize = 11.5f
+            setTextColor(if (autoDetected) successGreen else textSecondary)
+            text = if (autoDetected) "✓ Cihaz TV / Kısıtlı RAM olarak tespit edildi (Önerilen)"
+                   else "ℹ Standart mobil/tablet modu (Yüksek RAM)"
+            setPadding(0, dp(1), 0, 0)
+        }
+        tvBoxTitleRow.addView(tvBoxTitle)
+        tvBoxTitleRow.addView(tvBoxStatus)
 
         val tvBoxSwitch = SwitchMaterial(context).apply {
             isChecked = aggregator.isTvBoxMode()
+            styleSwitch(this)
             setOnCheckedChangeListener { _, isChecked ->
                 aggregator.setTvBoxMode(isChecked)
             }
         }
 
-        tvBoxHeader.addView(tvBoxTitle, LinearLayout.LayoutParams(0, -2, 1f))
+        tvBoxHeader.addView(tvBoxTitleRow, LinearLayout.LayoutParams(0, -2, 1f))
         tvBoxHeader.addView(tvBoxSwitch)
         tvBoxCard.addView(tvBoxHeader)
 
-        val tvBoxStatus = TextView(context).apply {
-            textSize = 12f
-            setTextColor(if (autoDetected) Color.parseColor("#4CAF50") else Color.parseColor("#9E9E9E"))
-            text = if (autoDetected) "✓ Cihazınız TV / Kısıtlı RAM olarak tespit edildi (Önerilen)"
-                   else "ℹ Standart mobil/tablet modu"
-            setPadding(0, dp(2), 0, dp(4))
-        }
-        tvBoxCard.addView(tvBoxStatus)
-
         val tvBoxDesc = TextView(context).apply {
-            textSize = 11.5f
-            setTextColor(Color.parseColor("#B0BEC5"))
-            text = "Aynı anda çalışan bağlantıyı 2 ile sınırlar, ilk kaliteli linkler (6 adet) geldiğinde taramayı durdurarak TV Box'ların RAM yetersizliğinden kapanmasını önler."
+            textSize = 11f
+            setTextColor(textMuted)
+            text = "Aynı anda çalışan bağlantıyı 2 ile sınırlar, ilk kaliteli linkler (6 adet) geldiğinde taramayı sonlandırarak TV Box çökmesini önler."
+            setPadding(0, dp(4), 0, 0)
         }
         tvBoxCard.addView(tvBoxDesc)
 
         root.addView(tvBoxCard, LinearLayout.LayoutParams(-1, -2).apply {
-            topMargin = dp(4)
-            bottomMargin = dp(10)
+            bottomMargin = dp(8)
         })
 
-        val healthText = TextView(context).apply {
-            textSize = 13f
-            setTextColor(Color.parseColor("#4CAF50"))
-            setPadding(0, 0, 0, dp(6))
-            text = "Kaynak kontrolü yapmak için aşağıdaki butona tıklayın."
+        // --- 3. HIZLI İŞLEM BUTONLARI & BİLGİ ALANI ---
+        val actionRow = LinearLayout(context).apply {
+            orientation = LinearLayout.HORIZONTAL
         }
-        root.addView(healthText)
+
+        val healthText = TextView(context).apply {
+            textSize = 11.5f
+            setTextColor(textMuted)
+            text = "Kaynak durumunu kontrol etmek veya adresleri yenilemek için butonları kullanın."
+            setPadding(dp(2), dp(2), dp(2), dp(6))
+        }
 
         val healthButton = MaterialButton(context).apply {
-            text = "🔍 Kaynak Kontrolü Yap"
-            isAllCaps = false
+            text = "🔍 Kaynak Kontrolü"
+            textSize = 12.5f
+            styleButton(this, bgColor = Color.parseColor("#33121B"), borderColor = brandRedBorder, radiusDp = 12)
             setOnClickListener {
                 isEnabled = false
-                healthText.setTextColor(Color.parseColor("#FFA000"))
-                healthText.text = "Kaynaklar taranıyor, lütfen bekleyin..."
+                healthText.setTextColor(warningOrange)
+                healthText.text = "⏳ Kaynaklar taranıyor, lütfen bekleyin..."
                 CoroutineScope(Dispatchers.Main).launch {
                     val health = aggregator.checkHealth()
-                    healthText.setTextColor(
-                        if (health.onlineCount > 0) Color.parseColor("#4CAF50")
-                        else Color.parseColor("#F44336")
-                    )
-                    healthText.text = "Güncel Durum: ${health.onlineCount} / ${health.totalCount} kaynak aktif ve yanıt veriyor."
+                    healthText.setTextColor(if (health.onlineCount > 0) successGreen else Color.parseColor("#FF5252"))
+                    healthText.text = "✓ Güncel Durum: ${health.onlineCount} / ${health.totalCount} kaynak aktif ve yanıt veriyor."
                     isEnabled = true
                 }
             }
         }
-        root.addView(healthButton, LinearLayout.LayoutParams(-1, dp(48)).apply {
-            bottomMargin = dp(6)
-        })
 
         val domainRefreshButton = MaterialButton(context).apply {
-            text = "🌐 Web Linklerini & Domainleri Yenile"
-            isAllCaps = false
+            text = "🌐 Domainleri Yenile"
+            textSize = 12.5f
+            styleButton(this, bgColor = Color.parseColor("#33121B"), borderColor = brandRedBorder, radiusDp = 12)
             setOnClickListener {
                 isEnabled = false
-                healthText.setTextColor(Color.parseColor("#FFA000"))
-                healthText.text = "Web kaynaklarının güncel adresleri taranıyor..."
+                healthText.setTextColor(warningOrange)
+                healthText.text = "⏳ Web kaynaklarının güncel adresleri taranıyor..."
                 CoroutineScope(Dispatchers.Main).launch {
                     val msg = aggregator.refreshWebDomains()
-                    healthText.setTextColor(Color.parseColor("#4CAF50"))
+                    healthText.setTextColor(successGreen)
                     healthText.text = "✓ $msg"
                     isEnabled = true
                 }
             }
         }
-        root.addView(domainRefreshButton, LinearLayout.LayoutParams(-1, dp(48)).apply {
-            bottomMargin = dp(8)
+
+        actionRow.addView(healthButton, LinearLayout.LayoutParams(0, dp(40), 1f).apply { marginEnd = dp(6) })
+        actionRow.addView(domainRefreshButton, LinearLayout.LayoutParams(0, dp(40), 1f))
+        root.addView(actionRow, LinearLayout.LayoutParams(-1, -2).apply {
+            bottomMargin = dp(4)
+        })
+        root.addView(healthText, LinearLayout.LayoutParams(-1, -2).apply {
+            bottomMargin = dp(6)
         })
 
-        val actions = LinearLayout(context).apply { orientation = LinearLayout.HORIZONTAL }
-        root.addView(actions)
+        // --- 4. KAYNAK YÖNETİMİ BAŞLIĞI & TOPLU AÇ/KAPAT ---
+        val sourcesHeader = LinearLayout(context).apply {
+            orientation = LinearLayout.HORIZONTAL
+            gravity = Gravity.CENTER_VERTICAL
+            setPadding(0, dp(4), 0, dp(6))
+        }
 
-        val scroll = ScrollView(context)
-        val list = LinearLayout(context).apply { orientation = LinearLayout.VERTICAL }
-        scroll.addView(list)
-        root.addView(scroll, LinearLayout.LayoutParams(-1, 0, 1f))
+        val sourcesTitleCol = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+        }
+
+        val sourcesTitle = TextView(context).apply {
+            text = "📡 Yayın Kaynakları"
+            textSize = 14.5f
+            typeface = Typeface.DEFAULT_BOLD
+            setTextColor(textPrimary)
+        }
+        val sourcesSub = TextView(context).apply {
+            text = "Devre dışı bırakılan kaynaklar taranmaz."
+            textSize = 11f
+            setTextColor(textMuted)
+        }
+        sourcesTitleCol.addView(sourcesTitle)
+        sourcesTitleCol.addView(sourcesSub)
+
+        sourcesHeader.addView(sourcesTitleCol, LinearLayout.LayoutParams(0, -2, 1f))
 
         val switches = linkedMapOf<String, SwitchMaterial>()
 
         fun refreshSummary() {
-            summary.text = "${switches.values.count { it.isChecked }} / ${aggregator.workers.size} kaynak etkin"
+            val enabledCount = switches.values.count { it.isChecked }
+            summaryText.text = "$enabledCount / ${aggregator.workers.size} kaynak etkin"
         }
 
-        listOf("Tümünü Aç" to true, "Tümünü Kapat" to false).forEach { (label, state) ->
-            actions.addView(MaterialButton(context).apply {
-                text = label
-                isAllCaps = false
-                setOnClickListener {
-                    switches.forEach { (id, toggle) ->
-                        toggle.isChecked = state
-                        aggregator.setSourceEnabled(id, state)
-                    }
-                    refreshSummary()
+        val openAllBtn = MaterialButton(context).apply {
+            text = "Tümünü Aç"
+            textSize = 11.5f
+            styleButton(this, bgColor = Color.parseColor("#261118"), borderColor = brandRedTranslucent, radiusDp = 10)
+            setOnClickListener {
+                switches.forEach { (id, toggle) ->
+                    toggle.isChecked = true
+                    aggregator.setSourceEnabled(id, true)
                 }
-            }, LinearLayout.LayoutParams(0, dp(46), 1f).apply {
-                marginEnd = dp(4)
-                bottomMargin = dp(6)
-            })
+                refreshSummary()
+            }
         }
 
-        aggregator.workers.forEach { worker ->
-            val row = LinearLayout(context).apply {
-                gravity = Gravity.CENTER_VERTICAL
-                minimumHeight = dp(52)
+        val closeAllBtn = MaterialButton(context).apply {
+            text = "Tümünü Kapat"
+            textSize = 11.5f
+            styleButton(this, bgColor = Color.parseColor("#261118"), borderColor = brandRedTranslucent, radiusDp = 10)
+            setOnClickListener {
+                switches.forEach { (id, toggle) ->
+                    toggle.isChecked = false
+                    aggregator.setSourceEnabled(id, false)
+                }
+                refreshSummary()
             }
+        }
+
+        sourcesHeader.addView(openAllBtn, LinearLayout.LayoutParams(-2, dp(32)).apply { marginEnd = dp(4) })
+        sourcesHeader.addView(closeAllBtn, LinearLayout.LayoutParams(-2, dp(32)))
+
+        root.addView(sourcesHeader, LinearLayout.LayoutParams(-1, -2))
+
+        // --- 5. KAYNAK LİSTESİ (ÇOK SÜTUNLU & CAM KARTLAR) ---
+        val isWide = context.resources.displayMetrics.widthPixels > dp(580)
+
+        val scroll = ScrollView(context).apply {
+            isVerticalScrollBarEnabled = true
+        }
+
+        val columnsContainer = LinearLayout(context).apply {
+            orientation = if (isWide) LinearLayout.HORIZONTAL else LinearLayout.VERTICAL
+        }
+        scroll.addView(columnsContainer)
+
+        val col1 = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            if (isWide) {
+                layoutParams = LinearLayout.LayoutParams(0, -2, 1f).apply { marginEnd = dp(8) }
+            }
+        }
+        val col2 = if (isWide) {
+            LinearLayout(context).apply {
+                orientation = LinearLayout.VERTICAL
+                layoutParams = LinearLayout.LayoutParams(0, -2, 1f)
+            }
+        } else null
+
+        columnsContainer.addView(col1)
+        col2?.let { columnsContainer.addView(it) }
+
+        aggregator.workers.forEachIndexed { index, worker ->
+            val targetCol = if (isWide && index % 2 != 0) col2 ?: col1 else col1
+
+            val itemCard = LinearLayout(context).apply {
+                orientation = LinearLayout.HORIZONTAL
+                gravity = Gravity.CENTER_VERTICAL
+                background = glassDrawable(cardBgSubtle, Color.parseColor("#22FF2040"), 12f, 1)
+                setPadding(dp(12), dp(2), dp(8), dp(2))
+                isClickable = true
+                isFocusable = true
+            }
+
             val label = TextView(context).apply {
                 text = worker.displayName
-                textSize = 15f
-                setPadding(0, dp(10), dp(8), dp(10))
+                textSize = 13.5f
+                setTextColor(textPrimary)
+                typeface = Typeface.DEFAULT_BOLD
             }
+
             val toggle = SwitchMaterial(context).apply {
                 contentDescription = "${worker.displayName} aktif"
                 isChecked = aggregator.isSourceEnabled(worker.id)
+                styleSwitch(this)
                 setOnCheckedChangeListener { _, checked ->
                     aggregator.setSourceEnabled(worker.id, checked)
                     refreshSummary()
                 }
             }
-            row.setOnClickListener { toggle.isChecked = !toggle.isChecked }
-            row.addView(label, LinearLayout.LayoutParams(0, -2, 1f))
-            row.addView(toggle)
+
+            itemCard.setOnClickListener {
+                toggle.isChecked = !toggle.isChecked
+            }
+
+            itemCard.addView(label, LinearLayout.LayoutParams(0, -2, 1f))
+            itemCard.addView(toggle)
             switches[worker.id] = toggle
-            list.addView(row)
+
+            targetCol.addView(itemCard, LinearLayout.LayoutParams(-1, dp(44)).apply {
+                bottomMargin = dp(5)
+            })
         }
 
-        root.addView(TextView(context).apply {
-            text = "Devre dışı bırakılan kaynaklar kanal aramasında ve yayın getirmede taranmaz."
-            textSize = 12f
-            setPadding(0, dp(8), 0, dp(6))
-        })
-
-        root.addView(MaterialButton(context).apply {
-            text = "Kapat"
-            isAllCaps = false
-            setOnClickListener { dialog.dismiss() }
-        }, LinearLayout.LayoutParams(-1, dp(50)))
+        root.addView(scroll, LinearLayout.LayoutParams(-1, 0, 1f))
 
         refreshSummary()
         dialog.setContentView(root)
-        root.layoutParams.height = (context.resources.displayMetrics.heightPixels * .85).toInt()
-        dialog.setOnShowListener { dialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED }
+
+        val displayHeight = context.resources.displayMetrics.heightPixels
+        root.layoutParams.height = (displayHeight * 0.92).toInt()
+
+        dialog.setOnShowListener {
+            val bottomSheet = dialog.findViewById<FrameLayout>(com.google.android.material.R.id.design_bottom_sheet)
+            bottomSheet?.background = null // Let root draw the rounded glass background
+            dialog.behavior.skipCollapsed = true
+            dialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED
+        }
+
         dialog.show()
     }
 }
