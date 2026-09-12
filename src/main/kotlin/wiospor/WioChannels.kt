@@ -80,14 +80,11 @@ object WioChannels {
         WioChannel("sari_7", "🟡 Sarı Spor 7", GROUP_SARI, "Exxen Spor 7", listOf("exxenspor7", "exxen7", "exxen 7", "exxen sports 7", "sari spor 7", "sari 7"), "${BASE_LOGO}sari_7.png"),
         WioChannel("sari_8", "🟡 Sarı Spor 8", GROUP_SARI, "Exxen Spor 8", listOf("exxenspor8", "exxen8", "exxen 8", "exxen sports 8", "sari spor 8", "sari 8"), "${BASE_LOGO}sari_8.png"),
 
-        // 🔵 Mavi Spor (S Sport 1..2 & Plus 1..5)
+        // 🔵 Mavi Spor (S Sport 1..2 & Plus 1..2)
         WioChannel("mavi_1", "🔵 Mavi Spor 1", GROUP_MAVI, "S Sport", listOf("ssport", "ssport1", "s sport 1", "s sport", "mavi spor 1", "mavi 1", "ssports", "s sports"), "${BASE_LOGO}mavi_1.png"),
         WioChannel("mavi_2", "🔵 Mavi Spor 2", GROUP_MAVI, "S Sport 2", listOf("ssport2", "s sport 2", "mavi spor 2", "mavi 2", "ssports 2", "s sports 2", "ssports2"), "${BASE_LOGO}mavi_2.png"),
-        WioChannel("mavi_plus_1", "🔵 Mavi Spor Plus 1", GROUP_MAVI, "S Sport Plus 1", listOf("ssportplus1", "splus1", "ssportplus", "splus", "s+1", "s+", "mavi plus 1", "ssport plus"), "${BASE_LOGO}mavi_plus_1.png"),
+        WioChannel("mavi_plus_1", "🔵 Mavi Spor Plus 1", GROUP_MAVI, "S Sport Plus 1", listOf("ssportplus1", "splus1", "ssportplus", "splus", "s+1", "s+", "mavi plus 1", "ssport plus", "s sport plus"), "${BASE_LOGO}mavi_plus_1.png"),
         WioChannel("mavi_plus_2", "🔵 Mavi Spor Plus 2", GROUP_MAVI, "S Sport Plus 2", listOf("ssportplus2", "splus2", "s+2", "mavi plus 2"), "${BASE_LOGO}mavi_plus_2.png"),
-        WioChannel("mavi_plus_3", "🔵 Mavi Spor Plus 3", GROUP_MAVI, "S Sport Plus 3", listOf("ssportplus3", "splus3", "s+3", "mavi plus 3"), "${BASE_LOGO}mavi_plus_3.png"),
-        WioChannel("mavi_plus_4", "🔵 Mavi Spor Plus 4", GROUP_MAVI, "S Sport Plus 4", listOf("ssportplus4", "splus4", "s+4", "mavi plus 4"), "${BASE_LOGO}mavi_plus_4.png"),
-        WioChannel("mavi_plus_5", "🔵 Mavi Spor Plus 5", GROUP_MAVI, "S Sport Plus 5", listOf("ssportplus5", "splus5", "s+5", "mavi plus 5"), "${BASE_LOGO}mavi_plus_5.png"),
 
         // ⭐ Yıldız Spor (Eurosport 1..2 & Spor Smart 1..2)
         WioChannel("yildiz_euro_1", "⭐ Yıldız Spor 1", GROUP_YILDIZ, "Eurosport 1", listOf("eurosport1", "eurosport 1", "eurosport", "euro sport 1", "euro sports 1", "eurosports 1", "euro sport", "eu1", "es1", "yildiz spor 1", "yildiz 1"), "${BASE_LOGO}yildiz_euro_1.png"),
