@@ -122,7 +122,83 @@ class SourceAggregator(private val context: Context) {
         // 1. BeyazElma (first priority)
         createSharedWorker("beyazelma", "BeyazElma")?.let { list.add(it) }
 
-        // 2. SelçukSports
+        // 2. Domates TV
+        list.add(object : SourceWorker {
+            override val id: String = "domates"
+            override val displayName: String = "Domates TV"
+
+            override suspend fun checkOnline(): Boolean = runCatching {
+                domatesApi.getChannels().isNotEmpty()
+            }.getOrDefault(false)
+
+            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
+                var emitted = false
+                try {
+                    val channels = domatesApi.getChannels()
+                    val match = channels.firstOrNull { WioChannels.matches(channel, it.title, it.id) } ?: return false
+                    domatesApi.loadLinks(match.pageUrl(), false, {}) { link ->
+                        emitted = true
+                        callback(wrapLink("Domates", channel, link))
+                    }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (_: Exception) { }
+                return emitted
+            }
+        })
+
+        // 3. Domino TV
+        list.add(object : SourceWorker {
+            override val id: String = "domino"
+            override val displayName: String = "Domino TV"
+
+            override suspend fun checkOnline(): Boolean = runCatching {
+                dominoApi.getChannels().isNotEmpty()
+            }.getOrDefault(false)
+
+            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
+                var emitted = false
+                try {
+                    val channels = dominoApi.getChannels()
+                    val match = channels.firstOrNull { WioChannels.matches(channel, it.title, it.id.toString()) } ?: return false
+                    dominoApi.loadLinks(match.pageUrl(), false, {}) { link ->
+                        emitted = true
+                        callback(wrapLink("Domino", channel, link))
+                    }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (_: Exception) { }
+                return emitted
+            }
+        })
+
+        // 4. İnat TV
+        list.add(object : SourceWorker {
+            override val id: String = "inat"
+            override val displayName: String = "İnat TV"
+
+            override suspend fun checkOnline(): Boolean = runCatching {
+                inatResolver.resolve().channels.isNotEmpty()
+            }.getOrDefault(false)
+
+            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
+                val site = inatResolver.resolve()
+                val match = site.channels.firstOrNull { WioChannels.matches(channel, it.title, it.id) } ?: return false
+                val stableUrl = "${turkspor.inat.DomainResolver.GATEWAY}turkspor?id=${URLEncoder.encode(match.id, "UTF-8")}&title=${URLEncoder.encode(match.title, "UTF-8")}"
+                var emitted = false
+                try {
+                    inatApi.loadLinks(stableUrl, false, {}) { link ->
+                        emitted = true
+                        callback(wrapLink("İnat TV", channel, link))
+                    }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (_: Exception) { }
+                return emitted
+            }
+        })
+
+        // 5. SelçukSports
         list.add(object : SourceWorker {
             override val id: String = "selcuk"
             override val displayName: String = "SelçukSports"
@@ -148,7 +224,7 @@ class SourceAggregator(private val context: Context) {
             }
         })
 
-        // 2. Taraftarium24
+        // 6. Taraftarium24
         list.add(object : SourceWorker {
             override val id: String = "taraftarium"
             override val displayName: String = "Taraftarium24"
@@ -166,32 +242,6 @@ class SourceAggregator(private val context: Context) {
                     taraftariumApi.loadLinks(stableUrl, false, {}) { link ->
                         emitted = true
                         callback(wrapLink("Taraftarium", channel, link))
-                    }
-                } catch (e: CancellationException) {
-                    throw e
-                } catch (_: Exception) { }
-                return emitted
-            }
-        })
-
-        // 3. İnat TV
-        list.add(object : SourceWorker {
-            override val id: String = "inat"
-            override val displayName: String = "İnat TV"
-
-            override suspend fun checkOnline(): Boolean = runCatching {
-                inatResolver.resolve().channels.isNotEmpty()
-            }.getOrDefault(false)
-
-            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
-                val site = inatResolver.resolve()
-                val match = site.channels.firstOrNull { WioChannels.matches(channel, it.title, it.id) } ?: return false
-                val stableUrl = "${turkspor.inat.DomainResolver.GATEWAY}turkspor?id=${URLEncoder.encode(match.id, "UTF-8")}&title=${URLEncoder.encode(match.title, "UTF-8")}"
-                var emitted = false
-                try {
-                    inatApi.loadLinks(stableUrl, false, {}) { link ->
-                        emitted = true
-                        callback(wrapLink("İnat TV", channel, link))
                     }
                 } catch (e: CancellationException) {
                     throw e
@@ -334,56 +384,6 @@ class SourceAggregator(private val context: Context) {
                     inatBoxApi.loadLinks(stableUrl, false, {}) { link ->
                         emitted = true
                         callback(wrapLink("İnat Box", channel, link))
-                    }
-                } catch (e: CancellationException) {
-                    throw e
-                } catch (_: Exception) { }
-                return emitted
-            }
-        })
-
-        // 14. Domates TV
-        list.add(object : SourceWorker {
-            override val id: String = "domates"
-            override val displayName: String = "Domates TV"
-
-            override suspend fun checkOnline(): Boolean = runCatching {
-                domatesApi.getChannels().isNotEmpty()
-            }.getOrDefault(false)
-
-            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
-                var emitted = false
-                try {
-                    val channels = domatesApi.getChannels()
-                    val match = channels.firstOrNull { WioChannels.matches(channel, it.title, it.id) } ?: return false
-                    domatesApi.loadLinks(match.pageUrl(), false, {}) { link ->
-                        emitted = true
-                        callback(wrapLink("Domates", channel, link))
-                    }
-                } catch (e: CancellationException) {
-                    throw e
-                } catch (_: Exception) { }
-                return emitted
-            }
-        })
-
-        // 15. Domino TV
-        list.add(object : SourceWorker {
-            override val id: String = "domino"
-            override val displayName: String = "Domino TV"
-
-            override suspend fun checkOnline(): Boolean = runCatching {
-                dominoApi.getChannels().isNotEmpty()
-            }.getOrDefault(false)
-
-            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
-                var emitted = false
-                try {
-                    val channels = dominoApi.getChannels()
-                    val match = channels.firstOrNull { WioChannels.matches(channel, it.title, it.id.toString()) } ?: return false
-                    dominoApi.loadLinks(match.pageUrl(), false, {}) { link ->
-                        emitted = true
-                        callback(wrapLink("Domino", channel, link))
                     }
                 } catch (e: CancellationException) {
                     throw e
@@ -543,45 +543,91 @@ class SourceAggregator(private val context: Context) {
         callback: (ExtractorLink) -> Unit
     ): Boolean = coroutineScope {
         val tvMode = isTvBoxMode()
-        val maxConcurrency = if (tvMode) 2 else 3
-        val targetLinkCount = if (tvMode) 6 else 10
-        val semaphore = Semaphore(maxConcurrency)
-
         val activeWorkers = workers.filter { isSourceEnabled(it.id) }
 
-        // Tier 1: 1080p IPTV sağlayıcılar — ultra hızlı açılış
-        val tier1Ids = setOf("beyazelma", "domino", "domates")
-        // Tier 2 Öncelikli: Hızlı ve en stabil popüler web kaynakları
-        val tier2PriorityIds = setOf("selcuk", "taraftarium", "inat", "mahsun", "arda")
-        // Tier 2 Diğerleri
-        val tier2OtherIds = setOf("kralspor", "crex", "intersportv", "mackeyfi", "zbahistv", "betmatiktv", "inatbox")
-
+        // Tier 1: En öncelikli sağlayıcılar (Tüm kanallarda ilk sırada)
+        // Beyaz Elma, Domates TV, Domino TV, İnat TV
+        val tier1Ids = setOf("beyazelma", "domates", "domino", "inat")
         val tier1 = activeWorkers.filter { it.id in tier1Ids }
-        val tier2Priority = activeWorkers.filter { it.id in tier2PriorityIds }
-        val tier2Other = activeWorkers.filter { it.id in tier2OtherIds }
-        val tier3 = activeWorkers.filter { it.id !in tier1Ids && it.id !in tier2PriorityIds && it.id !in tier2OtherIds }
+
+        // Tier 2: Kalan diğer tüm web sağlayıcıları (Selçuk, Taraftarium, Arda, Mahsun, KralSpor, Crex, vb.)
+        val tier2 = activeWorkers.filter { it.id !in tier1Ids && !it.id.startsWith("aslan_") }
+
+        // Tier 3: AslanTV IPTV listeleri
+        val tier3 = activeWorkers.filter { it.id.startsWith("aslan_") }
 
         val foundCount = AtomicInteger(0)
 
-        suspend fun runWorker(worker: SourceWorker, timeoutMs: Long) {
-            if (foundCount.get() >= targetLinkCount) return
+        if (!tvMode) {
+            // ==========================================
+            // NORMAL MOD (TV Box Modu KAPALI):
+            // Kullanıcı talebi: TV Box kapalıyken eskisi gibi TÜM kaynaklar eksiksiz taranır ve yüklenir.
+            // Erken durdurma veya link kotası YOKTUR.
+            // Sağlayıcı önceliklendirmesi: Tier 1 (BeyazElma, Domates, Domino, İnat TV)
+            // ilk sırada tamamlanır ve linkleri en üste yerleşir.
+            // ==========================================
+            val normalSemaphore = Semaphore(6)
+
+            suspend fun runWorkerNormal(worker: SourceWorker, timeoutMs: Long) {
+                try {
+                    normalSemaphore.withPermit {
+                        withTimeoutOrNull(timeoutMs) {
+                            worker.fetchLinks(channel) { link ->
+                                foundCount.incrementAndGet()
+                                synchronized(callback) {
+                                    callback(link)
+                                }
+                            }
+                        }
+                    }
+                } catch (e: CancellationException) {
+                    currentCoroutineContext().ensureActive()
+                } catch (_: Exception) { }
+            }
+
+            // 1. Aşama: En kaliteli ve öncelikli Tier 1 sağlayıcıları (BeyazElma, Domates, Domino, İnat TV)
+            // Önce bunların tamamlanmasını bekle; linkleri oyuncu listesinde en üstte yer alır.
+            val tier1Jobs = tier1.map { worker ->
+                async(Dispatchers.IO) { runWorkerNormal(worker, 6000L) }
+            }
+            tier1Jobs.awaitAll()
+
+            // 2. Aşama: Kalan tüm sağlayıcılar (Tier 2 Web + Tier 3 AslanTV) eksiksiz paralel yüklenir
+            val remainingJobs = (tier2 + tier3).map { worker ->
+                async(Dispatchers.IO) { runWorkerNormal(worker, 8000L) }
+            }
+            remainingJobs.awaitAll()
+
+            return@coroutineScope foundCount.get() > 0
+        }
+
+        // ==========================================
+        // TV BOX MODU (Düşük RAM / TV Box Koruma Modu):
+        // Concurrency: 2 (Bellek taşmasını engellemek için)
+        // Erken Durdurma: Tier 1 yeterli yayın bulursa diğer 35+ kaynak taranmaz.
+        // ==========================================
+        val tvSemaphore = Semaphore(2)
+        val tvTargetQuota = 6
+
+        suspend fun runWorkerTv(worker: SourceWorker, timeoutMs: Long) {
+            if (foundCount.get() >= tvTargetQuota) return
             try {
-                semaphore.withPermit {
-                    if (foundCount.get() >= targetLinkCount) return@withPermit
+                tvSemaphore.withPermit {
+                    if (foundCount.get() >= tvTargetQuota) return@withPermit
                     withTimeoutOrNull(timeoutMs) {
                         worker.fetchLinks(channel) { link ->
                             val count = foundCount.incrementAndGet()
                             synchronized(callback) {
                                 callback(link)
                             }
-                            if (count >= targetLinkCount) {
-                                throw CancellationException("Target link quota reached")
+                            if (count >= tvTargetQuota) {
+                                throw CancellationException("TV Box quota reached")
                             }
                         }
                     }
                 }
             } catch (e: CancellationException) {
-                if (foundCount.get() >= targetLinkCount) {
+                if (foundCount.get() >= tvTargetQuota) {
                     currentCoroutineContext().cancelChildren()
                 } else {
                     currentCoroutineContext().ensureActive()
@@ -589,38 +635,34 @@ class SourceAggregator(private val context: Context) {
             } catch (_: Exception) { }
         }
 
-        // FAZ 1: Tier 1 (IPTV) ve Öncelikli Tier 2 (Web)
-        // En kaliteli ve hızlı kaynaklar önden taranır
-        val phase1Workers = tier1 + tier2Priority
-        val phase1Jobs = phase1Workers.map { worker ->
-            async(Dispatchers.IO) { runWorker(worker, if (tvMode) 5000L else 7000L) }
+        // FAZ 1: En öncelikli 4 sağlayıcı (BeyazElma, Domates, Domino, İnat TV)
+        val phase1Jobs = tier1.map { worker ->
+            async(Dispatchers.IO) { runWorkerTv(worker, 5000L) }
         }
         phase1Jobs.awaitAll()
 
-        // Erken Durdurma (Short-circuit): İlk fazdan yeterli link bulunduysa (TV'de 3, normalde 5)
-        // arka plandaki diğer 30+ kaynağı ve AslanTV listelerini HİÇ tarama!
-        if (foundCount.get() >= (if (tvMode) 3 else 5)) {
+        // TV Box'ta Tier 1'den en az 3 link bulunduysa arka plandaki diğer kaynakları tarama
+        if (foundCount.get() >= 3) {
             return@coroutineScope true
         }
 
-        // FAZ 2: Kalan Tier 2 Web Kaynakları (Yalnızca ilk faz yetersizse)
-        val phase2Jobs = tier2Other.map { worker ->
-            async(Dispatchers.IO) { runWorker(worker, if (tvMode) 5000L else 7000L) }
+        // FAZ 2: Kalan web sağlayıcıları (yalnızca Tier 1'den yeterli link gelmediyse)
+        val phase2Jobs = tier2.map { worker ->
+            async(Dispatchers.IO) { runWorkerTv(worker, 5000L) }
         }
         phase2Jobs.awaitAll()
 
-        if (foundCount.get() >= (if (tvMode) 2 else 4)) {
+        if (foundCount.get() >= 2) {
             return@coroutineScope true
         }
 
-        // FAZ 3 (Yedek Kurtarıcı): Sadece yeterli link gelmediyse AslanTV listeleri devreye girer
-        // TV modunda 27 listeyi birden taramak yerine en popüler/ilgili ilk 5 listeyi tarar
-        val aslanCandidates = if (tvMode) tier3.take(5) else tier3
+        // FAZ 3: AslanTV (yalnızca önceki fazlar yetersizse, TV modunda sadece ilk 5 liste)
+        val aslanCandidates = tier3.take(5)
         val phase3Jobs = aslanCandidates.map { worker ->
-            async(Dispatchers.IO) { runWorker(worker, 6000L) }
+            async(Dispatchers.IO) { runWorkerTv(worker, 5000L) }
         }
         phase3Jobs.awaitAll()
 
-        foundCount.get() > 0
+        return@coroutineScope foundCount.get() > 0
     }
 }
