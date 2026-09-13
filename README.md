@@ -11,7 +11,7 @@
 
 <p align="center">
   <a href="https://t.me/wiolandcs3"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=flat&logo=telegram&logoColor=white" alt="Telegram"></a>
-  <a href="https://buymeacoffee.com/wiojelt"><img src="https://img.shields.io/badge/Destek_ol-FFDD00?style=flat&logo=buy-me-a-coffee&logoColor=black" alt="Buy Me A Coffee"></a>
+  <a href="https://kreosus.com/wiojelt"><img src="https://img.shields.io/badge/Kreosus-Destek_ol-6C5CE7?style=flat" alt="Kreosus üzerinden destek ol"></a>
 </p>
 
 ---

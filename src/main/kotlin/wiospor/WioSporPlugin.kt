@@ -56,7 +56,7 @@ class WioSporPlugin : Plugin() {
                         openUrl(activity, "https://t.me/wiolandcs3")
                     }
                     .setNeutralButton("Destek ol ☕") { _, _ ->
-                        openUrl(activity, "https://buymeacoffee.com/wiojelt")
+                        openUrl(activity, "https://kreosus.com/wiojelt")
                     }
                     .setNegativeButton("Kapat", null)
                     .show()
