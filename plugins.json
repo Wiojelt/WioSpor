@@ -17,7 +17,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "apiVersion": 1,
-    "fileHash": "32e33b9877d7a814a0e1757b49b24baf353a4ac5bf53953ceedf5124fa8aafd7"
+    "fileHash": "sha256-32e33b9877d7a814a0e1757b49b24baf353a4ac5bf53953ceedf5124fa8aafd7"
   },
   {
     "name": "v10 Spor",
@@ -36,7 +36,7 @@
     "language": "tr",
     "status": 3,
     "fileSize": 45437,
-    "fileHash": "88d53b796e2393846da36f08fca974d1ef071cd2b2e4b7d3e65b72d57bf29170",
+    "fileHash": "sha256-88d53b796e2393846da36f08fca974d1ef071cd2b2e4b7d3e65b72d57bf29170",
     "apiVersion": 1
   }
 ]
