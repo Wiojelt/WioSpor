@@ -56,13 +56,15 @@ object WioChannels {
         WioChannel("mor_max_2", "🟣 Mor Spor Max 2", GROUP_MOR, "beIN Sports Max 2", listOf("beinsportsmax2", "beinmax2", "beinsportmax2", "bein max 2", "mor max 2", "bein max2", "spor max 2", "sport max 2"), "${BASE_LOGO}mor_max_2.png"),
         WioChannel("mor_haber", "🟣 Mor Spor Haber", GROUP_MOR, "beIN Sports Haber", listOf("beinsportshaber", "beinhaber", "beinsport haber", "mor spor haber", "mor haber", "bein haber", "spor haber", "sport haber"), "${BASE_LOGO}mor_haber.png"),
 
-        // 🟢 Yeşil Spor (tabii Spor 1..6)
-        WioChannel("yesil_1", "🟢 Yeşil Spor 1", GROUP_YESIL, "tabii Spor 1", listOf("tabiispor1", "tabiispor", "tabii1", "tabii spor 1", "yesil spor 1", "yesil 1", "tabi spor 1", "tabispor1", "tabi1"), "${BASE_LOGO}yesil_1.png"),
+        // 🟢 Yeşil Spor (tabii Spor & tabii Spor 1..7)
+        WioChannel("yesil", "🟢 Yeşil Spor", GROUP_YESIL, "tabii Spor", listOf("tabiispor", "tabii spor", "tabi spor", "tabispor", "yesil spor", "yesil", "tabii ana", "tabiisporana", "trt tabii spor", "trt tabii", "tabii"), "${BASE_LOGO}yesil.png"),
+        WioChannel("yesil_1", "🟢 Yeşil Spor 1", GROUP_YESIL, "tabii Spor 1", listOf("tabiispor1", "tabii1", "tabii spor 1", "yesil spor 1", "yesil 1", "tabi spor 1", "tabispor1", "tabi1"), "${BASE_LOGO}yesil_1.png"),
         WioChannel("yesil_2", "🟢 Yeşil Spor 2", GROUP_YESIL, "tabii Spor 2", listOf("tabiispor2", "tabii2", "tabii spor 2", "yesil spor 2", "yesil 2", "tabi spor 2", "tabispor2", "tabi2"), "${BASE_LOGO}yesil_2.png"),
         WioChannel("yesil_3", "🟢 Yeşil Spor 3", GROUP_YESIL, "tabii Spor 3", listOf("tabiispor3", "tabii3", "tabii spor 3", "yesil spor 3", "yesil 3", "tabi spor 3", "tabispor3", "tabi3"), "${BASE_LOGO}yesil_3.png"),
         WioChannel("yesil_4", "🟢 Yeşil Spor 4", GROUP_YESIL, "tabii Spor 4", listOf("tabiispor4", "tabii4", "tabii spor 4", "yesil spor 4", "yesil 4", "tabi spor 4", "tabispor4", "tabi4"), "${BASE_LOGO}yesil_4.png"),
         WioChannel("yesil_5", "🟢 Yeşil Spor 5", GROUP_YESIL, "tabii Spor 5", listOf("tabiispor5", "tabii5", "tabii spor 5", "yesil spor 5", "yesil 5", "tabi spor 5", "tabispor5", "tabi5"), "${BASE_LOGO}yesil_5.png"),
         WioChannel("yesil_6", "🟢 Yeşil Spor 6", GROUP_YESIL, "tabii Spor 6", listOf("tabiispor6", "tabii6", "tabii spor 6", "yesil spor 6", "yesil 6", "tabi spor 6", "tabispor6", "tabi6"), "${BASE_LOGO}yesil_6.png"),
+        WioChannel("yesil_7", "🟢 Yeşil Spor 7", GROUP_YESIL, "tabii Spor 7", listOf("tabiispor7", "tabii7", "tabii spor 7", "yesil spor 7", "yesil 7", "tabi spor 7", "tabispor7", "tabi7"), "${BASE_LOGO}yesil_7.png"),
 
         // 🟠 Turuncu Spor (Tivibu Spor 1..4)
         WioChannel("turuncu_1", "🟠 Turuncu Spor 1", GROUP_TURUNCU, "Tivibu Spor 1", listOf("tivibuspor", "tivibuspor1", "tivibu1", "tivibu spor 1", "turuncu spor 1", "turuncu 1"), "${BASE_LOGO}turuncu_1.png"),
@@ -248,8 +250,13 @@ object WioChannels {
                 }
             }
         } else {
-            // Channel has NO number (e.g. S Sport, beIN Haber, TRT Spor). Candidate should not have an unrelated number.
-            if (candNumber != null && candNumber !in listOf("1", "24", "7")) return false
+            // Channel has NO number (e.g. tabii Spor, S Sport, beIN Haber, TRT Spor). Candidate should not have an unrelated number.
+            if (channel.id == "yesil") {
+                if (candNumber != null) return false
+                if (Regex("""[0-9]""").containsMatchIn(normTitle)) return false
+            } else {
+                if (candNumber != null && candNumber !in listOf("1", "24", "7")) return false
+            }
         }
 
         // Full check context combines title and cleaned title

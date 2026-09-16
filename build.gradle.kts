@@ -1,6 +1,6 @@
 import org.gradle.api.tasks.Sync
 
-version = 11
+version = 13
 
 cloudstream {
     setRepo("Wiojelt/WioSpor")
@@ -33,18 +33,19 @@ val prepareBundleSources by tasks.registering(Sync::class) {
         "Streamed",
         "DomatesTV",
         "DominoTV",
+        "PapazSports",
+        "JestYayin",
         "shared",
         "shared-filter",
     ).forEach { source ->
         from(rootProject.file("$source/src/main/kotlin"))
     }
+    exclude("turkspor/papazsports/PapazSportsPlugin.kt")
+    exclude("turkspor/jestyayin/JestYayinPlugin.kt")
     filteringCharset = "UTF-8"
     filter { line: String ->
-        when (line.trim()) {
-            "@CloudstreamPlugin",
-            "import com.lagradost.cloudstream3.plugins.CloudstreamPlugin" -> null
-            else -> line
-        }
+        line.replace("@CloudstreamPlugin", "")
+            .replace("import com.lagradost.cloudstream3.plugins.CloudstreamPlugin", "")
     }
 }
 

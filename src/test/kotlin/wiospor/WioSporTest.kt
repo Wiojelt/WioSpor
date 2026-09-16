@@ -8,7 +8,7 @@ class WioSporTest {
     @Test
     fun testChannelGroupsExist() {
         assertEquals(13, WioChannels.GROUPS.size)
-        assertEquals(83, WioChannels.all.size)
+        assertEquals(82, WioChannels.all.size)
 
         val groupsPresent = WioChannels.all.map { it.group }.distinct()
         for (g in WioChannels.GROUPS) {
@@ -51,10 +51,26 @@ class WioSporTest {
 
     @Test
     fun testYesilTuruncuSariMaviMatching() {
+        val yesil = WioChannels.byId("yesil")
+        assertNotNull(yesil)
+        assertTrue(WioChannels.matches(yesil!!, "tabii Spor"))
+        assertTrue(WioChannels.matches(yesil, "TABII SPOR HD"))
+        assertTrue(WioChannels.matches(yesil, "Tabii Spor FHD"))
+        assertFalse(WioChannels.matches(yesil, "tabii Spor 1"))
+        assertFalse(WioChannels.matches(yesil, "tabii Spor 7"))
+
         val yesil1 = WioChannels.byId("yesil_1")
         assertNotNull(yesil1)
         assertTrue(WioChannels.matches(yesil1!!, "tabii Spor 1"))
         assertFalse(WioChannels.matches(yesil1, "tabii Spor 2"))
+        assertFalse(WioChannels.matches(yesil1, "tabii Spor 7"))
+
+        val yesil7 = WioChannels.byId("yesil_7")
+        assertNotNull(yesil7)
+        assertTrue(WioChannels.matches(yesil7!!, "tabii Spor 7"))
+        assertTrue(WioChannels.matches(yesil7, "TABII SPOR 7 HD"))
+        assertFalse(WioChannels.matches(yesil7, "tabii Spor 1"))
+        assertFalse(WioChannels.matches(yesil7, "tabii Spor"))
 
         val turuncu1 = WioChannels.byId("turuncu_1")
         assertNotNull(turuncu1)
