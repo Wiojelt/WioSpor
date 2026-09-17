@@ -2,14 +2,14 @@
   {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3",
     "status": 3,
-    "version": 15,
+    "version": 16,
     "name": "WioSpor",
     "internalName": "WioSpor",
     "authors": [
       "Wiojelt"
     ],
     "description": "Tüm canlı TV ve spor kanalları tek eklentide. Renk grupları ve alternatif yayın kaynakları.",
-    "fileSize": 550349,
+    "fileSize": 550605,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -17,12 +17,13 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "apiVersion": 1,
-    "fileHash": "sha256-388a75be3d7972f47cc6bc66b1553bacfb6b8c70f294258925352382b6f3d173"
+    "fileHash": "sha256-388a75be3d7972f47cc6bc66b1553bacfb6b8c70f294258925352382b6f3d173",
+    "hash": "ad91e158bdee8c1e7f74df84302efe1f5f51f6e82eca1b9e129223b916bd35aa"
   },
   {
     "name": "v10 Spor",
     "internalName": "BirdirbirIPTV",
-    "version": 2,
+    "version": 16,
     "description": "v10 Spor / IPTV - Türk Spor (beIN, S Sport, Tivibu), Ulusal, Haber ve Dünya Spor Kanalları",
     "authors": [
       "Wiojelt"
@@ -35,8 +36,9 @@
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 72273,
+    "fileSize": 550605,
     "fileHash": "sha256-8dfda7be31f3c5bf6ad97b990e96ac59621ffc9d1fed0be7e6f95f82c3426c5f",
-    "apiVersion": 1
+    "apiVersion": 1,
+    "hash": "ad91e158bdee8c1e7f74df84302efe1f5f51f6e82eca1b9e129223b916bd35aa"
   }
 ]
