@@ -2,7 +2,7 @@
   {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3",
     "status": 3,
-    "version": 16,
+    "version": 17,
     "name": "WioSpor",
     "internalName": "WioSpor",
     "authors": [
@@ -17,8 +17,8 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "apiVersion": 1,
-    "fileHash": "sha256-388a75be3d7972f47cc6bc66b1553bacfb6b8c70f294258925352382b6f3d173",
-    "hash": "ad91e158bdee8c1e7f74df84302efe1f5f51f6e82eca1b9e129223b916bd35aa"
+    "fileHash": "sha256-6766f41f513309f0a036cf0f39d6ff0195c3f5d1d8c3e81fcfd660ff72c7dda6",
+    "hash": "6766f41f513309f0a036cf0f39d6ff0195c3f5d1d8c3e81fcfd660ff72c7dda6"
   },
   {
     "name": "v10 Spor",
@@ -30,15 +30,15 @@
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/BirdirbirIPTV.cs3",
-    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/test/builds/icon.png",
+    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 550605,
+    "fileSize": 72273,
     "fileHash": "sha256-8dfda7be31f3c5bf6ad97b990e96ac59621ffc9d1fed0be7e6f95f82c3426c5f",
     "apiVersion": 1,
-    "hash": "ad91e158bdee8c1e7f74df84302efe1f5f51f6e82eca1b9e129223b916bd35aa"
+    "hash": "8dfda7be31f3c5bf6ad97b990e96ac59621ffc9d1fed0be7e6f95f82c3426c5f"
   }
 ]
