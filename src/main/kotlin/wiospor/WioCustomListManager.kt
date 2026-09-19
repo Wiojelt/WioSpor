@@ -252,7 +252,7 @@ class WioCustomListManager(private val context: Context) {
                     try {
                         app.get(trimmed, timeout = 15).text
                     } catch (_: Exception) {
-                        // HttpURLConnection fallback (from PLT)
+                        // HttpURLConnection fallback
                         val conn = URL(trimmed).openConnection() as HttpURLConnection
                         conn.connectTimeout = 15000
                         conn.readTimeout = 15000

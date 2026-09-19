@@ -248,7 +248,7 @@ object WioCustomListDialog {
 
         // Section Title: Saved Playlists
         val sectionTitle = TextView(context).apply {
-            text = "Kayıtlı Listeler (PLT-TV Uyumlu)"
+            text = "Kayıtlı Listeler"
             textSize = 13.5f
             typeface = Typeface.DEFAULT_BOLD
             setTextColor(Color.WHITE)
