@@ -23,7 +23,7 @@
   {
     "name": "v10 Spor",
     "internalName": "BirdirbirIPTV",
-    "version": 17,
+    "version": 18,
     "description": "v10 Spor / IPTV - Türk Spor (beIN, S Sport, Tivibu), Ulusal, Haber ve Dünya Spor Kanalları",
     "authors": [
       "Wiojelt"
@@ -36,9 +36,9 @@
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 98366,
-    "fileHash": "sha256-a18cd9778ff7834da82b4ecd19a8f305a96de613fdbb18c8c1c5e7ee01cdf75f",
+    "fileSize": 134597,
+    "fileHash": "sha256-01c38365df75048c5239d44dce4593b47c864d7a07b0ff52ff0892f140b301f6",
     "apiVersion": 1,
-    "hash": "a18cd9778ff7834da82b4ecd19a8f305a96de613fdbb18c8c1c5e7ee01cdf75f"
+    "hash": "01c38365df75048c5239d44dce4593b47c864d7a07b0ff52ff0892f140b301f6"
   }
 ]
