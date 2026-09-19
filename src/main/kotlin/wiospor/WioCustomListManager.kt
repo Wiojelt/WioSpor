@@ -14,6 +14,9 @@ import org.json.JSONObject
 import java.io.*
 import java.net.HttpURLConnection
 import java.net.URL
+import java.nio.ByteBuffer
+import java.nio.charset.Charset
+import java.nio.charset.CodingErrorAction
 
 data class TvLink(
     val name: String,
@@ -42,8 +45,45 @@ object TvPlaylistParser {
 
     private val ATTRIBUTES_REGEX = Regex("""(\w+-\w+|tvg-\w+|group-title)="([^"]*)"""")
 
+    fun fixMojibake(text: String): String {
+        if (!text.contains("Ã") && !text.contains("Ä") && !text.contains("Å") && !text.contains("")) return text
+        return runCatching {
+            val bytes = text.toByteArray(Charset.forName("ISO-8859-1"))
+            val restored = String(bytes, Charsets.UTF_8)
+            if (!restored.contains('\uFFFD') && restored.length <= text.length) restored else text
+        }.getOrDefault(text)
+    }
+
+    fun decodeM3uBytes(bytes: ByteArray): String {
+        if (bytes.isEmpty()) return ""
+        val cleanBytes = if (bytes.size >= 3 && bytes[0] == 0xEF.toByte() && bytes[1] == 0xBB.toByte() && bytes[2] == 0xBF.toByte()) {
+            bytes.copyOfRange(3, bytes.size)
+        } else {
+            bytes
+        }
+
+        val utf8Result = runCatching {
+            val decoder = Charset.forName("UTF-8").newDecoder()
+                .onMalformedInput(CodingErrorAction.REPORT)
+                .onUnmappableCharacter(CodingErrorAction.REPORT)
+            decoder.decode(ByteBuffer.wrap(cleanBytes)).toString()
+        }.getOrNull()
+
+        val rawText = if (utf8Result != null) {
+            utf8Result
+        } else {
+            runCatching {
+                String(cleanBytes, Charset.forName("windows-1254"))
+            }.getOrElse {
+                String(cleanBytes, Charsets.UTF_8)
+            }
+        }
+        return fixMojibake(rawText)
+    }
+
     fun parseM3U(input: String): TvPlaylist {
-        return parseM3U(ByteArrayInputStream(input.toByteArray(Charsets.UTF_8)))
+        val fixed = fixMojibake(input)
+        return parseM3U(ByteArrayInputStream(fixed.toByteArray(Charsets.UTF_8)))
     }
 
     fun parseM3U(stream: InputStream): TvPlaylist {
@@ -128,8 +168,8 @@ object TvPlaylistParser {
 
     private fun getTitle(line: String, attributes: Map<String, String>): String {
         val commaTitle = line.substringAfterLast(",").trim()
-        if (commaTitle.isNotBlank()) return commaTitle
-        return attributes["tvg-name"] ?: attributes["tvg-id"] ?: "Bilinmeyen Kanal"
+        val title = if (commaTitle.isNotBlank()) commaTitle else attributes["tvg-name"] ?: attributes["tvg-id"] ?: "Bilinmeyen Kanal"
+        return fixMojibake(title)
     }
 
     private fun getUrl(line: String): String {
@@ -247,32 +287,33 @@ class WioCustomListManager(private val context: Context) {
     suspend fun fetchPlaylistContent(urlOrPath: String): String? {
         val trimmed = urlOrPath.trim()
         return runCatching {
-            when {
+            val bytes: ByteArray = when {
                 trimmed.startsWith("http://", ignoreCase = true) || trimmed.startsWith("https://", ignoreCase = true) -> {
                     try {
-                        app.get(trimmed, timeout = 15).text
+                        app.get(trimmed, timeout = 15).body.bytes()
                     } catch (_: Exception) {
                         // HttpURLConnection fallback
                         val conn = URL(trimmed).openConnection() as HttpURLConnection
                         conn.connectTimeout = 15000
                         conn.readTimeout = 15000
                         conn.setRequestProperty("User-Agent", "Player (Linux; Android 14)")
-                        conn.inputStream.bufferedReader().use { it.readText() }
+                        conn.inputStream.use { it.readBytes() }
                     }
                 }
                 trimmed.startsWith("content://", ignoreCase = true) -> {
                     context.contentResolver.openInputStream(Uri.parse(trimmed))?.use { input ->
-                        input.bufferedReader().readText()
-                    }
+                        input.readBytes()
+                    } ?: ByteArray(0)
                 }
                 trimmed.startsWith("file://", ignoreCase = true) || trimmed.startsWith("/") || (trimmed.length > 2 && trimmed[1] == ':') -> {
                     val filePath = trimmed.removePrefix("file://")
-                    File(filePath).readText(Charsets.UTF_8)
+                    File(filePath).readBytes()
                 }
                 else -> {
-                    trimmed
+                    trimmed.toByteArray(Charsets.UTF_8)
                 }
             }
+            TvPlaylistParser.decodeM3uBytes(bytes)
         }.getOrNull()
     }
 
