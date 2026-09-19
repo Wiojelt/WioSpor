@@ -1,4 +1,4 @@
-﻿package wiospor
+package wiospor
 
 import android.content.Context
 import android.widget.Toast
@@ -50,6 +50,10 @@ object WioSettings {
             onWizardClick = {
                 WioOnboarding.show(context, aggregator)
             },
+            onCustomListClick = {
+                WioCustomListDialog.show(context, aggregator.customListManager)
+            },
+            customListSummary = aggregator.customListManager.getSummary(),
             onAutoScanDomains = { statusCallback ->
                 statusCallback("Web adresleri kontrol ediliyor...")
                 aggregator.refreshWebDomains()

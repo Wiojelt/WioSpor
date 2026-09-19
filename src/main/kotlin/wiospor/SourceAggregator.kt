@@ -36,6 +36,8 @@ class SourceAggregator(private val context: Context) {
     private val prefs: SharedPreferences =
         context.getSharedPreferences("wiospor_source_prefs", Context.MODE_PRIVATE)
 
+    val customListManager = WioCustomListManager(context)
+
     data class HealthStatus(
         val totalCount: Int,
         val onlineCount: Int,
@@ -126,6 +128,14 @@ class SourceAggregator(private val context: Context) {
 
     private val domatesApi by lazy { turkspor.domates.DomatesTVProvider() }
     private val dominoApi by lazy { turkspor.domino.DominoTVProvider() }
+
+    private val papazPrefs by lazy { context.getSharedPreferences("wiospor_papazsports", Context.MODE_PRIVATE) }
+    private val papazArtwork by lazy { turkspor.shared.ChannelArtwork(context, "papazsports") }
+    private val papazApi by lazy { turkspor.papazsports.PapazSportsProvider(papazPrefs, papazArtwork) }
+
+    private val jestPrefs by lazy { context.getSharedPreferences("wiospor_jestyayin", Context.MODE_PRIVATE) }
+    private val jestArtwork by lazy { turkspor.shared.ChannelArtwork(context, "jestyayin") }
+    private val jestApi by lazy { turkspor.jestyayin.JestYayinProvider(jestPrefs, jestArtwork) }
 
     val workers: List<SourceWorker> by lazy {
         val list = mutableListOf<SourceWorker>()
@@ -411,8 +421,59 @@ class SourceAggregator(private val context: Context) {
             }
         })
 
+        // 16. PapazSports
+        list.add(object : SourceWorker {
+            override val id: String = "papazsports"
+            override val displayName: String = "PapazSports"
+
+            override suspend fun checkOnline(): Boolean = runCatching {
+                papazApi.search("").isNotEmpty()
+            }.getOrDefault(false)
+
+            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
+                var emitted = false
+                try {
+                    val rows = papazApi.search("")
+                    val match = rows.firstOrNull { WioChannels.matches(channel, it.name, it.url.substringAfterLast('#')) } ?: return false
+                    papazApi.loadLinks(match.url, false, {}) { link ->
+                        emitted = true
+                        callback(wrapLink("Papaz", channel, link))
+                    }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (_: Exception) { }
+                return emitted
+            }
+        })
+
+        // 17. JestYayın
+        list.add(object : SourceWorker {
+            override val id: String = "jestyayin"
+            override val displayName: String = "JestYayın"
+
+            override suspend fun checkOnline(): Boolean = runCatching {
+                jestApi.search("").isNotEmpty()
+            }.getOrDefault(false)
+
+            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
+                var emitted = false
+                try {
+                    val rows = jestApi.search("")
+                    val match = rows.firstOrNull { WioChannels.matches(channel, it.name, it.url) } ?: return false
+                    val id = match.url.substringAfter("#jest:").substringBefore(":")
+                    jestApi.loadLinks(id, false, {}) { link ->
+                        emitted = true
+                        callback(wrapLink("JestYayın", channel, link))
+                    }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (_: Exception) { }
+                return emitted
+            }
+        })
+
         // ============================================================
-        // 16..42. Aslan IPTV Listeleri (27 Adet Aktif Kaynak)
+        // 18..44. Aslan IPTV Listeleri (27 Adet Aktif Kaynak)
         // ============================================================
         val aslanRegistry = turkspor.aslan.AslanRegistry(
             context.getSharedPreferences("wiospor_aslan_registry", Context.MODE_PRIVATE)
@@ -602,6 +663,24 @@ class SourceAggregator(private val context: Context) {
         val activeWorkers = workers.filter { isSourceEnabled(it.id) }
 
         val foundCount = AtomicInteger(0)
+
+        // Özel M3U listelerinden eşleşen yayınları öncelikle bağla
+        runCatching {
+            val customStreams = customListManager.getStreamsForChannel(channel)
+            customStreams.forEach { stream ->
+                foundCount.incrementAndGet()
+                callback(
+                    ExtractorLink(
+                        source = "WioSpor",
+                        name = stream.streamName,
+                        url = stream.url,
+                        referer = "",
+                        quality = Qualities.Unknown.value,
+                        type = if (stream.url.contains(".m3u8", ignoreCase = true)) ExtractorLinkType.M3U8 else ExtractorLinkType.VIDEO
+                    )
+                )
+            }
+        }
 
         if (!tvMode) {
             // ==========================================

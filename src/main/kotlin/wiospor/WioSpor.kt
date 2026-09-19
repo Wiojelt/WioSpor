@@ -2,8 +2,9 @@ package wiospor
 
 import com.lagradost.cloudstream3.*
 import com.lagradost.cloudstream3.utils.ExtractorLink
+import com.lagradost.cloudstream3.utils.ExtractorLinkType
+import com.lagradost.cloudstream3.utils.Qualities
 import java.net.URI
-import java.util.Locale
 
 class WioSpor(private val aggregator: SourceAggregator) : MainAPI() {
     override var mainUrl = "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/"
@@ -23,15 +24,36 @@ class WioSpor(private val aggregator: SourceAggregator) : MainAPI() {
         }
 
     override suspend fun getMainPage(page: Int, request: MainPageRequest): HomePageResponse {
-        val lists = WioChannels.GROUPS.mapNotNull { groupName ->
-            val channels = WioChannels.all.filter { it.group == groupName }
-            if (channels.isEmpty()) null
-            else HomePageList(
-                name = groupName,
-                list = channels.map { channelResult(it) },
-                isHorizontalImages = true
-            )
+        val lists = mutableListOf<HomePageList>()
+
+        // 📋 Kullanıcının eklediği özel listelerden gelen kanallar (en başta gösterilir)
+        runCatching {
+            val customChannels = aggregator.customListManager.getCustomWioChannels()
+            if (customChannels.isNotEmpty()) {
+                lists.add(
+                    HomePageList(
+                        name = "📋 Eklenen Özel Kanallar (${customChannels.size})",
+                        list = customChannels.map { channelResult(it) },
+                        isHorizontalImages = true
+                    )
+                )
+            }
         }
+
+        // Standart kanal grupları
+        WioChannels.GROUPS.forEach { groupName ->
+            val channels = WioChannels.all.filter { it.group == groupName }
+            if (channels.isNotEmpty()) {
+                lists.add(
+                    HomePageList(
+                        name = groupName,
+                        list = channels.map { channelResult(it) },
+                        isHorizontalImages = true
+                    )
+                )
+            }
+        }
+
         return newHomePageResponse(lists, false)
     }
 
@@ -39,13 +61,28 @@ class WioSpor(private val aggregator: SourceAggregator) : MainAPI() {
         val normQuery = WioChannels.normalize(query)
         if (normQuery.isBlank()) return emptyList()
 
-        return WioChannels.all.filter { channel ->
+        val results = mutableListOf<SearchResponse>()
+
+        // Özel kanal araması
+        runCatching {
+            val customMatches = aggregator.customListManager.getCustomWioChannels().filter {
+                WioChannels.normalize(it.name).contains(normQuery) ||
+                WioChannels.normalize(it.standardTitle).contains(normQuery)
+            }.map { channelResult(it) }
+            results.addAll(customMatches)
+        }
+
+        // Standart kanal araması
+        val standardMatches = WioChannels.all.filter { channel ->
             val normName = WioChannels.normalize(channel.name)
             val normStd = WioChannels.normalize(channel.standardTitle)
             val matchesAlias = channel.aliases.any { WioChannels.normalize(it).contains(normQuery) }
 
             normName.contains(normQuery) || normStd.contains(normQuery) || matchesAlias
         }.map { channelResult(it) }
+        results.addAll(standardMatches)
+
+        return results
     }
 
     private fun parseChannelId(data: String): String? {
@@ -64,6 +101,7 @@ class WioSpor(private val aggregator: SourceAggregator) : MainAPI() {
         val channelId = parseChannelId(url)
             ?: throw ErrorLoadingException("Kanal kimliği eksik.")
         val channel = WioChannels.byId(channelId)
+            ?: aggregator.customListManager.getCustomWioChannels().find { it.id == channelId }
             ?: throw ErrorLoadingException("Kanal bulunamadı.")
 
         return newLiveStreamLoadResponse(channel.name, url, channelUrl(channel)) {
@@ -81,7 +119,31 @@ class WioSpor(private val aggregator: SourceAggregator) : MainAPI() {
         val channelId = parseChannelId(data)
             ?: throw ErrorLoadingException("Kanal kimliği eksik.")
         val channel = WioChannels.byId(channelId)
+            ?: aggregator.customListManager.getCustomWioChannels().find { it.id == channelId }
             ?: throw ErrorLoadingException("Kanal bulunamadı.")
+
+        // Özel kanal ise doğrudan özel listeden oynat
+        if (channelId.startsWith("custom_")) {
+            val streams = aggregator.customListManager.getStreams().filter {
+                val id = "custom_" + it.channelName.lowercase().replace(Regex("[^a-z0-9]"), "_").trim('_')
+                id == channelId || it.channelName.equals(channel.standardTitle, ignoreCase = true)
+            }
+            if (streams.isNotEmpty()) {
+                streams.forEach { stream ->
+                    callback(
+                        ExtractorLink(
+                            source = "WioSpor",
+                            name = stream.streamName,
+                            url = stream.url,
+                            referer = "",
+                            quality = Qualities.Unknown.value,
+                            type = if (stream.url.contains(".m3u8", ignoreCase = true)) ExtractorLinkType.M3U8 else ExtractorLinkType.VIDEO
+                        )
+                    )
+                }
+                return true
+            }
+        }
 
         val found = aggregator.fetchAlternativeLinks(channel, callback)
         if (!found) {

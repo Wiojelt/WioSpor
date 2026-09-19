@@ -21,8 +21,9 @@ class WioSporPlugin : Plugin() {
         mainApi = api
         registerMainAPI(api)
 
-        showOnboardingIfDue(context, aggregator)
-        showSupportNoticeIfDue(context)
+        if (aggregator.isOnboardingCompleted()) {
+            showSupportNoticeIfDue(context)
+        }
 
         openSettings = { uiContext ->
             WioSettings.show(uiContext, aggregator)
