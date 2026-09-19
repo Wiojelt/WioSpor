@@ -672,7 +672,7 @@ class SourceAggregator(private val context: Context) {
                 callback(
                     ExtractorLink(
                         source = "WioSpor",
-                        name = stream.streamName,
+                        name = "[Özel Liste] ${stream.title}",
                         url = stream.url,
                         referer = "",
                         quality = Qualities.Unknown.value,

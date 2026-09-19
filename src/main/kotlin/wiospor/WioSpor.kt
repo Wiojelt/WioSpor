@@ -125,15 +125,15 @@ class WioSpor(private val aggregator: SourceAggregator) : MainAPI() {
         // Özel kanal ise doğrudan özel listeden oynat
         if (channelId.startsWith("custom_")) {
             val streams = aggregator.customListManager.getStreams().filter {
-                val id = "custom_" + it.channelName.lowercase().replace(Regex("[^a-z0-9]"), "_").trim('_')
-                id == channelId || it.channelName.equals(channel.standardTitle, ignoreCase = true)
+                val id = "custom_" + it.title.lowercase().replace(Regex("[^a-z0-9]"), "_").trim('_')
+                id == channelId || it.title.equals(channel.standardTitle, ignoreCase = true)
             }
             if (streams.isNotEmpty()) {
                 streams.forEach { stream ->
                     callback(
                         ExtractorLink(
                             source = "WioSpor",
-                            name = stream.streamName,
+                            name = "[Özel Liste] ${stream.title}",
                             url = stream.url,
                             referer = "",
                             quality = Qualities.Unknown.value,

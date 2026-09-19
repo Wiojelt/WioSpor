@@ -1,6 +1,7 @@
 package wiospor
 
 import android.app.AlertDialog
+import android.content.ClipboardManager
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -10,7 +11,6 @@ import android.graphics.drawable.StateListDrawable
 import android.view.Gravity
 import android.view.ViewGroup
 import android.widget.EditText
-import android.widget.FrameLayout
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -18,7 +18,6 @@ import androidx.core.widget.NestedScrollView
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
-import com.google.android.material.switchmaterial.SwitchMaterial
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -108,47 +107,6 @@ object WioCustomListDialog {
         headerRow.addView(closeBtn)
         root.addView(headerRow)
 
-        // Master Switch Card
-        val masterCard = LinearLayout(context).apply {
-            orientation = LinearLayout.HORIZONTAL
-            gravity = Gravity.CENTER_VERTICAL
-            setPadding(dp(16), dp(12), dp(16), dp(12))
-            background = cardBackground(Color.parseColor("#30363D"))
-            val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT).apply {
-                bottomMargin = dp(14)
-            }
-            layoutParams = lp
-        }
-        val masterTextCol = LinearLayout(context).apply {
-            orientation = LinearLayout.VERTICAL
-            layoutParams = LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1f)
-        }
-        val masterTitle = TextView(context).apply {
-            text = "Özel Listeler Aktif"
-            textSize = 14f
-            typeface = Typeface.DEFAULT_BOLD
-            setTextColor(Color.WHITE)
-        }
-        val masterDesc = TextView(context).apply {
-            text = "Listelerdeki yayınları kanallara alternatif olarak bağlar"
-            textSize = 11f
-            setTextColor(Color.parseColor("#8B949E"))
-            setPadding(0, dp(2), 0, 0)
-        }
-        masterTextCol.addView(masterTitle)
-        masterTextCol.addView(masterDesc)
-        val masterSwitch = SwitchMaterial(context).apply {
-            isChecked = manager.isMasterEnabled()
-            thumbTintList = ColorStateList.valueOf(brandColor)
-            trackTintList = ColorStateList.valueOf(Color.argb(80, 255, 183, 3))
-            setOnCheckedChangeListener { _, isChecked ->
-                manager.setMasterEnabled(isChecked)
-            }
-        }
-        masterCard.addView(masterTextCol)
-        masterCard.addView(masterSwitch)
-        root.addView(masterCard)
-
         // Add New Playlist Form Card
         val addCard = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
@@ -161,7 +119,7 @@ object WioCustomListDialog {
         }
 
         val addTitle = TextView(context).apply {
-            text = "➕ Yeni M3U Listesi Ekle"
+            text = "➕ Yeni M3U / IPTV Listesi Ekle"
             textSize = 13.5f
             typeface = Typeface.DEFAULT_BOLD
             setTextColor(brandColor)
@@ -170,7 +128,7 @@ object WioCustomListDialog {
         addCard.addView(addTitle)
 
         val nameInput = EditText(context).apply {
-            hint = "Liste Adı (Örn: Spor Kanallarım, IPTV)"
+            hint = "Liste Adı (Örn: Spor Listem, IPTV)"
             setHintTextColor(Color.parseColor("#6E7681"))
             setTextColor(Color.WHITE)
             textSize = 13f
@@ -185,7 +143,7 @@ object WioCustomListDialog {
         addCard.addView(nameInput)
 
         val urlInput = EditText(context).apply {
-            hint = "URL (https://...) veya dosya yolu"
+            hint = "M3U Linki (https://...) veya dosya yolu"
             setHintTextColor(Color.parseColor("#6E7681"))
             setTextColor(Color.WHITE)
             textSize = 13f
@@ -199,6 +157,35 @@ object WioCustomListDialog {
         }
         addCard.addView(urlInput)
 
+        val inputBtnRow = LinearLayout(context).apply {
+            orientation = LinearLayout.HORIZONTAL
+            val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            layoutParams = lp
+        }
+
+        val btnPaste = MaterialButton(context).apply {
+            text = "📋 Yapıştır"
+            textSize = 11.5f
+            setTextColor(Color.WHITE)
+            backgroundTintList = ColorStateList.valueOf(Color.parseColor("#21262D"))
+            strokeColor = ColorStateList.valueOf(Color.parseColor("#30363D"))
+            strokeWidth = dp(1)
+            cornerRadius = dp(10)
+            val lp = LinearLayout.LayoutParams(0, dp(40), 0.8f).apply { marginEnd = dp(8) }
+            layoutParams = lp
+            isAllCaps = false
+            setOnClickListener {
+                val clip = context.getSystemService(Context.CLIPBOARD_SERVICE) as? ClipboardManager
+                val text = clip?.primaryClip?.getItemAt(0)?.text?.toString()?.trim()
+                if (!text.isNullOrBlank()) {
+                    urlInput.setText(text)
+                    Toast.makeText(context, "Panodan yapıştırıldı", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context, "Pano boş!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
         val listContainer = LinearLayout(context).apply {
             orientation = LinearLayout.VERTICAL
         }
@@ -206,12 +193,14 @@ object WioCustomListDialog {
         var refreshPlaylistsList: () -> Unit = {}
 
         val btnAdd = MaterialButton(context).apply {
-            text = "Listeyi Kaydet & Tara"
+            text = "✓ Listeyi Ekle & Test Et"
             textSize = 12.5f
             typeface = Typeface.DEFAULT_BOLD
             setTextColor(Color.BLACK)
             backgroundTintList = ColorStateList.valueOf(brandColor)
             cornerRadius = dp(10)
+            val lp = LinearLayout.LayoutParams(0, dp(40), 1.2f)
+            layoutParams = lp
             isAllCaps = false
             setOnClickListener {
                 val url = urlInput.text.toString().trim()
@@ -220,26 +209,46 @@ object WioCustomListDialog {
                     return@setOnClickListener
                 }
                 val name = nameInput.text.toString().trim().ifBlank { "Özel Liste" }
-                manager.addPlaylist(name, url)
-                nameInput.text?.clear()
-                urlInput.text?.clear()
-                Toast.makeText(context, "✓ '$name' eklendi. Taranıyor...", Toast.LENGTH_SHORT).show()
+
+                Toast.makeText(context, "Liste taranıyor...", Toast.LENGTH_SHORT).show()
 
                 scope.launch {
-                    val count = withContext(Dispatchers.IO) {
-                        manager.getStreams(forceRefresh = true).size
+                    val content = withContext(Dispatchers.IO) {
+                        manager.fetchPlaylistContent(url)
                     }
-                    Toast.makeText(context, "✓ $count yayın bulundu!", Toast.LENGTH_SHORT).show()
+
+                    if (content.isNullOrBlank()) {
+                        Toast.makeText(context, "Hata: Liste indirilemedi veya dosya bulunamadı!", Toast.LENGTH_LONG).show()
+                        return@launch
+                    }
+
+                    val parsed = withContext(Dispatchers.IO) {
+                        TvPlaylistParser.parseM3U(content)
+                    }
+
+                    if (parsed.items.isEmpty()) {
+                        Toast.makeText(context, "Hata: Listede geçerli kanal bulunamadı!", Toast.LENGTH_LONG).show()
+                        return@launch
+                    }
+
+                    manager.addPlaylist(name, url)
+                    nameInput.text?.clear()
+                    urlInput.text?.clear()
+
+                    Toast.makeText(context, "✓ '$name' eklendi (${parsed.items.size} kanal)", Toast.LENGTH_LONG).show()
                     refreshPlaylistsList()
                 }
             }
         }
-        addCard.addView(btnAdd)
+
+        inputBtnRow.addView(btnPaste)
+        inputBtnRow.addView(btnAdd)
+        addCard.addView(inputBtnRow)
         root.addView(addCard)
 
         // Section Title: Saved Playlists
         val sectionTitle = TextView(context).apply {
-            text = "Kayıtlı Listeler"
+            text = "Kayıtlı Listeler (PLT-TV Uyumlu)"
             textSize = 13.5f
             typeface = Typeface.DEFAULT_BOLD
             setTextColor(Color.WHITE)
@@ -250,7 +259,7 @@ object WioCustomListDialog {
 
         fun renderPlaylists() {
             listContainer.removeAllViews()
-            val playlists = manager.getPlaylists()
+            val playlists = manager.getSavedLinks()
             if (playlists.isEmpty()) {
                 val emptyTv = TextView(context).apply {
                     text = "Henüz eklenmiş bir liste yok.\nYukarıdaki formdan M3U URL'si ekleyebilirsiniz."
@@ -287,7 +296,7 @@ object WioCustomListDialog {
                     setTextColor(Color.WHITE)
                 }
                 val itemSub = TextView(context).apply {
-                    text = if (pl.url.length > 45) pl.url.take(42) + "..." else pl.url
+                    text = if (pl.link.length > 45) pl.link.take(42) + "..." else pl.link
                     textSize = 11f
                     setTextColor(Color.parseColor("#8B949E"))
                     setPadding(0, dp(2), 0, 0)
@@ -296,31 +305,25 @@ object WioCustomListDialog {
                 itemInfo.addView(itemSub)
                 itemCard.addView(itemInfo)
 
-                val itemSwitch = SwitchMaterial(context).apply {
-                    isChecked = pl.isEnabled
-                    thumbTintList = ColorStateList.valueOf(brandColor)
-                    trackTintList = ColorStateList.valueOf(Color.argb(80, 255, 183, 3))
-                    setOnCheckedChangeListener { _, isChecked ->
-                        manager.togglePlaylist(pl.id, isChecked)
-                    }
-                }
-                itemCard.addView(itemSwitch)
-
                 val btnDelete = MaterialButton(context).apply {
-                    text = "🗑"
-                    textSize = 13f
+                    text = "🗑️ Sil"
+                    textSize = 12f
                     setTextColor(Color.parseColor("#F85149"))
-                    backgroundTintList = ColorStateList.valueOf(Color.TRANSPARENT)
-                    strokeWidth = 0
-                    val lp = LinearLayout.LayoutParams(dp(40), dp(36))
+                    backgroundTintList = ColorStateList.valueOf(Color.parseColor("#21262D"))
+                    strokeColor = ColorStateList.valueOf(Color.parseColor("#30363D"))
+                    strokeWidth = dp(1)
+                    cornerRadius = dp(8)
+                    val lp = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, dp(36)).apply {
+                        marginStart = dp(8)
+                    }
                     layoutParams = lp
                     isAllCaps = false
                     setOnClickListener {
                         AlertDialog.Builder(context)
-                            .setTitle("Listeyi Sil")
+                            .setTitle("Listeyi Kaldır")
                             .setMessage("'${pl.name}' listesi silinsin mi?")
                             .setPositiveButton("Sil") { _, _ ->
-                                manager.removePlaylist(pl.id)
+                                manager.removePlaylist(pl.link)
                                 renderPlaylists()
                                 Toast.makeText(context, "Liste silindi", Toast.LENGTH_SHORT).show()
                             }

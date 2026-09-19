@@ -12,9 +12,26 @@ cloudstream {
     requiresResources = false
 }
 
+val syncCommonUi by tasks.registering {
+    doLast {
+        val src = rootProject.file("../TurkSinema-Source/common/src/main/kotlin/dev/wiojelt/turksinema/common/WioCoreSettingsDialog.kt")
+        val dst = rootProject.file("common/src/main/kotlin/turkspor/common/WioCoreSettingsDialog.kt")
+        if (src.exists()) {
+            val srcText = src.readText(Charsets.UTF_8)
+            val expectedDstText = srcText.replace("package dev.wiojelt.turksinema.common", "package turkspor.common")
+            if (!dst.exists() || dst.readText(Charsets.UTF_8) != expectedDstText) {
+                dst.parentFile.mkdirs()
+                dst.writeText(expectedDstText, Charsets.UTF_8)
+                logger.lifecycle("✓ Otomatik senkronize edildi: WioCoreSettingsDialog.kt (TurkSinema -> TurkSpor)")
+            }
+        }
+    }
+}
+
 val generatedBundleSources = layout.buildDirectory.dir("generated/wiosporBundle/kotlin")
 
 val prepareBundleSources by tasks.registering(Sync::class) {
+    dependsOn(syncCommonUi)
     into(generatedBundleSources)
     listOf(
         "SelcukSports",
