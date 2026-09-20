@@ -9,7 +9,7 @@
       "Wiojelt"
     ],
     "description": "Tüm canlı TV ve spor kanalları tek eklentide. Renk grupları ve alternatif yayın kaynakları.",
-    "fileSize": 571550,
+    "fileSize": 587075,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -17,8 +17,8 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "apiVersion": 1,
-    "fileHash": "sha256-016822882fad5e0a703a3a9abfd5896b66df328ce768c7dc42357a16afd7c6f9",
-    "hash": "016822882fad5e0a703a3a9abfd5896b66df328ce768c7dc42357a16afd7c6f9"
+    "fileHash": "sha256-1a5623c60def1056cb17c311096d640a9d01c2dd1a16587c9b307e0899c28a88",
+    "hash": "1a5623c60def1056cb17c311096d640a9d01c2dd1a16587c9b307e0899c28a88"
   },
   {
     "name": "v10 Spor",
