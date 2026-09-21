@@ -13,6 +13,7 @@ import kotlinx.coroutines.sync.Semaphore
 import kotlinx.coroutines.sync.withPermit
 import java.net.URLEncoder
 import java.util.concurrent.atomic.AtomicInteger
+import turkspor.papazsports.PapazSportsProvider
 
 interface SourceWorker {
     val id: String
@@ -128,6 +129,12 @@ class SourceAggregator(private val context: Context) {
 
     private val domatesApi by lazy { turkspor.domates.DomatesTVProvider() }
     private val dominoApi by lazy { turkspor.domino.DominoTVProvider() }
+    private val papazApi by lazy {
+        PapazSportsProvider(
+            context.getSharedPreferences("wiospor_papazsports", Context.MODE_PRIVATE),
+            turkspor.shared.ChannelArtwork(context, "wio_papaz")
+        )
+    }
 
     private val papazPrefs by lazy { context.getSharedPreferences("wiospor_papazsports", Context.MODE_PRIVATE) }
     private val papazArtwork by lazy { turkspor.shared.ChannelArtwork(context, "papazsports") }
@@ -227,8 +234,30 @@ class SourceAggregator(private val context: Context) {
         // 5. BetmatikTV
         createSharedWorker("betmatiktv", "BetmatikTV")?.let { list.add(it) }
 
+        // 6. PapazSports / PatronSports
+        list.add(object : SourceWorker {
+            override val id: String = "papazsports"
+            override val displayName: String = "PapazSports"
+
+            override suspend fun checkOnline(): Boolean = runCatching {
+                papazApi.getMainPage(0, MainPageRequest("", "")).pages.isNotEmpty()
+            }.getOrDefault(false)
+
+            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
+                val streamId = runCatching { papazApi.findStreamId(channel.standardTitle) }.getOrNull() ?: return false
+                var emitted = false
+                runCatching {
+                    papazApi.loadLinks("${PapazSportsProvider.START}/#$streamId", false, {}) { link ->
+                        emitted = true
+                        callback(wrapLink("PapazSports", channel, link))
+                    }
+                }
+                return emitted
+            }
+        })
+
         // ============================================================
-        // 6..15. DİĞER WEB SAĞLAYICILARI
+        // 7..15. DİĞER WEB SAĞLAYICILARI
         // ============================================================
 
         // 6. SelçukSports

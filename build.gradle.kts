@@ -1,6 +1,6 @@
 import org.gradle.api.tasks.Sync
 
-version = 21
+version = 22
 
 cloudstream {
     setRepo("Wiojelt/WioSpor")
