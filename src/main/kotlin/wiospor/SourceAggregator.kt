@@ -5,9 +5,12 @@ import android.app.UiModeManager
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.res.Configuration
+import com.lagradost.cloudstream3.app
+import com.lagradost.cloudstream3.mapper
 import com.lagradost.cloudstream3.utils.ExtractorLink
 import com.lagradost.cloudstream3.utils.ExtractorLinkType
 import com.lagradost.cloudstream3.utils.Qualities
+import com.lagradost.cloudstream3.utils.newExtractorLink
 import kotlinx.coroutines.*
 import kotlinx.coroutines.sync.Semaphore
 import kotlinx.coroutines.sync.withPermit
@@ -30,7 +33,8 @@ class SourceAggregator(private val context: Context) {
             "domino",
             "inat",
             "kralspor",
-            "betmatiktv"
+            "betmatiktv",
+            "patron"
         )
     }
 
@@ -144,6 +148,51 @@ class SourceAggregator(private val context: Context) {
     private val jestArtwork by lazy { turkspor.shared.ChannelArtwork(context, "jestyayin") }
     private val jestApi by lazy { turkspor.jestyayin.JestYayinProvider(jestPrefs, jestArtwork) }
 
+    private var cachedPatronChannels: Pair<Long, List<Pair<String, String>>>? = null
+    private var cachedPatronBaseUrl: Pair<Long, String>? = null
+
+    private suspend fun getPatronBaseUrl(): String? {
+        val now = System.currentTimeMillis()
+        cachedPatronBaseUrl?.let { (ts, url) ->
+            if (now - ts < 300_000L) return url
+        }
+        return try {
+            val res = app.get("https://patronsports2.cfd/domain.php", referer = "https://patronsports2.cfd/", timeout = 8)
+            if (res.code == 200) {
+                val tree = mapper.readTree(res.text)
+                val base = tree.path("baseurl").asText("").trimEnd('/') + "/"
+                if (base.length > 1) {
+                    cachedPatronBaseUrl = now to base
+                    base
+                } else null
+            } else null
+        } catch (_: Exception) { null }
+    }
+
+    private suspend fun getPatronChannels(): List<Pair<String, String>> {
+        val now = System.currentTimeMillis()
+        cachedPatronChannels?.let { (ts, list) ->
+            if (now - ts < 120_000L) return list
+        }
+        return try {
+            val res = app.get("https://patronsports2.cfd/channels.php", timeout = 10)
+            if (res.code == 200) {
+                val tree = mapper.readTree(res.text)
+                val list = mutableListOf<Pair<String, String>>()
+                for (node in tree) {
+                    val mac = node.path("Mac").asText("")
+                    val url = node.path("URL").asText("")
+                    val id = url.substringAfter("id=", "").substringBefore("&")
+                    if (mac.isNotEmpty() && id.isNotEmpty()) {
+                        list.add(mac to id)
+                    }
+                }
+                cachedPatronChannels = now to list
+                list
+            } else emptyList()
+        } catch (_: Exception) { emptyList() }
+    }
+
     val workers: List<SourceWorker> by lazy {
         val list = mutableListOf<SourceWorker>()
 
@@ -234,30 +283,54 @@ class SourceAggregator(private val context: Context) {
         // 5. BetmatikTV
         createSharedWorker("betmatiktv", "BetmatikTV")?.let { list.add(it) }
 
-        // 6. PapazSports / PatronSports
+        // 6. PatronHD
         list.add(object : SourceWorker {
-            override val id: String = "papazsports"
-            override val displayName: String = "PapazSports"
+            override val id: String = "patron"
+            override val displayName: String = "PatronHD"
 
             override suspend fun checkOnline(): Boolean = runCatching {
-                papazApi.getMainPage(0, MainPageRequest("", "")).pages.isNotEmpty()
+                getPatronBaseUrl() != null
             }.getOrDefault(false)
 
             override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
-                val streamId = runCatching { papazApi.findStreamId(channel.standardTitle) }.getOrNull() ?: return false
                 var emitted = false
-                runCatching {
-                    papazApi.loadLinks("${PapazSportsProvider.START}/#$streamId", false, {}) { link ->
-                        emitted = true
-                        callback(wrapLink("PapazSports", channel, link))
-                    }
-                }
+                try {
+                    val channels = getPatronChannels()
+                    val match = channels.firstOrNull { (mac, id) -> WioChannels.matches(channel, mac, id) }
+                        ?: return false
+
+                    val baseUrl = getPatronBaseUrl() ?: return false
+                    val streamUrl = "${baseUrl}${match.second}/mono.m3u8"
+                    val playbackHeaders = mapOf(
+                        "User-Agent" to "Mozilla/5.0 (Linux; Android 14; Mobile)",
+                        "Origin" to "https://patronsports2.cfd",
+                        "Referer" to "https://patronsports2.cfd/",
+                        "Sec-Fetch-Site" to "cross-site",
+                        "Sec-Fetch-Mode" to "cors",
+                        "Sec-Fetch-Dest" to "empty"
+                    )
+
+                    callback(
+                        wrapLink(
+                            "Patron",
+                            channel,
+                            newExtractorLink("PatronHD", channel.name, streamUrl, ExtractorLinkType.M3U8) {
+                                referer = "https://patronsports2.cfd/"
+                                headers = playbackHeaders
+                                quality = Qualities.Unknown.value
+                            }
+                        )
+                    )
+                    emitted = true
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (_: Exception) { }
                 return emitted
             }
         })
 
         // ============================================================
-        // 7..15. DİĞER WEB SAĞLAYICILARI
+        // 7..16. DİĞER WEB SAĞLAYICILARI
         // ============================================================
 
         // 6. SelçukSports
