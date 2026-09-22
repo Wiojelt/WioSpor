@@ -40,26 +40,5 @@
     "fileHash": "sha256-89415b915a111dd893f8ed635b72dde873a1b5c2f5249437d941c684550959d7",
     "apiVersion": 1,
     "hash": "89415b915a111dd893f8ed635b72dde873a1b5c2f5249437d941c684550959d7"
-  },
-  {
-    "name": "PatronHD",
-    "internalName": "PatronHD",
-    "version": 15,
-    "description": "🔴 Kaynak: PatronHD / Patronspor · Emeği için teşekkürler ♥ · @wiojelt",
-    "authors": [
-      "Wiojelt"
-    ],
-    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/PatronHD.cs3",
-    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/PatronHD.png",
-    "tvTypes": [
-      "Live"
-    ],
-    "language": "tr",
-    "status": 3,
-    "fileSize": 103070,
-    "fileHash": "sha256-cdb93f866389d85463c34bcfcf7e6a5e7a195efcb4596de638dc46b811f34bd6",
-    "apiVersion": 1,
-    "hash": "cdb93f866389d85463c34bcfcf7e6a5e7a195efcb4596de638dc46b811f34bd6"
   }
 ]
