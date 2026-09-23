@@ -16,7 +16,6 @@ import kotlinx.coroutines.sync.Semaphore
 import kotlinx.coroutines.sync.withPermit
 import java.net.URLEncoder
 import java.util.concurrent.atomic.AtomicInteger
-import turkspor.papazsports.PapazSportsProvider
 
 interface SourceWorker {
     val id: String
@@ -27,7 +26,8 @@ interface SourceWorker {
 
 class SourceAggregator(private val context: Context) {
     companion object {
-        // İlk kurulumda ve TV Box modunda varsayılan olarak açık gelen 5 hızlı sağlayıcı
+        // Hızlı sonuç için önce taranan sağlayıcılar. Bu liste etkin kaynak sayısını
+        // sınırlamaz; TV Box kapalıyken kullanıcı tarafından kapatılmayan tüm kaynaklar taranır.
         val DEFAULT_ENABLED_SOURCES = setOf(
             "beyazelma",
             "domino",
@@ -133,13 +133,6 @@ class SourceAggregator(private val context: Context) {
 
     private val domatesApi by lazy { turkspor.domates.DomatesTVProvider() }
     private val dominoApi by lazy { turkspor.domino.DominoTVProvider() }
-    private val papazApi by lazy {
-        PapazSportsProvider(
-            context.getSharedPreferences("wiospor_papazsports", Context.MODE_PRIVATE),
-            turkspor.shared.ChannelArtwork(context, "wio_papaz")
-        )
-    }
-
     private val papazPrefs by lazy { context.getSharedPreferences("wiospor_papazsports", Context.MODE_PRIVATE) }
     private val papazArtwork by lazy { turkspor.shared.ChannelArtwork(context, "papazsports") }
     private val papazApi by lazy { turkspor.papazsports.PapazSportsProvider(papazPrefs, papazArtwork) }
@@ -675,6 +668,26 @@ class SourceAggregator(private val context: Context) {
             .apply()
     }
 
+    /**
+     * v22'nin otomatik "önerilen" profili yalnızca birkaç sağlayıcıyı açık
+     * bırakıyordu. v24'te bu otomatik profil bir kez kaldırılır; kullanıcının
+     * elle yaptığı farklı seçimlere dokunulmaz.
+     */
+    fun migrateLegacySourceProfile() {
+        if (prefs.getBoolean("source_profile_migrated_v24", false)) return
+        val editor = prefs.edit().putBoolean("source_profile_migrated_v24", true)
+        if (prefs.getBoolean("sources_initialized_v10", false)) {
+            val disabled = prefs.getStringSet("disabled_sources", emptySet()) ?: emptySet()
+            val legacyRecommendedDisabled = workers.map { it.id }
+                .filter { it !in DEFAULT_ENABLED_SOURCES }
+                .toSet()
+            if (disabled == legacyRecommendedDisabled) {
+                editor.putStringSet("disabled_sources", emptySet())
+            }
+        }
+        editor.apply()
+    }
+
     fun isOnboardingCompleted(): Boolean {
         return prefs.getBoolean("onboarding_completed_v10", false)
     }
@@ -685,7 +698,9 @@ class SourceAggregator(private val context: Context) {
 
     fun isSourceEnabled(sourceId: String): Boolean {
         if (!prefs.getBoolean("sources_initialized_v10", false)) {
-            return sourceId in DEFAULT_ENABLED_SOURCES
+            // Yeni kurulumda normal mod bütün kaynakları tarar. Önceki davranış yalnızca
+            // altı hızlı kaynağı açtığı için kaynak listesi gereksiz biçimde daralıyordu.
+            return true
         }
         val disabledSet = prefs.getStringSet("disabled_sources", emptySet()) ?: emptySet()
         return sourceId !in disabledSet
@@ -693,7 +708,7 @@ class SourceAggregator(private val context: Context) {
 
     fun setSourceEnabled(sourceId: String, enabled: Boolean) {
         if (!prefs.getBoolean("sources_initialized_v10", false)) {
-            val disabled = workers.map { it.id }.filter { it !in DEFAULT_ENABLED_SOURCES }.toMutableSet()
+            val disabled = mutableSetOf<String>()
             if (enabled) disabled.remove(sourceId) else disabled.add(sourceId)
             prefs.edit()
                 .putStringSet("disabled_sources", disabled)
@@ -761,6 +776,7 @@ class SourceAggregator(private val context: Context) {
         channel: WioChannel,
         callback: (ExtractorLink) -> Unit
     ): Boolean = coroutineScope {
+        migrateLegacySourceProfile()
         val tvMode = isTvBoxMode()
         val activeWorkers = workers.filter { isSourceEnabled(it.id) }
 

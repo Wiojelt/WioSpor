@@ -9,6 +9,7 @@ import turkspor.common.WioSettingsConfig
 object WioSettings {
 
     fun show(context: Context, aggregator: SourceAggregator) {
+        aggregator.migrateLegacySourceProfile()
         val workers = aggregator.workers
         val items = workers.map { worker ->
             WioProviderSettingItem(

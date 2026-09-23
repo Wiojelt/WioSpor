@@ -8,7 +8,7 @@ class WioSporTest {
     @Test
     fun testChannelGroupsExist() {
         assertEquals(13, WioChannels.GROUPS.size)
-        assertEquals(82, WioChannels.all.size)
+        assertEquals(86, WioChannels.all.size)
 
         val groupsPresent = WioChannels.all.map { it.group }.distinct()
         for (g in WioChannels.GROUPS) {
@@ -95,6 +95,15 @@ class WioSporTest {
         assertTrue(WioChannels.matches(maviPlus1!!, "S Sport Plus 1"))
         assertFalse(WioChannels.matches(maviPlus1, "S Sport 1"))
         assertFalse(WioChannels.matches(maviPlus1, "S Sport Plus 2"))
+
+        for (index in 2..5) {
+            val channel = WioChannels.byId("mavi_plus_$index")
+            assertNotNull(channel)
+            assertTrue(WioChannels.matches(channel!!, "S Sport Plus $index"))
+            assertTrue(WioChannels.matches(channel, "S SPORT PLUS $index HD"))
+            assertFalse(WioChannels.matches(channel, "S Sport Plus ${if (index == 5) 4 else index + 1}"))
+            assertFalse(WioChannels.matches(channel, "S Sport $index"))
+        }
     }
 
     @Test
