@@ -50,10 +50,12 @@ class SourceAggregator(private val context: Context) {
     )
 
     private fun wrapLink(label: String, channel: WioChannel, link: ExtractorLink): ExtractorLink {
-        val quality = if (link.quality in listOf(360, 480, 540, 576, 720, 1080, 1440, 2160)) " • ${link.quality}p" else ""
         return ExtractorLink(
             source = "WioSpor",
-            name = "[$label] ${channel.name}$quality",
+            // Kalite, kaynak adının parçası değil; CloudStream oynatıcı kalite
+            // seçicisini link.quality alanından doldurur. Böylece her sağlayıcı
+            // tek kaynak satırı olarak görünür.
+            name = "[$label] ${channel.name}",
             url = link.url,
             referer = link.referer,
             quality = link.quality,
@@ -723,6 +725,12 @@ class SourceAggregator(private val context: Context) {
             disabledSet.add(sourceId)
         }
         prefs.edit().putStringSet("disabled_sources", disabledSet).apply()
+    }
+
+    /** Ayarlar kapatılırken yalnızca süreç içi çözümleme önbelleklerini bırakır. */
+    fun clearRuntimeCaches() {
+        cachedPatronChannels = null
+        cachedPatronBaseUrl = null
     }
 
     fun isAutoDetectedTvOrLowRam(): Boolean {

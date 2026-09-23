@@ -49,7 +49,8 @@ object WioSettings {
                 items.forEach { it.isEnabled = false }
             },
             onWizardClick = {
-                WioOnboarding.show(context, aggregator)
+                // WioSpor ayarları tek panelden yönetilir; eski kurulum
+                // sihirbazı ikinci bir profil oluşturup seçimleri geri alıyordu.
             },
             onCustomListClick = {
                 WioCustomListDialog.show(context, aggregator.customListManager)
@@ -61,6 +62,7 @@ object WioSettings {
                 Pair(workers.size, workers.size)
             },
             onSaveAndClose = {
+                aggregator.clearRuntimeCaches()
                 val activeCount = workers.count { aggregator.isSourceEnabled(it.id) }
                 Toast.makeText(context, "$activeCount kaynak kaydedildi", Toast.LENGTH_SHORT).show()
             },

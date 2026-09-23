@@ -107,15 +107,8 @@ object WioOnboarding {
             typeface = Typeface.DEFAULT_BOLD
             setTextColor(textPrimary)
         }
-        val titleWizard = TextView(context).apply {
-            text = " • Kurulum Sihirbazı"
-            textSize = 19f
-            typeface = Typeface.DEFAULT_BOLD
-            setTextColor(textSecondary)
-        }
         brandTitle.addView(titleWio)
         brandTitle.addView(titleSpor)
-        brandTitle.addView(titleWizard)
         header.addView(brandTitle)
 
         val autoDetected = aggregator.isAutoDetectedTvOrLowRam()
