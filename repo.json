@@ -4,6 +4,6 @@
   "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
   "manifestVersion": 1,
   "pluginLists": [
-    "https://raw.githubusercontent.com/Wiojelt/WioSpor/cbe21aa0f2dc1bffe65820f8f225091738aa0d36/plugins.json"
+    "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/plugins.json?v=wiospor-v24-download-fix-2026-09-25"
   ]
 }
