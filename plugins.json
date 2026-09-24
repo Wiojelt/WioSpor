@@ -748,5 +748,25 @@
     "fileHash": "sha256-cdb93f866389d85463c34bcfcf7e6a5e7a195efcb4596de638dc46b811f34bd6",
     "apiVersion": 1,
     "hash": "cdb93f866389d85463c34bcfcf7e6a5e7a195efcb4596de638dc46b811f34bd6"
+  },
+  {
+    "name": "VionTV",
+    "internalName": "VionTV",
+    "pluginClassName": "dev.wiojelt.viontv.VionTVPlugin",
+    "version": 1,
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/VionTV.cs3",
+    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/test/main/logos/viontv.png",
+    "authors": [
+      "Wiojelt"
+    ],
+    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
+    "description": "VionTV spor ve canli yayinlari",
+    "tvTypes": [
+      "Live"
+    ],
+    "language": "tr",
+    "status": 1,
+    "fileSize": 14146,
+    "fileHash": "sha256-80eca4d4a93213bce86a02a9cb8f97ffe8bee2b170923458b8f66578c9c57a37"
   }
 ]
