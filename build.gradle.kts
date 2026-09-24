@@ -52,6 +52,7 @@ val prepareBundleSources by tasks.registering(Sync::class) {
         "DominoTV",
         "PapazSports",
         "JestYayin",
+        "VionTV",
         "shared",
         "shared-filter",
     ).forEach { source ->
@@ -59,6 +60,7 @@ val prepareBundleSources by tasks.registering(Sync::class) {
     }
     exclude("turkspor/papazsports/PapazSportsPlugin.kt")
     exclude("turkspor/jestyayin/JestYayinPlugin.kt")
+    exclude("dev/wiojelt/viontv/VionTVPlugin.kt")
     filteringCharset = "UTF-8"
     filter { line: String ->
         line.replace("@CloudstreamPlugin", "")

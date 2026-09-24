@@ -34,7 +34,8 @@ class SourceAggregator(private val context: Context) {
             "inat",
             "kralspor",
             "betmatiktv",
-            "patron"
+            "patron",
+            "viontv"
         )
     }
 
@@ -135,6 +136,7 @@ class SourceAggregator(private val context: Context) {
 
     private val domatesApi by lazy { turkspor.domates.DomatesTVProvider() }
     private val dominoApi by lazy { turkspor.domino.DominoTVProvider() }
+
     private val papazPrefs by lazy { context.getSharedPreferences("wiospor_papazsports", Context.MODE_PRIVATE) }
     private val papazArtwork by lazy { turkspor.shared.ChannelArtwork(context, "papazsports") }
     private val papazApi by lazy { turkspor.papazsports.PapazSportsProvider(papazPrefs, papazArtwork) }
@@ -187,6 +189,8 @@ class SourceAggregator(private val context: Context) {
             } else emptyList()
         } catch (_: Exception) { emptyList() }
     }
+
+    private val vionApi by lazy { dev.wiojelt.viontv.VionTVProvider() }
 
     val workers: List<SourceWorker> by lazy {
         val list = mutableListOf<SourceWorker>()
@@ -324,8 +328,37 @@ class SourceAggregator(private val context: Context) {
             }
         })
 
+        // 7. VİONTV
+        list.add(object : SourceWorker {
+            override val id: String = "viontv"
+            override val displayName: String = "VİONTV"
+
+            override suspend fun checkOnline(): Boolean = runCatching {
+                vionApi.getChannels().isNotEmpty()
+            }.getOrDefault(false)
+
+            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
+                var emitted = false
+                try {
+                    val channels = vionApi.getChannels()
+                    val matches = channels.filter { c ->
+                        WioChannels.matches(channel, c.optString("name"), c.optString("id"))
+                    }
+                    for (match in matches) {
+                        vionApi.loadLinks(match.toString(), false, {}) { link ->
+                            emitted = true
+                            callback(wrapLink("VİONTV", channel, link))
+                        }
+                    }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (_: Exception) { }
+                return emitted
+            }
+        })
+
         // ============================================================
-        // 7..16. DİĞER WEB SAĞLAYICILARI
+        // 8..17. DİĞER WEB SAĞLAYICILARI
         // ============================================================
 
         // 6. SelçukSports
