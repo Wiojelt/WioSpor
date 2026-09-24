@@ -9,7 +9,7 @@
       "Wiojelt"
     ],
     "description": "Tüm canlı TV ve spor kanalları tek eklentide. Renk grupları ve alternatif yayın kaynakları.",
-    "fileSize": 599384,
+    "fileSize": 614704,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -17,8 +17,8 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "apiVersion": 1,
-    "fileHash": "sha256-f511b0bd06059df0c3272aaaed1b650cfb6ecba7578983508a85191baac7bd8f",
-    "hash": "f511b0bd06059df0c3272aaaed1b650cfb6ecba7578983508a85191baac7bd8f"
+    "fileHash": "sha256-6d9cc22681f49a5116e87797fb16bb1ab9e3015cc696e5d37332bfbc806ee2f3",
+    "hash": "6d9cc22681f49a5116e87797fb16bb1ab9e3015cc696e5d37332bfbc806ee2f3"
   },
   {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/ArdaSpor.cs3",
@@ -709,14 +709,14 @@
   {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/InatBox.cs3",
     "status": 3,
-    "version": 16,
+    "version": 1,
     "name": "InatBox",
     "internalName": "InatBox",
     "authors": [
       "Dr.Octagon"
     ],
     "description": "🟢 Kaynak: İnat Box · Emeği için teşekkürler ♥ · @wiojelt",
-    "fileSize": 224233,
+    "fileSize": 62062,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -726,7 +726,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/InatBox.webp",
     "apiVersion": 1,
-    "fileHash": "sha256-c2dbd18bc0304ea78fb2769479631604693ea9ac2ae4645d829550529abc833e"
+    "fileHash": "sha256-cb6f6e232977ea568610e128213dd45136c9f845a6ee7b175ddfb0d844a952e9"
   },
   {
     "name": "PatronHD",
