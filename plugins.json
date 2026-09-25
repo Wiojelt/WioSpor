@@ -163,27 +163,6 @@
     "fileHash": "sha256-9ca1a52fd96c9ac747b13b7da7be832b150623b43a34cef1cca72e4082fd0fad"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/CricifyProvider.cs3",
-    "status": 1,
-    "version": 65,
-    "name": "CricifyProvider",
-    "internalName": "CricifyProvider",
-    "authors": [
-      "Wiojelt"
-    ],
-    "description": "CNCVerse kaynaklı CricifyProvider canlı yayın paketi · izinli harici derleme",
-    "fileSize": 103016,
-    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "language": "en",
-    "tvTypes": [
-      "Live"
-    ],
-    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/logo.png",
-    "apiVersion": 1,
-    "fileHash": "sha256-1f223766f7ab77a22b249efe4b2d039e680c2b6b8524931e92b7fa4a6987232d",
-    "externalPath": "external/CNCVerse/CricifyProvider.cs3"
-  },
-  {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/DaddyLive.cs3",
     "status": 1,
     "version": 5,
@@ -364,47 +343,6 @@
     "fileHash": "sha256-8dd3da8c1e4874217973349dd787c985e6993c060a90463631895d86f85bd64f"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/LiveXTV.cs3",
-    "status": 1,
-    "version": 3,
-    "name": "LiveXTV",
-    "internalName": "LiveXTV",
-    "authors": [
-      "Wiojelt"
-    ],
-    "description": "LiveXTV canlı spor API'si, yedek uç nokta ve çoklu yayın kaynakları.",
-    "fileSize": 79324,
-    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "language": "tr",
-    "tvTypes": [
-      "Live"
-    ],
-    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/LiveXTV.png",
-    "apiVersion": 1,
-    "fileHash": "sha256-36196b16cd415dbfa514c7e6044fccec2641a3b004629824fa044254fd66d487"
-  },
-  {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/LivXowProvider.cs3",
-    "status": 1,
-    "version": 14,
-    "name": "LivXowProvider",
-    "internalName": "LivXowProvider",
-    "authors": [
-      "Wiojelt"
-    ],
-    "description": "CNCVerse kaynaklı LivXowProvider canlı yayın paketi · izinli harici derleme",
-    "fileSize": 112856,
-    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "language": "en",
-    "tvTypes": [
-      "Live"
-    ],
-    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/logo.png",
-    "apiVersion": 1,
-    "fileHash": "sha256-f2a0c1991155f28efc2fe3ef255d3d76752818cc633cd762bd0b46636e530dc6",
-    "externalPath": "external/CNCVerse/LivXowProvider.cs3"
-  },
-  {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/MacKeyfi.cs3",
     "status": 3,
     "version": 10,
@@ -505,27 +443,6 @@
     "fileHash": "sha256-21948fbed5bfd3005a92acf83c5195b4f2e2082d8462addc464fbba389b9183f"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/PlayZTVProvider.cs3",
-    "status": 1,
-    "version": 35,
-    "name": "PlayZTVProvider",
-    "internalName": "PlayZTVProvider",
-    "authors": [
-      "Wiojelt"
-    ],
-    "description": "CNCVerse kaynaklı PlayZTVProvider canlı yayın paketi · izinli harici derleme",
-    "fileSize": 97677,
-    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "language": "en",
-    "tvTypes": [
-      "Live"
-    ],
-    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/logo.png",
-    "apiVersion": 1,
-    "fileHash": "sha256-80e4656cdab5f70f4384adef3a46f9cd1f0e37755c577faa348dd5cba6ad8c90",
-    "externalPath": "external/CNCVerse/PlayZTVProvider.cs3"
-  },
-  {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/SelcukSports.cs3",
     "status": 3,
     "version": 12,
@@ -565,26 +482,6 @@
     "apiVersion": 1,
     "fileHash": "sha256-094a5af60e39a0c837856e92e3e1c9c74dd968cdc9bc995b853f5f588d5ab834",
     "externalPath": "external/CNCVerse/SportzxProvider.cs3"
-  },
-  {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/StreamEast.cs3",
-    "status": 1,
-    "version": 2,
-    "name": "StreamEast",
-    "internalName": "StreamEast",
-    "authors": [
-      "Wiojelt"
-    ],
-    "description": "StreamEast canlı ve yaklaşan spor etkinlikleri, çoklu oynatıcı ve güncelleme ekranı.",
-    "fileSize": 109016,
-    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "language": "tr",
-    "tvTypes": [
-      "Live"
-    ],
-    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/StreamEast.png",
-    "apiVersion": 1,
-    "fileHash": "sha256-09845abf1b9d498805dd1a907e05b36daea0009a2f1b654b3b02a65042f185cf"
   },
   {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/Streamed.cs3",
