@@ -2,14 +2,14 @@
   {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3",
     "status": 3,
-    "version": 27,
+    "version": 28,
     "name": "0 WioSpor",
     "internalName": "WioSpor",
     "authors": [
       "Wiojelt"
     ],
     "description": "Tüm canlı TV ve spor kanalları tek eklentide. Renk grupları ve alternatif yayın kaynakları.",
-    "fileSize": 206300,
+    "fileSize": 206434,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -17,8 +17,8 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "apiVersion": 1,
-    "fileHash": "sha256-ca6b5b02603925e1fbc056388e5b6a78de1ee68f83e465039927a8e36ee7c196",
-    "hash": "ca6b5b02603925e1fbc056388e5b6a78de1ee68f83e465039927a8e36ee7c196"
+    "fileHash": "sha256-0c45280eef8ed98ce41471ac3667a9df3610ef10fb84d817daa08a71a73965eb",
+    "hash": "0c45280eef8ed98ce41471ac3667a9df3610ef10fb84d817daa08a71a73965eb"
   },
   {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/ArdaSpor.cs3",
