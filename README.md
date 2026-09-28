@@ -47,6 +47,8 @@ Bir kanalı açtığınızda tüm aktif kaynaklar tek ekranda listelenir.
 
 Ayarlar bölümünden **kaynak kontrolü** yapabilir ve **web linklerini yenileyebilirsiniz**.
 
+**Kool TV** aynı depoda ayrı kurulabilir bir canlı kanal sağlayıcısı olarak listelenir; WioSpor birleşik kanal kataloğundan bağımsızdır.
+
 ---
 
 ## Telegram
