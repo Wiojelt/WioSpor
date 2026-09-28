@@ -665,5 +665,26 @@
     "status": 1,
     "fileSize": 14146,
     "fileHash": "sha256-80eca4d4a93213bce86a02a9cb8f97ffe8bee2b170923458b8f66578c9c57a37"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/KoolTV.cs3",
+    "status": 1,
+    "version": 1,
+    "name": "Kool TV",
+    "internalName": "KoolTV",
+    "authors": [
+      "Wiojelt"
+    ],
+    "description": "Kool TV · country/region selection, channel categories and playback-time stream resolution.",
+    "fileSize": 26410,
+    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
+    "language": "tr",
+    "tvTypes": [
+      "Live"
+    ],
+    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/KoolTV.png",
+    "apiVersion": 1,
+    "fileHash": "sha256-bf354d6dcbf40c47e473f8987ac62503ec63fbc71fb0dda686fa4dc38fc766f7",
+    "hash": "bf354d6dcbf40c47e473f8987ac62503ec63fbc71fb0dda686fa4dc38fc766f7"
   }
 ]
