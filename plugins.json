@@ -526,5 +526,21 @@
     "apiVersion": 1,
     "fileHash": "sha256-bf354d6dcbf40c47e473f8987ac62503ec63fbc71fb0dda686fa4dc38fc766f7",
     "hash": "bf354d6dcbf40c47e473f8987ac62503ec63fbc71fb0dda686fa4dc38fc766f7"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/IkiDirIkiSpor.cs3",
+    "status": 1,
+    "version": 11,
+    "name": "2dir2 Spor",
+    "internalName": "IkiDirIkiSpor",
+    "authors": ["Wiojelt"],
+    "description": "Numaralı canlı TV listeleri; spor, haber, film, çocuk ve diğer kanallar.",
+    "fileSize": 179913,
+    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
+    "language": "tr",
+    "tvTypes": ["Live"],
+    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/2dir2-spor.png",
+    "apiVersion": 1,
+    "fileHash": "sha256-5637762c0f0a7ebde096e4c229f88184cdbd112462981c4fb2c19b62045a2325"
   }
 ]
