@@ -123,6 +123,26 @@
     "fileHash": "sha256-9ca1a52fd96c9ac747b13b7da7be832b150623b43a34cef1cca72e4082fd0fad"
   },
   {
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/DaddyLive.cs3",
+    "status": 1,
+    "version": 5,
+    "name": "DaddyLive",
+    "internalName": "DaddyLive",
+    "authors": [
+      "Wiojelt"
+    ],
+    "description": "DaddyLive 7/24 spor kanalları, çoklu alan adı ve tokenlı oynatıcı desteği.",
+    "fileSize": 109464,
+    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
+    "language": "tr",
+    "tvTypes": [
+      "Live"
+    ],
+    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/DaddyLive.jpg",
+    "apiVersion": 1,
+    "fileHash": "sha256-e861100f8752b6837d2ca10405f8569183aedcdaa0faa80b8cc03275ec1c9daf"
+  },
+  {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/DomatesTV.cs3",
     "status": 3,
     "version": 4,
