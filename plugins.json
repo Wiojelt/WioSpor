@@ -682,7 +682,7 @@
     "tvTypes": [
       "Live"
     ],
-    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/KoolTV.png",
+    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/providers/KoolTV.png",
     "apiVersion": 1,
     "fileHash": "sha256-bf354d6dcbf40c47e473f8987ac62503ec63fbc71fb0dda686fa4dc38fc766f7",
     "hash": "bf354d6dcbf40c47e473f8987ac62503ec63fbc71fb0dda686fa4dc38fc766f7"
