@@ -1,6 +1,6 @@
 import org.gradle.api.tasks.Sync
 
-version = 24
+version = 26
 
 cloudstream {
     setRepo("Wiojelt/WioSpor")
@@ -34,23 +34,17 @@ val prepareBundleSources by tasks.registering(Sync::class) {
     dependsOn(syncCommonUi)
     into(generatedBundleSources)
     listOf(
-        "SelcukSports",
         "KralSporHD",
         "Taraftarium24",
-        "InatTV",
         "Crex",
         "MahsunSports",
         "ArdaSpor",
         "MacKeyfi",
         "ZbahisTV",
         "InterSporTV",
-        "BeyazElma",
         "InatBox",
-        "AslanTV",
         "Streamed",
         "DomatesTV",
-        "DominoTV",
-        "PapazSports",
         "JestYayin",
         "VionTV",
         "shared",

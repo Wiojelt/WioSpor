@@ -29,9 +29,6 @@ class SourceAggregator(private val context: Context) {
         // Hızlı sonuç için önce taranan sağlayıcılar. Bu liste etkin kaynak sayısını
         // sınırlamaz; TV Box kapalıyken kullanıcı tarafından kapatılmayan tüm kaynaklar taranır.
         val DEFAULT_ENABLED_SOURCES = setOf(
-            "beyazelma",
-            "domino",
-            "inat",
             "kralspor",
             "betmatiktv",
             "patron",
@@ -65,17 +62,9 @@ class SourceAggregator(private val context: Context) {
         )
     }
 
-    private val selcukResolver by lazy { turkspor.DomainResolver(prefs) }
-    private val selcukArtwork by lazy { turkspor.ChannelArtwork(context) }
-    private val selcukApi by lazy { turkspor.SelcukSports(selcukResolver, selcukArtwork) }
-
     private val taraftariumResolver by lazy { turkspor.taraftarium.DomainResolver(prefs) }
     private val taraftariumArtwork by lazy { turkspor.taraftarium.ChannelArtwork(context) }
     private val taraftariumApi by lazy { turkspor.taraftarium.Taraftarium24(taraftariumResolver, taraftariumArtwork) }
-
-    private val inatResolver by lazy { turkspor.inat.DomainResolver(prefs) }
-    private val inatArtwork by lazy { turkspor.inat.ChannelArtwork(context) }
-    private val inatApi by lazy { turkspor.inat.InatTV(inatResolver, inatArtwork) }
 
     private val ardaResolver by lazy { turkspor.arda.DomainResolver(prefs) }
     private val ardaArtwork by lazy { turkspor.arda.ChannelArtwork(context) }
@@ -135,12 +124,6 @@ class SourceAggregator(private val context: Context) {
     private val inatBoxApi by lazy { turkspor.inatbox.InatBox(inatBoxCatalogue, inatBoxArtwork) }
 
     private val domatesApi by lazy { turkspor.domates.DomatesTVProvider() }
-    private val dominoApi by lazy { turkspor.domino.DominoTVProvider() }
-
-    private val papazPrefs by lazy { context.getSharedPreferences("wiospor_papazsports", Context.MODE_PRIVATE) }
-    private val papazArtwork by lazy { turkspor.shared.ChannelArtwork(context, "papazsports") }
-    private val papazApi by lazy { turkspor.papazsports.PapazSportsProvider(papazPrefs, papazArtwork) }
-
     private val jestPrefs by lazy { context.getSharedPreferences("wiospor_jestyayin", Context.MODE_PRIVATE) }
     private val jestArtwork by lazy { turkspor.shared.ChannelArtwork(context, "jestyayin") }
     private val jestApi by lazy { turkspor.jestyayin.JestYayinProvider(jestPrefs, jestArtwork) }
@@ -198,60 +181,6 @@ class SourceAggregator(private val context: Context) {
         // ============================================================
         // 1..5. ÖNERİLEN 5 SAĞLAYICI (Varsayılan Açık & En Öncelikli)
         // ============================================================
-
-        // 1. BeyazElma
-        createSharedWorker("beyazelma", "BeyazElma")?.let { list.add(it) }
-
-        // 2. Domino TV
-        list.add(object : SourceWorker {
-            override val id: String = "domino"
-            override val displayName: String = "Domino TV"
-
-            override suspend fun checkOnline(): Boolean = runCatching {
-                dominoApi.getChannels().isNotEmpty()
-            }.getOrDefault(false)
-
-            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
-                var emitted = false
-                try {
-                    val channels = dominoApi.getChannels()
-                    val match = channels.firstOrNull { WioChannels.matches(channel, it.title, it.id.toString()) } ?: return false
-                    dominoApi.loadLinks(match.pageUrl(), false, {}) { link ->
-                        emitted = true
-                        callback(wrapLink("Domino", channel, link))
-                    }
-                } catch (e: CancellationException) {
-                    throw e
-                } catch (_: Exception) { }
-                return emitted
-            }
-        })
-
-        // 3. İnat TV
-        list.add(object : SourceWorker {
-            override val id: String = "inat"
-            override val displayName: String = "İnat TV"
-
-            override suspend fun checkOnline(): Boolean = runCatching {
-                inatResolver.resolve().channels.isNotEmpty()
-            }.getOrDefault(false)
-
-            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
-                val site = inatResolver.resolve()
-                val match = site.channels.firstOrNull { WioChannels.matches(channel, it.title, it.id) } ?: return false
-                val stableUrl = "${turkspor.inat.DomainResolver.GATEWAY}turkspor?id=${URLEncoder.encode(match.id, "UTF-8")}&title=${URLEncoder.encode(match.title, "UTF-8")}"
-                var emitted = false
-                try {
-                    inatApi.loadLinks(stableUrl, false, {}) { link ->
-                        emitted = true
-                        callback(wrapLink("İnat TV", channel, link))
-                    }
-                } catch (e: CancellationException) {
-                    throw e
-                } catch (_: Exception) { }
-                return emitted
-            }
-        })
 
         // 4. KralSporHD
         list.add(object : SourceWorker {
@@ -360,32 +289,6 @@ class SourceAggregator(private val context: Context) {
         // ============================================================
         // 8..17. DİĞER WEB SAĞLAYICILARI
         // ============================================================
-
-        // 6. SelçukSports
-        list.add(object : SourceWorker {
-            override val id: String = "selcuk"
-            override val displayName: String = "SelçukSports"
-
-            override suspend fun checkOnline(): Boolean = runCatching {
-                selcukResolver.resolve().channels.isNotEmpty()
-            }.getOrDefault(false)
-
-            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
-                val site = selcukResolver.resolve()
-                val match = site.channels.firstOrNull { WioChannels.matches(channel, it.title, it.id) } ?: return false
-                val stableUrl = "${turkspor.DomainResolver.GATEWAY}turkspor?id=${URLEncoder.encode(match.id, "UTF-8")}&title=${URLEncoder.encode(match.title, "UTF-8")}"
-                var emitted = false
-                try {
-                    selcukApi.loadLinks(stableUrl, false, {}) { link ->
-                        emitted = true
-                        callback(wrapLink("Selçuk", channel, link))
-                    }
-                } catch (e: CancellationException) {
-                    throw e
-                } catch (_: Exception) { }
-                return emitted
-            }
-        })
 
         // 7. Taraftarium24
         list.add(object : SourceWorker {
@@ -543,31 +446,6 @@ class SourceAggregator(private val context: Context) {
                     inatBoxApi.loadLinks(stableUrl, false, {}) { link ->
                         emitted = true
                         callback(wrapLink("İnat Box", channel, link))
-                    }
-                } catch (e: CancellationException) {
-                    throw e
-                } catch (_: Exception) { }
-                return emitted
-            }
-        })
-
-        // 16. PapazSports
-        list.add(object : SourceWorker {
-            override val id: String = "papazsports"
-            override val displayName: String = "PapazSports"
-
-            override suspend fun checkOnline(): Boolean = runCatching {
-                papazApi.search("").isNotEmpty()
-            }.getOrDefault(false)
-
-            override suspend fun fetchLinks(channel: WioChannel, callback: (ExtractorLink) -> Unit): Boolean {
-                var emitted = false
-                try {
-                    val rows = papazApi.search("")
-                    val match = rows.firstOrNull { WioChannels.matches(channel, it.name, it.url.substringAfterLast('#')) } ?: return false
-                    papazApi.loadLinks(match.url, false, {}) { link ->
-                        emitted = true
-                        callback(wrapLink("Papaz", channel, link))
                     }
                 } catch (e: CancellationException) {
                     throw e
@@ -867,7 +745,7 @@ class SourceAggregator(private val context: Context) {
                 } catch (_: Exception) { }
             }
 
-            // 1. Aşama: En öncelikli Tier 1 sağlayıcıları (DEFAULT_ENABLED_SOURCES: BeyazElma, Domino, İnat TV, KralSpor, Betmatik)
+            // 1. Aşama: varsayılan öncelik grubundaki etkin sağlayıcılar.
             val tier1 = activeWorkers.filter { it.id in DEFAULT_ENABLED_SOURCES }
             val tier2 = activeWorkers.filter { it.id !in DEFAULT_ENABLED_SOURCES }
 

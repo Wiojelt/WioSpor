@@ -189,7 +189,7 @@ object WioOnboarding {
         // --- OPTION 1: TV Box Modu (Önerilen) ---
         val cardTv = createOptionCard(
             titleText = "📺 TV Box Modu",
-            descText = "Sadece en hızlı 5 kaynak aktifleştirilir (BeyazElma, Domino, İnat TV, KralSpor, Betmatik). Aşırı bellek kullanımı ve çökme engellenir.",
+            descText = "Önerilen kaynaklar hızlı sonuç için önce denenir. İstediğiniz diğer sağlayıcıları ayarlardan ayrıca etkinleştirebilirsiniz.",
             badgeText = "ÖNERİLEN",
             badgeColor = successGreen
         ) {
