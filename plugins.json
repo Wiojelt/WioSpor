@@ -480,26 +480,6 @@
     "fileHash": "sha256-b0d904ad5b9ed0fe8a9692d2752b7bd98841ad8f333703342254cf27fcf0af78"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/TRGoals.cs3",
-    "status": 3,
-    "version": 2,
-    "name": "TRGoals",
-    "internalName": "TRGoals",
-    "authors": [
-      "Wiojelt"
-    ],
-    "description": "TRGoals dinamik spor kanalları ve alan güncelleme ekranı",
-    "fileSize": 173457,
-    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "language": "tr",
-    "tvTypes": [
-      "Live"
-    ],
-    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/TRGoals.png",
-    "apiVersion": 1,
-    "fileHash": "sha256-9f700876c9fac4845230538149fcd4c06be8a2fc3c1253fb91ff54f80b1b62d2"
-  },
-  {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/Taraftarium24.cs3",
     "status": 3,
     "version": 13,
@@ -518,6 +498,26 @@
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/Taraftarium24.png",
     "apiVersion": 1,
     "fileHash": "sha256-a00143104280e7bbc63d50170b55476cd7f3dea8597c2c8773c80b66c7c6035f"
+  },
+  {
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/TRGoals.cs3",
+    "status": 3,
+    "version": 2,
+    "name": "TRGoals",
+    "internalName": "TRGoals",
+    "authors": [
+      "Wiojelt"
+    ],
+    "description": "TRGoals dinamik spor kanalları ve alan güncelleme ekranı",
+    "fileSize": 173457,
+    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
+    "language": "tr",
+    "tvTypes": [
+      "Live"
+    ],
+    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/TRGoals.png",
+    "apiVersion": 1,
+    "fileHash": "sha256-9f700876c9fac4845230538149fcd4c06be8a2fc3c1253fb91ff54f80b1b62d2"
   },
   {
     "name": "VionTV",
