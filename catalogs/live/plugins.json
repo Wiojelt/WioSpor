@@ -22,21 +22,21 @@
   {
     "name": "1 v10 Spor",
     "internalName": "BirdirbirIPTV",
-    "version": 26,
+    "version": 27,
     "description": "v10 Spor / IPTV - 17 seçili canlı liste, beIN, S Sport, Tivibu, tabii, Exxen, ulusal ve dünya kanalları",
     "authors": [
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/50a7a653d2f9aa3bd61f661920fdc7b57c69aa8f/releases/v26/BirdirbirIPTV.cs3",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/8cf939fb575d63afbc7b71da66d8c24fdfa48bcf/releases/v27/BirdirbirIPTV.cs3",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/logo.png",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 196008,
-    "fileHash": "sha256-0bdcf355bc3569de1e2ea943aeae11f69a5ef909e2dbc63a74fb9303f62fe3bb",
+    "fileSize": 196184,
+    "fileHash": "sha256-42431b467254434b2b28397dc47828275699809a1ab144fab6e82fbf372547c9",
     "apiVersion": 1
   },
   {
