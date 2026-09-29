@@ -509,14 +509,14 @@
   {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/IkiDirIkiSpor.cs3",
     "status": 3,
-    "version": 14,
+    "version": 15,
     "name": "2dir2 Spor",
     "internalName": "IkiDirIkiSpor",
     "authors": [
       "Wiojelt"
     ],
     "description": "Numaralı canlı TV listeleri; spor, haber, film, çocuk ve diğer kanallar.",
-    "fileSize": 225291,
+    "fileSize": 225481,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -524,7 +524,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/2dir2-spor-gothic.png",
     "apiVersion": 1,
-    "fileHash": "sha256-ec4098c97ee8d5bcc3ca899e8e4042ab042e24e500fe491fc1a1e83335b949fe"
+    "fileHash": "sha256-846ffea8bccdf70d30f89a31e8a10ed9d4dc1fbec9aa5072bd0223cc19ca77ea"
   },
   {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/KoolLiveTV.cs3",
