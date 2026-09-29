@@ -2,7 +2,7 @@
   {
     "name": "0 WioSpor",
     "internalName": "WioSpor",
-    "version": 35,
+    "version": 36,
     "description": "Tüm canlı TV ve spor kanalları tek eklentide. Hızlı, akıcı ve alternatif yayın kaynakları.",
     "authors": [
       "Wiojelt"
@@ -15,8 +15,8 @@
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 6569692,
-    "fileHash": "sha256-eea31ad55bb55e3a61a98c15641126e9c0355adbac7a1d27f724d8c60096fb10",
+    "fileSize": 6269811,
+    "fileHash": "sha256-a29f66e4729284ac5945acecd6bc7321f4ef005d6d1d0143903834e5b043787d",
     "apiVersion": 1
   },
   {
@@ -42,14 +42,14 @@
   {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/refs/heads/builds/IkiDirIkiSpor.cs3",
     "status": 3,
-    "version": 19,
+    "version": 20,
     "name": "2 2dir2 Spor",
     "internalName": "IkiDirIkiSpor",
     "authors": [
       "Wiojelt"
     ],
     "description": "Numaralı canlı TV listeleri; spor, haber, film, çocuk ve diğer kanallar.",
-    "fileSize": 6293363,
+    "fileSize": 5995170,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -57,7 +57,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/2dir2-spor-gothic.png",
     "apiVersion": 1,
-    "fileHash": "sha256-99998144517f9b9c31aa12b818c5512404256c0acf3f94594668c2b4c3395231"
+    "fileHash": "sha256-9c17c17b03d03f49c208f4a43ac4f63262d5c43448b2f6cf77b59f5e4afde756"
   },
   {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/ArdaSpor.cs3",
