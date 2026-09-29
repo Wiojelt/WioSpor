@@ -22,7 +22,7 @@
   {
     "name": "1 v10 Spor",
     "internalName": "BirdirbirIPTV",
-    "version": 25,
+    "version": 26,
     "description": "v10 Spor / IPTV - 17 seçili canlı liste, beIN, S Sport, Tivibu, tabii, Exxen, ulusal ve dünya kanalları",
     "authors": [
       "Wiojelt"
@@ -35,8 +35,8 @@
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 196044,
-    "fileHash": "sha256-c279e119a7f0addadf13af6e2aeb157f5e35c6891d10789fe9c346353dc8acf5",
+    "fileSize": 196008,
+    "fileHash": "sha256-0bdcf355bc3569de1e2ea943aeae11f69a5ef909e2dbc63a74fb9303f62fe3bb",
     "apiVersion": 1
   },
   {
