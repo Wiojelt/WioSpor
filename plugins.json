@@ -2,62 +2,42 @@
   {
     "name": "0 WioSpor",
     "internalName": "WioSpor",
-    "version": 34,
+    "version": 37,
     "description": "Tüm canlı TV ve spor kanalları tek eklentide. Hızlı, akıcı ve alternatif yayın kaynakları.",
     "authors": [
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/refs/heads/builds/WioSpor.cs3",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 6569068,
-    "fileHash": "sha256-5355d57f63f6f72935cba58cb8f06395ad41f9dca3b26759bd8e7c4e58168d69",
+    "fileSize": 6204547,
+    "fileHash": "sha256-71eb80f1ebd5a223b4c792f23eb1ce50e4697a3a2ce8d9d33b084e92a36655e2",
     "apiVersion": 1
   },
   {
     "name": "1 v10 Spor",
     "internalName": "BirdirbirIPTV",
-    "version": 24,
-    "description": "v10 Spor / IPTV - Türk Spor (beIN, S Sport, Tivibu), Ulusal, Haber ve Dünya Spor Kanalları",
+    "version": 25,
+    "description": "v10 Spor / IPTV - 17 seçili canlı liste, beIN, S Sport, Tivibu, tabii, Exxen, ulusal ve dünya kanalları",
     "authors": [
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/BirdirbirIPTV.cs3",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/refs/heads/builds/BirdirbirIPTV.cs3",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/logo.png",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 162708,
-    "fileHash": "sha256-522c459002a580330f5cf9ffdd1173188fe94d126ef1b0a74d4ee6907bf9381f",
+    "fileSize": 196044,
+    "fileHash": "sha256-c279e119a7f0addadf13af6e2aeb157f5e35c6891d10789fe9c346353dc8acf5",
     "apiVersion": 1
-  },
-  {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/IkiDirIkiSpor.cs3",
-    "status": 3,
-    "version": 18,
-    "name": "2 2dir2 Spor",
-    "internalName": "IkiDirIkiSpor",
-    "authors": [
-      "Wiojelt"
-    ],
-    "description": "Numaralı canlı TV listeleri; spor, haber, film, çocuk ve diğer kanallar.",
-    "fileSize": 6292975,
-    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "language": "tr",
-    "tvTypes": [
-      "Live"
-    ],
-    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/2dir2-spor-gothic.png",
-    "apiVersion": 1,
-    "fileHash": "sha256-dbd79386c402be7b8f63e63e81e930a0dc18d29cde9dae0d662c74e481beb24a"
   },
   {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/ArdaSpor.cs3",
