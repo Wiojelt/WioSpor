@@ -2,21 +2,21 @@
   {
     "name": "0 WioSpor",
     "internalName": "WioSpor",
-    "version": 37,
+    "version": 38,
     "description": "Tüm canlı TV ve spor kanalları tek eklentide. Hızlı, akıcı ve alternatif yayın kaynakları.",
     "authors": [
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/50a7a653d2f9aa3bd61f661920fdc7b57c69aa8f/releases/v37/WioSpor.cs3",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/da50820d99f7d23a04a0f21c7d1d5b27f2a11eb9/releases/v38/WioSpor.cs3",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 6204547,
-    "fileHash": "sha256-71eb80f1ebd5a223b4c792f23eb1ce50e4697a3a2ce8d9d33b084e92a36655e2",
+    "fileSize": 6208175,
+    "fileHash": "sha256-468504340cd7b320cc980e6ce81347da19eea5bccd938eecaf90d3221afb71ec",
     "apiVersion": 1
   },
   {
