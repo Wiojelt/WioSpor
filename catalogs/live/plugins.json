@@ -2,41 +2,41 @@
   {
     "name": "0 WioSpor",
     "internalName": "WioSpor",
-    "version": 38,
+    "version": 39,
     "description": "Tüm canlı TV ve spor kanalları tek eklentide. Hızlı, akıcı ve alternatif yayın kaynakları.",
     "authors": [
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/da50820d99f7d23a04a0f21c7d1d5b27f2a11eb9/releases/v38/WioSpor.cs3",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/ecbb2d8b98168de1927bb1538a3f4f5767252104/releases/v39/WioSpor.cs3",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 6208175,
-    "fileHash": "sha256-468504340cd7b320cc980e6ce81347da19eea5bccd938eecaf90d3221afb71ec",
+    "fileSize": 607677,
+    "fileHash": "sha256-948d383f12517e4badf73ff31858702b9f97440ddafb7f0bcaa76cc9f4db3ae8",
     "apiVersion": 1
   },
   {
     "name": "1 v10 Spor",
     "internalName": "BirdirbirIPTV",
-    "version": 27,
+    "version": 28,
     "description": "v10 Spor / IPTV - 17 seçili canlı liste, beIN, S Sport, Tivibu, tabii, Exxen, ulusal ve dünya kanalları",
     "authors": [
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/8cf939fb575d63afbc7b71da66d8c24fdfa48bcf/releases/v27/BirdirbirIPTV.cs3",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/ecbb2d8b98168de1927bb1538a3f4f5767252104/releases/v28/BirdirbirIPTV.cs3",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/logo.png",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 196184,
-    "fileHash": "sha256-42431b467254434b2b28397dc47828275699809a1ab144fab6e82fbf372547c9",
+    "fileSize": 196323,
+    "fileHash": "sha256-f1abc0473f2009a63531af99b7af317f22af37c136576b8b31733396d2bab1e3",
     "apiVersion": 1
   },
   {
