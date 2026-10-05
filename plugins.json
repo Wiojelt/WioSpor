@@ -8,7 +8,7 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/WioSpor.cs3",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "tvTypes": [
       "Live"
@@ -28,7 +28,7 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/ecbb2d8b98168de1927bb1538a3f4f5767252104/releases/v28/BirdirbirIPTV.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BirdirbirIPTV.cs3",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/logo.png",
     "tvTypes": [
       "Live"
@@ -40,7 +40,7 @@
     "apiVersion": 1
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/ArdaSpor.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/ArdaSpor.cs3",
     "status": 3,
     "version": 11,
     "name": "ArdaSpor",
@@ -68,7 +68,7 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/BasketballReplays.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BasketballReplays.cs3",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/BasketballReplays.png",
     "tvTypes": [
       "Movie",
@@ -89,7 +89,7 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/BasketballVideo.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BasketballVideo.cs3",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/BasketballVideo.png",
     "tvTypes": [
       "Movie",
@@ -102,7 +102,7 @@
     "apiVersion": 1
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/BetmatikTV.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BetmatikTV.cs3",
     "status": 3,
     "version": 3,
     "name": "BetmatikTV",
@@ -122,7 +122,7 @@
     "fileHash": "sha256-8c5580199a6ee48bfa60c484675351c1369550353b66db57df2e3d520a63e3e6"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/BeyazElma.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BeyazElma.cs3",
     "status": 3,
     "version": 10,
     "name": "BeyazElma",
@@ -142,7 +142,7 @@
     "fileHash": "sha256-3ac11800f50ed2bf6180cee2d36f7bdd4446eb330dc231173c39265ce36a7636"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/DomatesTV.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/DomatesTV.cs3",
     "status": 3,
     "version": 4,
     "name": "DomatesTV",
@@ -162,7 +162,7 @@
     "fileHash": "sha256-13b4c159bdecfef9ed1fa72b7f1c2375a72ec330543a9e37654fcc89ebfd8501"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/DominoTV.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/DominoTV.cs3",
     "status": 1,
     "version": 4,
     "name": "DominoTV",
@@ -182,7 +182,7 @@
     "fileHash": "sha256-0c0edad2ebb03bfd4b29eaf31209d634b214a6b9484c1e4c63bb29e5c3081f57"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/GolgeTV.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/GolgeTV.cs3",
     "status": 1,
     "version": 3,
     "name": "GolgeTV",
@@ -202,7 +202,7 @@
     "fileHash": "sha256-621bc0a3e1606b751f4f4faaa76eefdb58ec987a7ccc17a4bf7dcb22eec778af"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/InatBox.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/InatBox.cs3",
     "status": 3,
     "version": 1,
     "name": "InatBox",
@@ -224,7 +224,7 @@
     "fileHash": "sha256-cb6f6e232977ea568610e128213dd45136c9f845a6ee7b175ddfb0d844a952e9"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/InatTV.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/InatTV.cs3",
     "status": 3,
     "version": 11,
     "name": "InatTV",
@@ -244,7 +244,7 @@
     "fileHash": "sha256-1b1a0886e5bf2d150e145ff8d02e820da4cdbbd3069c7a2a6b83c53b294da2fc"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/JestYayin.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/JestYayin.cs3",
     "status": 3,
     "version": 3,
     "name": "JestYayin",
@@ -267,7 +267,7 @@
     "internalName": "KoolTV",
     "name": "Kool TV",
     "version": 1,
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/KoolTV.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/KoolTV.cs3",
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "fileHash": "sha256-bf354d6dcbf40c47e473f8987ac62503ec63fbc71fb0dda686fa4dc38fc766f7",
     "fileSize": 26410,
@@ -282,7 +282,7 @@
     ]
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/KralSporHD.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/KralSporHD.cs3",
     "status": 3,
     "version": 4,
     "name": "KralSporHD",
@@ -302,7 +302,7 @@
     "fileHash": "sha256-8dd3da8c1e4874217973349dd787c985e6993c060a90463631895d86f85bd64f"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/MahsunSports.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/MahsunSports.cs3",
     "status": 3,
     "version": 9,
     "name": "MahsunSports",
@@ -322,7 +322,7 @@
     "fileHash": "sha256-064712994686842a39ae1de96459a7b08ab803fb007674a86f3d0a0a7c8d4c99"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/NetVGold.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/NetVGold.cs3",
     "status": 3,
     "version": 3,
     "name": "NetVGold",
@@ -342,7 +342,7 @@
     "fileHash": "sha256-27f39deadaf5a2295341f68a97f3f47ad8c01e48a3053cb16bf058cc50ce5a12"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/PapazSports.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/PapazSports.cs3",
     "status": 3,
     "version": 2,
     "name": "PapazSports",
@@ -370,7 +370,7 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/PatronHD.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/PatronHD.cs3",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/PatronHD.png",
     "tvTypes": [
       "Live"
@@ -385,7 +385,7 @@
     "internalName": "RecTV",
     "name": "RecTV",
     "version": 2,
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/RecTV.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/RecTV.cs3",
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "fileHash": "sha256-e9ade99a930a05b576325a2d6b4843712baf2e9c44237c132a2ff8785a18f2c5",
     "fileSize": 105630,
@@ -400,7 +400,7 @@
     ]
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/SelcukSports.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/SelcukSports.cs3",
     "status": 3,
     "version": 12,
     "name": "SelcukSports",
@@ -420,7 +420,7 @@
     "fileHash": "sha256-03e45df1c0eeea17ab91313acb71672af000231d7b94a486d1f37caee3d111d5"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/Streamed.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/Streamed.cs3",
     "status": 3,
     "version": 3,
     "name": "Streamed",
@@ -440,7 +440,7 @@
     "fileHash": "sha256-b0d904ad5b9ed0fe8a9692d2752b7bd98841ad8f333703342254cf27fcf0af78"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/Taraftarium24.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/Taraftarium24.cs3",
     "status": 3,
     "version": 13,
     "name": "Taraftarium24",
@@ -460,7 +460,7 @@
     "fileHash": "sha256-a00143104280e7bbc63d50170b55476cd7f3dea8597c2c8773c80b66c7c6035f"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/TRGoals.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/TRGoals.cs3",
     "status": 3,
     "version": 2,
     "name": "TRGoals",
@@ -484,7 +484,7 @@
     "internalName": "VionTV",
     "pluginClassName": "dev.wiojelt.viontv.VionTVPlugin",
     "version": 1,
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/VionTV.cs3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/test/main/logos/viontv.png",
     "authors": [
       "Wiojelt"
