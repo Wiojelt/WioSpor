@@ -8,15 +8,15 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/WioSpor.cs3?v=d803217cc5f0",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/WioSpor.cs3?v=dc6a8a1bc25d",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 559692,
-    "fileHash": "sha256-b807f650402c5817f8151b440d9d18b8b3e93e5e8474b6f8a78db279047a76a9",
+    "fileSize": 560842,
+    "fileHash": "sha256-dc6a8a1bc25d62fff359056cc50adef890e89ea29e87c7df5c9b0c6b9762148e",
     "apiVersion": 1
   },
   {
@@ -28,19 +28,19 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BirdirbirIPTV.cs3?v=f1abc0473f20",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BirdirbirIPTV.cs3?v=47301fc094a6",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/logo.png",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 196323,
-    "fileHash": "sha256-f1abc0473f2009a63531af99b7af317f22af37c136576b8b31733396d2bab1e3",
+    "fileSize": 197921,
+    "fileHash": "sha256-47301fc094a6fed4d37b38f38e680f09d0d043d7de90bfca1f9acba6f4767dae",
     "apiVersion": 1
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/ArdaSpor.cs3?v=d4a7204d4a3f",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/ArdaSpor.cs3?v=41e65871eb78",
     "status": 3,
     "version": 11,
     "name": "ArdaSpor",
@@ -49,7 +49,7 @@
       "Wiojelt"
     ],
     "description": "ğŸŸ¢ Kaynak: ArdaSpor Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 137339,
+    "fileSize": 138844,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -57,7 +57,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/ArdaSpor.png",
     "apiVersion": 1,
-    "fileHash": "sha256-d4a7204d4a3ffe75fe3384dd39f07941809a70e494267f9bcc6f45d365f7b666"
+    "fileHash": "sha256-41e65871eb78e11f89c65f287fa74522375f86c7498fe10b8140ab2d0052fd42"
   },
   {
     "name": "BasketballReplays",
