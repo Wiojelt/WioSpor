@@ -102,7 +102,7 @@
     "apiVersion": 1
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BetmatikTV.cs3?v=8c5580199a6e",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BetmatikTV.cs3?v=d460e9d5bdf6",
     "status": 3,
     "version": 3,
     "name": "BetmatikTV",
@@ -111,7 +111,7 @@
       "Wiojelt"
     ],
     "description": "Betmatik TV canlÄ± spor kanallarÄ± Â· otomatik alan gÃ¼ncelleme",
-    "fileSize": 167714,
+    "fileSize": 161214,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -119,7 +119,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/BetmatikTV.png",
     "apiVersion": 1,
-    "fileHash": "sha256-8c5580199a6ee48bfa60c484675351c1369550353b66db57df2e3d520a63e3e6"
+    "fileHash": "sha256-d460e9d5bdf67a38c48d1342c1003ea86791a082839a70fadb0f10d17c94d7e8"
   },
   {
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BeyazElma.cs3?v=3ac11800f50e",
@@ -202,7 +202,7 @@
     "fileHash": "sha256-621bc0a3e1606b751f4f4faaa76eefdb58ec987a7ccc17a4bf7dcb22eec778af"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/InatBox.cs3?v=cb6f6e232977",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/InatBox.cs3?v=c2dbd18bc030",
     "status": 3,
     "version": 1,
     "name": "InatBox",
@@ -211,7 +211,7 @@
       "Dr.Octagon"
     ],
     "description": "ğŸŸ¢ Kaynak: Ä°nat Box Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 62062,
+    "fileSize": 224233,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -221,10 +221,10 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/InatBox.webp",
     "apiVersion": 1,
-    "fileHash": "sha256-cb6f6e232977ea568610e128213dd45136c9f845a6ee7b175ddfb0d844a952e9"
+    "fileHash": "sha256-c2dbd18bc0304ea78fb2769479631604693ea9ac2ae4645d829550529abc833e"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/InatTV.cs3?v=1b1a0886e5bf",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/InatTV.cs3?v=5d546abd8ad9",
     "status": 3,
     "version": 11,
     "name": "InatTV",
@@ -233,7 +233,7 @@
       "Wiojelt"
     ],
     "description": "ğŸŸ¢ Kaynak: Ä°nat TV Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 134796,
+    "fileSize": 134854,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -241,7 +241,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/InatTV.png",
     "apiVersion": 1,
-    "fileHash": "sha256-1b1a0886e5bf2d150e145ff8d02e820da4cdbbd3069c7a2a6b83c53b294da2fc"
+    "fileHash": "sha256-5d546abd8ad98e8bdd841e1023de7157ea88c0ebb7979c10148409000956269b"
   },
   {
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/JestYayin.cs3?v=068d4a4b9686",
@@ -377,8 +377,8 @@
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 167582,
-    "fileHash": "sha256-755c22a23f1940572408404d07f758dae447be9b9bc48ae03b8f2875cbe0f81e",
+    "fileSize": 103070,
+    "fileHash": "sha256-cdb93f866389d85463c34bcfcf7e6a5e7a195efcb4596de638dc46b811f34bd6",
     "apiVersion": 1
   },
   {
@@ -484,7 +484,7 @@
     "internalName": "VionTV",
     "pluginClassName": "dev.wiojelt.viontv.VionTVPlugin",
     "version": 1,
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3?v=80eca4d4a932",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3?v=6ec711b9e170",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/test/main/logos/viontv.png",
     "authors": [
       "Wiojelt"
@@ -496,8 +496,8 @@
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 14146,
-    "fileHash": "sha256-80eca4d4a93213bce86a02a9cb8f97ffe8bee2b170923458b8f66578c9c57a37",
+    "fileSize": 115738,
+    "fileHash": "sha256-6ec711b9e17087397eb5202451ff6f371f8dac8379f9953a2589ec257d031b3d",
     "apiVersion": 1
   }
 ]

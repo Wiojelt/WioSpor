@@ -1,0 +1,63 @@
+name: Catalog Sync
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalog-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run Manifest Sync
+        run: python .github/scripts/sync_catalog.py
+
+      - name: Commit and Push (main)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add plugins.json catalogs/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(catalog): sync package metadata [skip ci]"
+            git push origin main
+          fi
+
+      - name: Sync and Push (builds)
+        run: |
+          if git ls-remote --exit-code --heads origin builds >/dev/null 2>&1; then
+            mkdir -p /tmp/synced
+            cp plugins.json /tmp/synced/plugins.json
+            if [ -d catalogs ]; then
+              cp -r catalogs /tmp/synced/
+            fi
+
+            git checkout builds
+            cp /tmp/synced/plugins.json plugins.json
+            if [ -d /tmp/synced/catalogs ]; then
+              mkdir -p catalogs
+              cp -r /tmp/synced/catalogs/* catalogs/ 2>/dev/null || true
+            fi
+
+            git add plugins.json catalogs/
+            if ! git diff --cached --quiet; then
+              git commit -m "chore(catalog): sync package metadata [skip ci]"
+              git push origin builds
+            fi
+          fi
