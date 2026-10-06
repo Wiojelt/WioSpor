@@ -162,16 +162,16 @@
     "fileHash": "sha256-13b4c159bdecfef9ed1fa72b7f1c2375a72ec330543a9e37654fcc89ebfd8501"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/DominoTV.cs3?v=e5e8513648da",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/DominoTV.cs3?v=a0c9ecc784cb",
     "status": 3,
-    "version": 8,
+    "version": 9,
     "name": "DominoTV",
     "internalName": "DominoTV",
     "authors": [
       "Wiojelt"
     ],
     "description": "Domino TV dinamik kanal listesi",
-    "fileSize": 140712,
+    "fileSize": 138675,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -179,7 +179,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/DominoTV.png",
     "apiVersion": 1,
-    "fileHash": "sha256-e5e8513648da1f45f17e935e2b5e33ead59cdf59b8b3734591a74aee2c410f9f"
+    "fileHash": "sha256-a0c9ecc784cbe9d2ec2e61c5afef80c78d25292d183f0e46fd30bdd02c81dc06"
   },
   {
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/GolgeTV.cs3?v=621bc0a3e160",
