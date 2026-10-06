@@ -43,19 +43,9 @@ https://raw.githubusercontent.com/Wiojelt/WioSpor/main/repo.json
 | ⭐ Yıldız Spor |  1 2 |
 | 📺 Ulusal | ... |
 
-Bir kanalı açtığınızda tüm aktif kaynaklar tek ekranda listelenir. 
-
-Ayarlar bölümünden **kaynak kontrolü** yapabilir ve **web linklerini yenileyebilirsiniz**.
-
-**Kool TV** aynı depoda ayrı kurulabilir bir canlı kanal sağlayıcısı olarak listelenir; WioSpor birleşik kanal kataloğundan bağımsızdır.
-
-**2dir2 Spor** da ayrı bir kanal kataloğu olarak kurulabilir. DÜNYA ve önceki listeleri tekrarları ayıklanmış biçimde 1–79 diye numaralar; WioSpor içinde tek alternatif kaynak olarak yer alır. Eski AslanTV etkin değildir.
-
 ---
 
 ## Telegram
-
-Güncel linkler, eklenti haberleri ve istekler için Telegram kanalına katıl:
 
 👉 **[t.me/wiolandcs3](https://t.me/wiolandcs3)**
 
