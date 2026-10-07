@@ -2,21 +2,21 @@
   {
     "name": "0 WioSpor",
     "internalName": "WioSpor",
-    "version": 41,
+    "version": 43,
     "description": "TÃ¼m canlÄ± TV ve spor kanallarÄ± tek eklentide. HÄ±zlÄ±, akÄ±cÄ± ve alternatif yayÄ±n kaynaklarÄ±.",
     "authors": [
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/WioSpor.cs3?v=dc6a8a1bc25d",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/WioSpor.cs3?v=be2522362c8c",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 560842,
-    "fileHash": "sha256-dc6a8a1bc25d62fff359056cc50adef890e89ea29e87c7df5c9b0c6b9762148e",
+    "fileSize": 621584,
+    "fileHash": "sha256-be2522362c8c820162faa873d34ad28a504d48847382674680c8592280c8fc96",
     "apiVersion": 1
   },
   {
