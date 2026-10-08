@@ -8,15 +8,15 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/WioSpor.cs3?v=be2522362c8c",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/WioSpor.cs3?v=c502a7f89516",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 621584,
-    "fileHash": "sha256-be2522362c8c820162faa873d34ad28a504d48847382674680c8592280c8fc96",
+    "fileSize": 624931,
+    "fileHash": "sha256-c502a7f89516b002202a751e3696f7da655063cbd4a433dcf970e959a9e329c8",
     "apiVersion": 1
   },
   {
@@ -122,7 +122,7 @@
     "fileHash": "sha256-d460e9d5bdf67a38c48d1342c1003ea86791a082839a70fadb0f10d17c94d7e8"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BeyazElma.cs3?v=3fd53b40c281",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BeyazElma.cs3?v=eeb5407ec06e",
     "status": 3,
     "version": 10,
     "name": "BeyazElma",
@@ -131,7 +131,7 @@
       "Wiojelt"
     ],
     "description": "ğŸŸ¢ Kaynak: BeyazElma Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 209582,
+    "fileSize": 211483,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -139,10 +139,10 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/BeyazElma.png",
     "apiVersion": 1,
-    "fileHash": "sha256-3fd53b40c28192503aa86ba4f518cc3ee43e10346c949ab8533a16673dcfd390"
+    "fileHash": "sha256-eeb5407ec06ee18f92744bf28bb53978669304da70e8a5af1120b25119f27db3"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/DomatesTV.cs3?v=7e7339fe3793",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/DomatesTV.cs3?v=412a3adf5a0f",
     "status": 3,
     "version": 4,
     "name": "DomatesTV",
@@ -151,7 +151,7 @@
       "Wiojelt"
     ],
     "description": "Domates TV dinamik spor kanallarÄ±",
-    "fileSize": 169219,
+    "fileSize": 169751,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -159,7 +159,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/DomatesTV.webp",
     "apiVersion": 1,
-    "fileHash": "sha256-7e7339fe3793c7ff99b9533f31a78c4e95f72cb3ae7a7f6068f44ac466f185c3"
+    "fileHash": "sha256-412a3adf5a0fd677cfe4a0a0140202fa0a5d11a37f061ebf09b4d897552d0e5e"
   },
   {
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/DominoTV.cs3?v=070994bf6a75",
