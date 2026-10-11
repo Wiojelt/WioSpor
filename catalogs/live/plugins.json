@@ -122,16 +122,16 @@
     "fileHash": "sha256-afd8df70fb1736edde35d3cfeb42e0cb70ee79f7e31aee23b61f2bd2f9f14dc9"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BeyazElma.cs3?v=62dca57f7e76",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/BeyazElma.cs3",
     "status": 3,
-    "version": 10,
+    "version": 12,
     "name": "BeyazElma",
     "internalName": "BeyazElma",
     "authors": [
       "Wiojelt"
     ],
     "description": "ğŸŸ¢ Kaynak: BeyazElma Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 212868,
+    "fileSize": 219121,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -139,7 +139,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/BeyazElma.png",
     "apiVersion": 1,
-    "fileHash": "sha256-62dca57f7e762fc7302e7c041a8864bcba41424b30483c9543af0c6f1b7b8d73"
+    "fileHash": "sha256-4948e352375d04fad0510847b0127aa8226176e7ac1aaf048ae7ff7d058adcd6"
   },
   {
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/DomatesTV.cs3?v=a458f3331ff4",
