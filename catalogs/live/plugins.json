@@ -83,13 +83,13 @@
   {
     "name": "BasketballVideo",
     "internalName": "BasketballVideo",
-    "version": 2,
+    "version": 3,
     "description": "BasketballVideo Â· Game replays & highlights (AfiÅŸ destekli)",
     "authors": [
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BasketballVideo.cs3?v=9bfa70b0478d",
+    "url": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/builds/BasketballVideo.cs3",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/BasketballVideo.png",
     "tvTypes": [
       "Movie",
@@ -97,8 +97,8 @@
     ],
     "language": "en",
     "status": 3,
-    "fileSize": 163972,
-    "fileHash": "sha256-9bfa70b0478dafc23c675624761983f49860dc862f6966d7943d1d6d93681b41",
+    "fileSize": 170982,
+    "fileHash": "sha256-1114aa4a1ffda6b58c2dda5bbf7db27b6b12d1bec86d6de0881930d8e413d2d6",
     "apiVersion": 1
   },
   {
