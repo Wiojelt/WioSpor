@@ -28,19 +28,19 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BirdirbirIPTV.cs3?v=47301fc094a6",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BirdirbirIPTV.cs3?v=a57408a2254d",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/logo.png",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 197921,
-    "fileHash": "sha256-47301fc094a6fed4d37b38f38e680f09d0d043d7de90bfca1f9acba6f4767dae",
+    "fileSize": 238394,
+    "fileHash": "sha256-a57408a2254d21cabdfa52c8c08b051d7b2745e1cc54397a3f936741addf1a58",
     "apiVersion": 1
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/ArdaSpor.cs3?v=41e65871eb78",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/ArdaSpor.cs3?v=7f054e307193",
     "status": 3,
     "version": 11,
     "name": "ArdaSpor",
@@ -49,7 +49,7 @@
       "Wiojelt"
     ],
     "description": "ğŸŸ¢ Kaynak: ArdaSpor Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 138844,
+    "fileSize": 177999,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -57,7 +57,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/ArdaSpor.png",
     "apiVersion": 1,
-    "fileHash": "sha256-41e65871eb78e11f89c65f287fa74522375f86c7498fe10b8140ab2d0052fd42"
+    "fileHash": "sha256-7f054e307193ea88476a445334ce55815c84a989be0ca96e3a2efda3e52f6a62"
   },
   {
     "name": "BasketballReplays",
@@ -68,7 +68,7 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BasketballReplays.cs3?v=0d698aad07ee",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BasketballReplays.cs3?v=1b5f36ffb8c3",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/BasketballReplays.png",
     "tvTypes": [
       "Movie",
@@ -76,8 +76,8 @@
     ],
     "language": "en",
     "status": 3,
-    "fileSize": 118640,
-    "fileHash": "sha256-0d698aad07eef2db7757b12fe5bcbb31da0b446a494fc63b421344e5f280d1e3",
+    "fileSize": 160702,
+    "fileHash": "sha256-1b5f36ffb8c33a2e93317533287bc3fa02f0e5c577351f2c128a6efaae7d719b",
     "apiVersion": 1
   },
   {
@@ -89,7 +89,7 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BasketballVideo.cs3?v=c8eaa24d85a2",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BasketballVideo.cs3?v=9bfa70b0478d",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/BasketballVideo.png",
     "tvTypes": [
       "Movie",
@@ -97,12 +97,12 @@
     ],
     "language": "en",
     "status": 3,
-    "fileSize": 121480,
-    "fileHash": "sha256-c8eaa24d85a22648516ef75ed74301949bd9951c8e11365b00a42d07cc0b7847",
+    "fileSize": 163972,
+    "fileHash": "sha256-9bfa70b0478dafc23c675624761983f49860dc862f6966d7943d1d6d93681b41",
     "apiVersion": 1
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BetmatikTV.cs3?v=d460e9d5bdf6",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BetmatikTV.cs3?v=afd8df70fb17",
     "status": 3,
     "version": 3,
     "name": "BetmatikTV",
@@ -111,7 +111,7 @@
       "Wiojelt"
     ],
     "description": "Betmatik TV canlÄ± spor kanallarÄ± Â· otomatik alan gÃ¼ncelleme",
-    "fileSize": 161214,
+    "fileSize": 212879,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -119,10 +119,10 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/BetmatikTV.png",
     "apiVersion": 1,
-    "fileHash": "sha256-d460e9d5bdf67a38c48d1342c1003ea86791a082839a70fadb0f10d17c94d7e8"
+    "fileHash": "sha256-afd8df70fb1736edde35d3cfeb42e0cb70ee79f7e31aee23b61f2bd2f9f14dc9"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BeyazElma.cs3?v=eeb5407ec06e",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BeyazElma.cs3?v=62dca57f7e76",
     "status": 3,
     "version": 10,
     "name": "BeyazElma",
@@ -131,7 +131,7 @@
       "Wiojelt"
     ],
     "description": "ğŸŸ¢ Kaynak: BeyazElma Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 211483,
+    "fileSize": 212868,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -139,10 +139,10 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/BeyazElma.png",
     "apiVersion": 1,
-    "fileHash": "sha256-eeb5407ec06ee18f92744bf28bb53978669304da70e8a5af1120b25119f27db3"
+    "fileHash": "sha256-62dca57f7e762fc7302e7c041a8864bcba41424b30483c9543af0c6f1b7b8d73"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/DomatesTV.cs3?v=412a3adf5a0f",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/DomatesTV.cs3?v=a458f3331ff4",
     "status": 3,
     "version": 4,
     "name": "DomatesTV",
@@ -151,7 +151,7 @@
       "Wiojelt"
     ],
     "description": "Domates TV dinamik spor kanallarÄ±",
-    "fileSize": 169751,
+    "fileSize": 171289,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -159,10 +159,10 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/DomatesTV.webp",
     "apiVersion": 1,
-    "fileHash": "sha256-412a3adf5a0fd677cfe4a0a0140202fa0a5d11a37f061ebf09b4d897552d0e5e"
+    "fileHash": "sha256-a458f3331ff41fd1191a3ba07a5aaeabde10dc4b6aff953a8687abc2e1a0622c"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/DominoTV.cs3?v=070994bf6a75",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/DominoTV.cs3?v=ad56cb1bb56d",
     "status": 3,
     "version": 9,
     "name": "DominoTV",
@@ -171,7 +171,7 @@
       "Wiojelt"
     ],
     "description": "Domino TV dinamik kanal listesi",
-    "fileSize": 176253,
+    "fileSize": 178546,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -179,10 +179,10 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/DominoTV.png",
     "apiVersion": 1,
-    "fileHash": "sha256-070994bf6a7556e6ae04aa4b0471d0e6925495e4f6c04a316f2bca45f4e91572"
+    "fileHash": "sha256-ad56cb1bb56d178c32780fdaef5d7cfdb39c4244a281fd1ac68ad984cec129fd"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/GolgeTV.cs3?v=621bc0a3e160",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/GolgeTV.cs3?v=c848b45fe979",
     "status": 1,
     "version": 3,
     "name": "GolgeTV",
@@ -191,7 +191,7 @@
       "Wiojelt"
     ],
     "description": "GÃ¶lgeTV spor kanallarÄ± ve alternatif yayÄ±nlar",
-    "fileSize": 179056,
+    "fileSize": 230173,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -199,10 +199,10 @@
     ],
     "iconUrl": "https://golgetv.com/favicon.ico",
     "apiVersion": 1,
-    "fileHash": "sha256-621bc0a3e1606b751f4f4faaa76eefdb58ec987a7ccc17a4bf7dcb22eec778af"
+    "fileHash": "sha256-c848b45fe979c32db72d6d4d5ca5ac06b92b56abd10f9b16821b3f96626d667e"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/InatBox.cs3?v=c2dbd18bc030",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/InatBox.cs3?v=87456896cc92",
     "status": 3,
     "version": 1,
     "name": "InatBox",
@@ -211,7 +211,7 @@
       "Dr.Octagon"
     ],
     "description": "ğŸŸ¢ Kaynak: Ä°nat Box Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 224233,
+    "fileSize": 275537,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -221,10 +221,10 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/InatBox.webp",
     "apiVersion": 1,
-    "fileHash": "sha256-c2dbd18bc0304ea78fb2769479631604693ea9ac2ae4645d829550529abc833e"
+    "fileHash": "sha256-87456896cc923649909e847d3c841c7c280d1ec21aef494dbb14e5c69eb1dbcc"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/InatTV.cs3?v=5d546abd8ad9",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/InatTV.cs3?v=cd582bd79ba0",
     "status": 3,
     "version": 11,
     "name": "InatTV",
@@ -233,7 +233,7 @@
       "Wiojelt"
     ],
     "description": "ğŸŸ¢ Kaynak: Ä°nat TV Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 134854,
+    "fileSize": 175518,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -241,10 +241,10 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/InatTV.png",
     "apiVersion": 1,
-    "fileHash": "sha256-5d546abd8ad98e8bdd841e1023de7157ea88c0ebb7979c10148409000956269b"
+    "fileHash": "sha256-cd582bd79ba0d1bf10aa7a32381d30b4e7ecce6d1cb7bd3743ccf7e6318d7e49"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/JestYayin.cs3?v=068d4a4b9686",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/JestYayin.cs3?v=dc5f1387cf77",
     "status": 3,
     "version": 3,
     "name": "JestYayin",
@@ -253,7 +253,7 @@
       "Wiojelt"
     ],
     "description": "JestYayin canlÄ± maÃ§lar ve spor kanallarÄ±",
-    "fileSize": 177677,
+    "fileSize": 228930,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -261,7 +261,7 @@
     ],
     "iconUrl": "https://www.jestyayin970.com/logo.png",
     "apiVersion": 1,
-    "fileHash": "sha256-068d4a4b9686410b26512a2dd9e89da15d80897d1e5ebf4222a83a5016cccf5c"
+    "fileHash": "sha256-dc5f1387cf77efbeb2d62232dc174b6c20b80f066a43fee30f818ca948d5c835"
   },
   {
     "internalName": "KoolTV",
@@ -282,7 +282,7 @@
     ]
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/KralSporHD.cs3?v=8dd3da8c1e48",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/KralSporHD.cs3?v=3fec4c8df543",
     "status": 3,
     "version": 4,
     "name": "KralSporHD",
@@ -291,7 +291,7 @@
       "Wiojelt"
     ],
     "description": "ğŸ‘‘ Kaynak: KralSporHD Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 135396,
+    "fileSize": 175991,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -299,10 +299,10 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/KralSporHD.png",
     "apiVersion": 1,
-    "fileHash": "sha256-8dd3da8c1e4874217973349dd787c985e6993c060a90463631895d86f85bd64f"
+    "fileHash": "sha256-3fec4c8df543e319b4a92a73ed5bd6397eaeb64c219ca398bd1320e06b7bbf7a"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/MahsunSports.cs3?v=064712994686",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/MahsunSports.cs3?v=5816ee16c024",
     "status": 3,
     "version": 9,
     "name": "MahsunSports",
@@ -311,7 +311,7 @@
       "Wiojelt"
     ],
     "description": "ğŸŸ¢ Kaynak: MahsunSports Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 137726,
+    "fileSize": 178911,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -319,10 +319,10 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/MahsunSports.jpg",
     "apiVersion": 1,
-    "fileHash": "sha256-064712994686842a39ae1de96459a7b08ab803fb007674a86f3d0a0a7c8d4c99"
+    "fileHash": "sha256-5816ee16c024258c350699ba6630c298896737b510124b363b7c2a2621ee3b0e"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/NetVGold.cs3?v=27f39deadaf5",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/NetVGold.cs3?v=1c371da38088",
     "status": 3,
     "version": 3,
     "name": "NetVGold",
@@ -331,7 +331,7 @@
       "Wiojelt"
     ],
     "description": "NETV Gold uygulamasÄ±nÄ±n doÄŸrulanmÄ±ÅŸ spor kanallarÄ±",
-    "fileSize": 173304,
+    "fileSize": 224845,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -339,10 +339,10 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/NetVGold.png",
     "apiVersion": 1,
-    "fileHash": "sha256-27f39deadaf5a2295341f68a97f3f47ad8c01e48a3053cb16bf058cc50ce5a12"
+    "fileHash": "sha256-1c371da38088ddd725423ffef6bccc34a4573284f659e424b36182c014075e53"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/PapazSports.cs3?v=21948fbed5bf",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/PapazSports.cs3?v=36b698b2e8e9",
     "status": 3,
     "version": 2,
     "name": "PapazSports",
@@ -351,7 +351,7 @@
       "Wiojelt"
     ],
     "description": "PapazSports canlÄ± kanal ve maÃ§ listesi, artan alan adÄ± keÅŸfi ve gÃ¼ncelleme ekranÄ±.",
-    "fileSize": 132420,
+    "fileSize": 223328,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -359,7 +359,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/PapazSports.png",
     "apiVersion": 1,
-    "fileHash": "sha256-21948fbed5bfd3005a92acf83c5195b4f2e2082d8462addc464fbba389b9183f"
+    "fileHash": "sha256-36b698b2e8e955d6b824a5bf4ff6710cd66af60ea8dfede7a146d3c6349438a6"
   },
   {
     "name": "PatronHD",
@@ -370,15 +370,15 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/PatronHD.cs3?v=cdb93f866389",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/PatronHD.cs3?v=3b983ef8d84c",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/PatronHD.png",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 103070,
-    "fileHash": "sha256-cdb93f866389d85463c34bcfcf7e6a5e7a195efcb4596de638dc46b811f34bd6",
+    "fileSize": 212829,
+    "fileHash": "sha256-3b983ef8d84c59a1648180c1621d109d3f97ce0b9e404ea64aa9ef997ac74b33",
     "apiVersion": 1
   },
   {
@@ -400,7 +400,7 @@
     ]
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/SelcukSports.cs3?v=03e45df1c0ee",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/SelcukSports.cs3?v=75b590aaf195",
     "status": 3,
     "version": 12,
     "name": "SelcukSports",
@@ -409,7 +409,7 @@
       "Wiojelt"
     ],
     "description": "ğŸŸ¢ Kaynak: SelÃ§ukSports Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 133437,
+    "fileSize": 174361,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -417,10 +417,10 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/SelcukSports.png",
     "apiVersion": 1,
-    "fileHash": "sha256-03e45df1c0eeea17ab91313acb71672af000231d7b94a486d1f37caee3d111d5"
+    "fileHash": "sha256-75b590aaf195a266c3fee7d1755cf4d8da5815c3886b9fcdecb53e03e6873d0e"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/Streamed.cs3?v=b0d904ad5b9e",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/Streamed.cs3?v=779e29401bfa",
     "status": 3,
     "version": 3,
     "name": "Streamed",
@@ -429,7 +429,7 @@
       "Wiojelt"
     ],
     "description": "ğŸŸ¢ Kaynak: Streamed â€¢ @Kraptor123 | @kekikanime Â· Futbol, Basketbol, Tenis, Kriket, DÃ¶vÃ¼ÅŸ ve daha fazlasÄ±.",
-    "fileSize": 127154,
+    "fileSize": 169440,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -437,10 +437,10 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/Streamed.png",
     "apiVersion": 1,
-    "fileHash": "sha256-b0d904ad5b9ed0fe8a9692d2752b7bd98841ad8f333703342254cf27fcf0af78"
+    "fileHash": "sha256-779e29401bfa0617bce8094d3ab5dfff85dfea354e79d88a70e24ed9fa4614b0"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/Taraftarium24.cs3?v=a00143104280",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/Taraftarium24.cs3?v=6355d10fbb96",
     "status": 3,
     "version": 13,
     "name": "Taraftarium24",
@@ -449,7 +449,7 @@
       "Wiojelt"
     ],
     "description": "ğŸ”´ Kaynak: Taraftarium24 Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 135077,
+    "fileSize": 175626,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -457,10 +457,10 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/Taraftarium24.png",
     "apiVersion": 1,
-    "fileHash": "sha256-a00143104280e7bbc63d50170b55476cd7f3dea8597c2c8773c80b66c7c6035f"
+    "fileHash": "sha256-6355d10fbb9686c1116e3e4d9db2c5f86026118821a71d6319c408ec65648b39"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/TRGoals.cs3?v=612a417f58e7&t=1791466000",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/TRGoals.cs3?v=6fd8cfcf804c&t=1791466000",
     "status": 3,
     "version": 3,
     "name": "TRGoals",
@@ -469,7 +469,7 @@
       "Wiojelt"
     ],
     "description": "TRGoals dinamik spor kanallarÄ± ve alan gÃ¼ncelleme ekranÄ±",
-    "fileSize": 225068,
+    "fileSize": 226581,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -477,14 +477,14 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/TRGoals.png",
     "apiVersion": 1,
-    "fileHash": "sha256-612a417f58e7e8b86ba9b212b93d696f08d60350d873519bdcd1a45d2e1c0914"
+    "fileHash": "sha256-6fd8cfcf804c275b3f02154442c989a65dbab64182510b2fffbac0effe74914c"
   },
   {
     "name": "VionTV",
     "internalName": "VionTV",
     "pluginClassName": "dev.wiojelt.viontv.VionTVPlugin",
     "version": 1,
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3?v=6ec711b9e170",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3?v=475e41c52d70",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/test/main/logos/viontv.png",
     "authors": [
       "Wiojelt"
@@ -496,8 +496,8 @@
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 115738,
-    "fileHash": "sha256-6ec711b9e17087397eb5202451ff6f371f8dac8379f9953a2589ec257d031b3d",
+    "fileSize": 157400,
+    "fileHash": "sha256-475e41c52d703e9a463028fe2c9154e68a46f111b624a99c656bee622fd0eefe",
     "apiVersion": 1
   },
   {
@@ -509,15 +509,15 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/LeoTV.cs3?v=d89b1e8a5593&t=1791466000",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/LeoTV.cs3?v=b4adf6647418&t=1791466000",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/LeoTV.png",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 156000,
-    "fileHash": "sha256-d89b1e8a559315020123433c59ace7668571f75e035f03ded047d8d03c409b96",
+    "fileSize": 157850,
+    "fileHash": "sha256-b4adf66474180427dc0eb50dff643af3ba0a37bccec5108fc8ce5db88c3b921f",
     "apiVersion": 1
   },
   {
@@ -529,15 +529,15 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/AtomSpor.cs3?v=204b18cfb0f7&t=1791466000",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/AtomSpor.cs3?v=4e4d70e0738d&t=1791466000",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/AtomSpor.png",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 153290,
-    "fileHash": "sha256-204b18cfb0f70da036c2f911a6a28e32ce41dc4efb8e8b4ddf55982413d32198",
+    "fileSize": 155303,
+    "fileHash": "sha256-4e4d70e0738dcf92d8d169f98d4756705827180e8ca26023a866c5419d84cfe7",
     "apiVersion": 1
   }
 ]
