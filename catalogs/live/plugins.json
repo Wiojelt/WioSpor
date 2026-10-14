@@ -1,15 +1,15 @@
 [
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/e539f2eeac4c484a6a06873373453dd156ffaa12/WioSpor.cs3",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=bb79f78c743e_1792015540",
     "status": 3,
-    "version": 46,
+    "version": 47,
     "name": "0 WioSpor",
     "internalName": "WioSpor",
     "authors": [
       "Wiojelt"
     ],
     "description": "Tüm canlı TV ve spor kanalları tek eklentide. Renk grupları ve alternatif yayın kaynakları.",
-    "fileSize": 694743,
+    "fileSize": 695096,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -17,7 +17,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "apiVersion": 1,
-    "fileHash": "sha256-0fc07df7a01ca5a99cdc75d5c3bd3f3511f54c8bedd5470afa808f6f71f3b3dc"
+    "fileHash": "sha256-bb79f78c743ec586441560dcf4f5a3571ef278040c59a60513b5dff6247a8cf9"
   },
   {
     "name": "1 v10 Spor",
@@ -483,21 +483,21 @@
     "name": "Mien TV",
     "internalName": "VionTV",
     "pluginClassName": "dev.wiojelt.viontv.VionTVPlugin",
-    "version": 2,
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3?v=475e41c52d70",
-    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/test/main/logos/viontv.png",
+    "version": 3,
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3?v=884ee3683da9_1792015540",
+    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/MienTV.webp",
     "authors": [
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "description": "Mien TV spor ve canlı yayınları",
+    "description": "Mien TV canlı TV kanallarını kategori, arama ve kanal logolarıyla sunar.",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 157399,
-    "fileHash": "sha256-288cb764496835b59e8f511f6478ea8ea452289683021845fcf19d770c201ff9",
+    "fileSize": 157481,
+    "fileHash": "sha256-884ee3683da9f4d74f3dbbd07fc6c420c1ab1d1f633d4c36e1a85eb2c32b1c40",
     "apiVersion": 1
   },
   {
