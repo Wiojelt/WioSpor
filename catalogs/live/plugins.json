@@ -480,24 +480,24 @@
     "fileHash": "sha256-b6fd54dc05d497e55c6476e00e7a594cdb69df610d2ba5c58e5ab378904c7dbd"
   },
   {
-    "name": "VionTV",
+    "name": "Mien TV",
     "internalName": "VionTV",
     "pluginClassName": "dev.wiojelt.viontv.VionTVPlugin",
-    "version": 1,
+    "version": 2,
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3?v=475e41c52d70",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/test/main/logos/viontv.png",
     "authors": [
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "description": "VionTV spor ve canli yayinlari",
+    "description": "Mien TV spor ve canlı yayınları",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 157400,
-    "fileHash": "sha256-475e41c52d703e9a463028fe2c9154e68a46f111b624a99c656bee622fd0eefe",
+    "fileSize": 157399,
+    "fileHash": "sha256-288cb764496835b59e8f511f6478ea8ea452289683021845fcf19d770c201ff9",
     "apiVersion": 1
   },
   {
