@@ -224,7 +224,7 @@
     "fileHash": "sha256-eea407e3b646501ca413fa2018caa0720d8b76a10144b6c5dbade2e3531ec808"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/InatTV.cs3?v=cd582bd79ba0",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/InatTV.cs3?v=0091944ca30a",
     "status": 3,
     "version": 11,
     "name": "InatTV",
@@ -233,7 +233,7 @@
       "Wiojelt"
     ],
     "description": "ğŸŸ¢ Kaynak: Ä°nat TV Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 175518,
+    "fileSize": 175521,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -241,7 +241,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/InatTV.png",
     "apiVersion": 1,
-    "fileHash": "sha256-cd582bd79ba0d1bf10aa7a32381d30b4e7ecce6d1cb7bd3743ccf7e6318d7e49"
+    "fileHash": "sha256-0091944ca30a4776832904353efce48263d33aaeebb0c935f4f444516e098043"
   },
   {
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/JestYayin.cs3?v=b42b08a9105f",
@@ -440,7 +440,7 @@
     "fileHash": "sha256-779e29401bfa0617bce8094d3ab5dfff85dfea354e79d88a70e24ed9fa4614b0"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/Taraftarium24.cs3?v=6355d10fbb96",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/Taraftarium24.cs3?v=076807b64bbd",
     "status": 3,
     "version": 13,
     "name": "Taraftarium24",
@@ -449,7 +449,7 @@
       "Wiojelt"
     ],
     "description": "ğŸ”´ Kaynak: Taraftarium24 Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 175626,
+    "fileSize": 175625,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -457,7 +457,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/Taraftarium24.png",
     "apiVersion": 1,
-    "fileHash": "sha256-6355d10fbb9686c1116e3e4d9db2c5f86026118821a71d6319c408ec65648b39"
+    "fileHash": "sha256-076807b64bbd73c3cb3f1f8cc173d6b972cfaa0aa071f7660ce1582ef3ebf0c5"
   },
   {
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/TRGoals.cs3?v=d46e2726cf3b&t=1791466000",
