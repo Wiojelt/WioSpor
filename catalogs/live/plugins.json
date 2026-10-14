@@ -1,6 +1,6 @@
 [
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=bb79f78c743e_1792015433",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=bb79f78c743e_1792015519",
     "status": 3,
     "version": 47,
     "name": "0 WioSpor",
@@ -484,7 +484,7 @@
     "internalName": "VionTV",
     "pluginClassName": "dev.wiojelt.viontv.VionTVPlugin",
     "version": 3,
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3?v=884ee3683da9_1792015433",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3?v=884ee3683da9_1792015519",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/MienTV.webp",
     "authors": [
       "Wiojelt"
