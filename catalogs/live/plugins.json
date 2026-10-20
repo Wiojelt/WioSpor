@@ -17,7 +17,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "apiVersion": 1,
-    "fileHash": "sha256-fbe2a4f6ae0172c3d5e23631cb7f6bc97384ec6dd1421eb59c253bfa53e48810"
+    "fileHash": "sha256-fbe2a4f6ae0114f5d29fd11dcc23d33aa80e1d53131018774a493ba8536552eb"
   },
   {
     "name": "1 v10 Spor",
@@ -57,7 +57,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/ArdaSpor.png",
     "apiVersion": 1,
-    "fileHash": "sha256-2944961cee6697d2ba13be82512108502213a8309dfd70868a2bfab65c4046d3"
+    "fileHash": "sha256-2944961cee6655da0dacfd17feb7dd52a0739e5fcba1367c03766bae0a1843de"
   },
   {
     "name": "BasketballReplays",
@@ -277,7 +277,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/MahsunSports.jpg",
     "apiVersion": 1,
-    "fileHash": "sha256-25e1f1d1f863e46c927f912c01990c0ef4931a729fe2aa0a7eecdd7f6f71d5b3"
+    "fileHash": "sha256-25e1f1d1f863015e5c530db2be18148158281e4663e845bc46eea7be0306ded6"
   },
   {
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/NetVGold.cs3?v=d1bf7dcba3da",
@@ -317,7 +317,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/PapazSports.png",
     "apiVersion": 1,
-    "fileHash": "sha256-1c6e2b5b8aca5f74fa4c58cf3ea671e67bb93b216ff06fc1b474776c5b62b083"
+    "fileHash": "sha256-1c6e2b5b8aca897fbe20b8e39636c1cb6d2cb155a02314a8efb5ab4aa82823d3"
   },
   {
     "name": "PatronHD",
@@ -477,7 +477,7 @@
     "language": "tr",
     "status": 3,
     "fileSize": 158179,
-    "fileHash": "sha256-bd733112e5527a051286e1e2ae9b4333bfa86266d6d7a469bb53e77869aa91f0",
+    "fileHash": "sha256-bd733112e5527ee491ce087b139624711e7e575f504233d91a41f2a6be1a8a26",
     "apiVersion": 1
   },
   {
