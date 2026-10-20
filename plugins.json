@@ -2,7 +2,7 @@
   {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=fbe2a4f6ae01",
     "status": 3,
-    "version": 50,
+    "version": 49,
     "name": "0 WioSpor",
     "internalName": "WioSpor",
     "authors": [
@@ -17,7 +17,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "apiVersion": 1,
-    "fileHash": "sha256-fbe2a4f6ae0114f5d29fd11dcc23d33aa80e1d53131018774a493ba8536552eb"
+    "fileHash": "sha256-fbe2a4f6ae0172c3d5e23631cb7f6bc97384ec6dd1421eb59c253bfa53e48810"
   },
   {
     "name": "1 v10 Spor",
@@ -42,7 +42,7 @@
   {
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/ArdaSpor.cs3?v=2944961cee66",
     "status": 3,
-    "version": 13,
+    "version": 12,
     "name": "ArdaSpor",
     "internalName": "ArdaSpor",
     "authors": [
@@ -57,7 +57,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/ArdaSpor.png",
     "apiVersion": 1,
-    "fileHash": "sha256-2944961cee6655da0dacfd17feb7dd52a0739e5fcba1367c03766bae0a1843de"
+    "fileHash": "sha256-2944961cee6697d2ba13be82512108502213a8309dfd70868a2bfab65c4046d3"
   },
   {
     "name": "BasketballReplays",
@@ -89,7 +89,7 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/builds/BasketballVideo.cs3",
+    "url": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/builds/BasketballVideo.cs3?v=1114aa4a1ffd",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/BasketballVideo.png",
     "tvTypes": [
       "Movie",
@@ -122,7 +122,7 @@
     "fileHash": "sha256-b6304052c9e77ea36c957e55e66e2706aba4a1023cdf350fb019609fab09b8a8"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/BeyazElma.cs3",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/BeyazElma.cs3?v=4948e352375d",
     "status": 3,
     "version": 12,
     "name": "BeyazElma",
@@ -262,7 +262,7 @@
   {
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/MahsunSports.cs3?v=25e1f1d1f863",
     "status": 3,
-    "version": 10,
+    "version": 9,
     "name": "MahsunSports",
     "internalName": "MahsunSports",
     "authors": [
@@ -277,7 +277,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/MahsunSports.jpg",
     "apiVersion": 1,
-    "fileHash": "sha256-25e1f1d1f863015e5c530db2be18148158281e4663e845bc46eea7be0306ded6"
+    "fileHash": "sha256-25e1f1d1f863e46c927f912c01990c0ef4931a729fe2aa0a7eecdd7f6f71d5b3"
   },
   {
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/NetVGold.cs3?v=d1bf7dcba3da",
@@ -302,7 +302,7 @@
   {
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/PapazSports.cs3?v=1c6e2b5b8aca",
     "status": 3,
-    "version": 2,
+    "version": 1,
     "name": "PapazSports",
     "internalName": "PapazSports",
     "authors": [
@@ -317,7 +317,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/PapazSports.png",
     "apiVersion": 1,
-    "fileHash": "sha256-1c6e2b5b8aca897fbe20b8e39636c1cb6d2cb155a02314a8efb5ab4aa82823d3"
+    "fileHash": "sha256-1c6e2b5b8aca5f74fa4c58cf3ea671e67bb93b216ff06fc1b474776c5b62b083"
   },
   {
     "name": "PatronHD",
@@ -463,7 +463,7 @@
   {
     "name": "AtomSpor",
     "internalName": "AtomSpor",
-    "version": 3,
+    "version": 2,
     "description": "AtomSporTV canlı spor kanalları ve maç yayınları",
     "authors": [
       "Wiojelt"
@@ -477,7 +477,7 @@
     "language": "tr",
     "status": 3,
     "fileSize": 158179,
-    "fileHash": "sha256-bd733112e5527ee491ce087b139624711e7e575f504233d91a41f2a6be1a8a26",
+    "fileHash": "sha256-bd733112e5527a051286e1e2ae9b4333bfa86266d6d7a469bb53e77869aa91f0",
     "apiVersion": 1
   },
   {
@@ -521,7 +521,7 @@
     "fileHash": "sha256-3abc75e13cc76b6867f12ef6afa5ea3fc5f6910088724459163d7bd4a806ed0d"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/KoalaTV.cs3",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/KoalaTV.cs3?v=61a9c4feee1f",
     "status": 3,
     "version": 5,
     "name": "KoalaTV",
@@ -541,7 +541,7 @@
     "fileHash": "sha256-61a9c4feee1f6f94dcf76cd2d6e6a6875bb5e7686dd6440db65e7f705b248736"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/NewTVLive.cs3",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/NewTVLive.cs3?v=a1f75b84c66c",
     "status": 3,
     "version": 3,
     "name": "NewTVLive",
