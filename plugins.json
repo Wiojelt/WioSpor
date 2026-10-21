@@ -1,25 +1,24 @@
 [
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=ae33990820ed",
-    "status": 3,
-    "version": 53,
     "name": "0 WioSpor",
     "internalName": "WioSpor",
+    "version": 54,
+    "description": "WioSpor · Tek eklenti ile tüm spor sağlayıcıları, canlı skorlar ve kanallar.",
     "authors": [
       "Wiojelt"
     ],
-    "description": "Tüm canlı TV ve spor kanalları tek eklentide. Renk grupları ve alternatif yayın kaynakları.",
-    "fileSize": 801492,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "language": "tr",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=76b351cbce43",
+    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/wiospor.png",
     "tvTypes": [
       "Live"
     ],
-    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
+    "language": "tr",
+    "status": 1,
+    "fileSize": 826218,
+    "fileHash": "sha256-76b351cbce439722a227306c2efee80f4aeaec51ec9c14c024e0c57e34447e5a",
     "apiVersion": 1,
-    "fileHash": "sha256-ae33990820ede752eca953748907c612af1c454440a3aad918963d4a3e835a91",
-    "hash": "ae33990820ede752eca953748907c612af1c454440a3aad918963d4a3e835a91",
-    "filesize": 801492
+    "hash": "76b351cbce439722a227306c2efee80f4aeaec51ec9c14c024e0c57e34447e5a"
   },
   {
     "name": "1 v10 Spor",
@@ -561,5 +560,26 @@
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/test/main/assets/newtvlive.png",
     "apiVersion": 1,
     "fileHash": "sha256-a1f75b84c66caec7be7d01b397bfc7cbe40d30838a6459423b369c105a8526af"
+  },
+  {
+    "name": "çiftd2m",
+    "internalName": "CiftD2M",
+    "version": 2,
+    "description": "çiftd2m · py.md/json canlı yayınları ve dinamik kategori yönetimi.",
+    "authors": [
+      "Wiojelt"
+    ],
+    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/CiftD2M.cs3?v=e7adaf0f2a85",
+    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/ciftd2m.png",
+    "tvTypes": [
+      "Live"
+    ],
+    "language": "tr",
+    "status": 1,
+    "fileSize": 181279,
+    "fileHash": "sha256-e7adaf0f2a8526459d9374d0e7e7d2e37b7e2d88b590f0b625b6975714d7bd14",
+    "apiVersion": 1,
+    "hash": "e7adaf0f2a8526459d9374d0e7e7d2e37b7e2d88b590f0b625b6975714d7bd14"
   }
 ]
