@@ -2,23 +2,23 @@
   {
     "name": "0 WioSpor",
     "internalName": "WioSpor",
-    "version": 54,
+    "version": 55,
     "description": "WioSpor · Tek eklenti ile tüm spor sağlayıcıları, canlı skorlar ve kanallar.",
     "authors": [
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=76b351cbce43",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=1b7fc19152e6",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/wiospor.png",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 1,
-    "fileSize": 826218,
-    "fileHash": "sha256-76b351cbce439722a227306c2efee80f4aeaec51ec9c14c024e0c57e34447e5a",
+    "fileSize": 835193,
+    "fileHash": "sha256-1b7fc19152e6552a7046fa7dffbe16e8ad93b7a1fb32a609087b59d2a18e46ad",
     "apiVersion": 1,
-    "hash": "76b351cbce439722a227306c2efee80f4aeaec51ec9c14c024e0c57e34447e5a"
+    "hash": "1b7fc19152e6552a7046fa7dffbe16e8ad93b7a1fb32a609087b59d2a18e46ad"
   },
   {
     "name": "1 v10 Spor",
