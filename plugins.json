@@ -163,26 +163,6 @@
     "fileHash": "sha256-a458f3331ff41fd1191a3ba07a5aaeabde10dc4b6aff953a8687abc2e1a0622c"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/GolgeTV.cs3?v=1c473e4e5e25",
-    "status": 1,
-    "version": 3,
-    "name": "GolgeTV",
-    "internalName": "GolgeTV",
-    "authors": [
-      "Wiojelt"
-    ],
-    "description": "GÃ¶lgeTV spor kanallarÄ± ve alternatif yayÄ±nlar",
-    "fileSize": 235786,
-    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "language": "tr",
-    "tvTypes": [
-      "Live"
-    ],
-    "iconUrl": "https://golgetv.com/favicon.ico",
-    "apiVersion": 1,
-    "fileHash": "sha256-1c473e4e5e25378bdafdcae339be6bd2422b22af27daa2afe653a838c1fe0b6a"
-  },
-  {
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/JestYayin.cs3?v=b42b08a9105f",
     "status": 3,
     "version": 3,
