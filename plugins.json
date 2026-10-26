@@ -8,17 +8,17 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=98076391262c",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=e37620028595_1793041634",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/wiospor.png",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 1,
-    "fileSize": 810303,
-    "fileHash": "sha256-98076391262ce8f81706cebb27e5f47427ed06e710a5c8316a0de60873f41e94",
+    "fileSize": 810709,
+    "fileHash": "sha256-e3762002859555e66e89f8c148cecdbc04043ad3bb796bfe5747badce9802e1c",
     "apiVersion": 1,
-    "hash": "98076391262ce8f81706cebb27e5f47427ed06e710a5c8316a0de60873f41e94"
+    "hash": "e3762002859555e66e89f8c148cecdbc04043ad3bb796bfe5747badce9802e1c"
   },
   {
     "name": "1 v10 Spor",
@@ -530,16 +530,16 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/CiftD2M.cs3?v=e7adaf0f2a85",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/CiftD2M.cs3?v=b6896901f518_1793041634",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/ciftd2m.png",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 1,
-    "fileSize": 181279,
-    "fileHash": "sha256-e7adaf0f2a8526459d9374d0e7e7d2e37b7e2d88b590f0b625b6975714d7bd14",
+    "fileSize": 181360,
+    "fileHash": "sha256-b6896901f518629155cb285e3e4d2f5a48364439b433b537e9e13ea607a14ab8",
     "apiVersion": 1,
-    "hash": "e7adaf0f2a8526459d9374d0e7e7d2e37b7e2d88b590f0b625b6975714d7bd14"
+    "hash": "b6896901f518629155cb285e3e4d2f5a48364439b433b537e9e13ea607a14ab8"
   }
 ]
