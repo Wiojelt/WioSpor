@@ -2,21 +2,21 @@
   {
     "name": "0 WioSpor",
     "internalName": "WioSpor",
-    "version": 56,
+    "version": 57,
     "description": "WioSpor · Tek eklenti ile tüm spor sağlayıcıları, canlı skorlar ve kanallar.",
     "authors": [
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=e37620028595",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=9f820774e1ff",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/wiospor.png",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 1,
-    "fileSize": 810709,
-    "fileHash": "sha256-e3762002859555e66e89f8c148cecdbc04043ad3bb796bfe5747badce9802e1c",
+    "fileSize": 837265,
+    "fileHash": "sha256-9f820774e1ff9e9b3dda8d12e5037a29050ab308f9481948805643c16cf503df",
     "apiVersion": 1,
     "hash": "e3762002859555e66e89f8c148cecdbc04043ad3bb796bfe5747badce9802e1c"
   },
@@ -502,16 +502,16 @@
     "fileHash": "sha256-61a9c4feee1f6f94dcf76cd2d6e6a6875bb5e7686dd6440db65e7f705b248736"
   },
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/NewTVLive.cs3",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/NewTVLive.cs3?v=8c6a381eb8c0",
     "status": 3,
-    "version": 3,
+    "version": 4,
     "name": "NewTVLive",
     "internalName": "NewTVLive",
     "authors": [
       "Wiojelt"
     ],
-    "description": "NewTV Live · Canlı TV, Türk kanalları, spor, sinema & ulusal yayınlar.",
-    "fileSize": 177549,
+    "description": "NewTV Live · Canlı TV, Türk kanalları, spor, sinema & ulusal yayınlar. PIN korumalı yetişkin bölümü.",
+    "fileSize": 180632,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -519,7 +519,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/test/main/assets/newtvlive.png",
     "apiVersion": 1,
-    "fileHash": "sha256-a1f75b84c66caec7be7d01b397bfc7cbe40d30838a6459423b369c105a8526af"
+    "fileHash": "sha256-8c6a381eb8c02bb98feab240f9fa40df467443a656d8537728ee061219112b82"
   },
   {
     "name": "çiftd2m",
