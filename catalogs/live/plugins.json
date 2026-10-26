@@ -1,6 +1,6 @@
 [
   {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=e37620028595",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=9f820774e1ff",
     "status": 3,
     "version": 56,
     "name": "0 WioSpor",
@@ -9,7 +9,7 @@
       "Wiojelt"
     ],
     "description": "Tüm canlı TV ve spor kanalları tek eklentide. Renk grupları ve alternatif yayın kaynakları.",
-    "fileSize": 810709,
+    "fileSize": 837265,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -17,7 +17,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
     "apiVersion": 1,
-    "fileHash": "sha256-e3762002859555e66e89f8c148cecdbc04043ad3bb796bfe5747badce9802e1c"
+    "fileHash": "sha256-9f820774e1ff9e9b3dda8d12e5037a29050ab308f9481948805643c16cf503df"
   },
   {
     "name": "1 v10 Spor",
@@ -340,7 +340,7 @@
     "apiVersion": 1
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/SelcukSports.cs3?v=75b590aaf195",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/SelcukSports.cs3?v=ab026e75dd18",
     "status": 3,
     "version": 12,
     "name": "SelcukSports",
@@ -349,7 +349,7 @@
       "Wiojelt"
     ],
     "description": "ğŸŸ¢ Kaynak: SelÃ§ukSports Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 174361,
+    "fileSize": 174357,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -357,7 +357,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/SelcukSports.png",
     "apiVersion": 1,
-    "fileHash": "sha256-75b590aaf195a266c3fee7d1755cf4d8da5815c3886b9fcdecb53e03e6873d0e"
+    "fileHash": "sha256-ab026e75dd18ed3c4e02355cb19ade60c1aa53250f6204b3a8d090218d1573d3"
   },
   {
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/Streamed.cs3?v=779e29401bfa",
@@ -380,7 +380,7 @@
     "fileHash": "sha256-779e29401bfa0617bce8094d3ab5dfff85dfea354e79d88a70e24ed9fa4614b0"
   },
   {
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/Taraftarium24.cs3?v=e48587d14570",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/Taraftarium24.cs3?v=e56f19bb0def",
     "status": 3,
     "version": 14,
     "name": "Taraftarium24",
@@ -389,7 +389,7 @@
       "Wiojelt"
     ],
     "description": "ğŸ”´ Kaynak: Taraftarium24 Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
-    "fileSize": 175518,
+    "fileSize": 175648,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -397,7 +397,7 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/Taraftarium24.png",
     "apiVersion": 1,
-    "fileHash": "sha256-e48587d14570e16a2dd5483750fd5c66606a7b3fc7804b2bd420ed0d9679dee1"
+    "fileHash": "sha256-e56f19bb0defe1e321e964a5b30fc72759c5351c169fdfc8d476ffca858c4d69"
   },
   {
     "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/TRGoals.cs3?v=b6fd54dc05d4",
@@ -449,15 +449,15 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/LeoTV.cs3?v=b4adf6647418",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/LeoTV.cs3?v=dbce2939ae71",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/LeoTV.png",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 157850,
-    "fileHash": "sha256-b4adf66474180427dc0eb50dff643af3ba0a37bccec5108fc8ce5db88c3b921f",
+    "fileSize": 157849,
+    "fileHash": "sha256-dbce2939ae71d3d7e2f3ba69eab4e09a36689050eca6e5a91202280afddb9b3e",
     "apiVersion": 1
   },
   {
@@ -550,7 +550,7 @@
       "Wiojelt"
     ],
     "description": "NewTV Live · Canlı TV, Türk kanalları, spor, sinema & ulusal yayınlar.",
-    "fileSize": 177549,
+    "fileSize": 180632,
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
     "language": "tr",
     "tvTypes": [
@@ -558,6 +558,6 @@
     ],
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/test/main/assets/newtvlive.png",
     "apiVersion": 1,
-    "fileHash": "sha256-a1f75b84c66caec7be7d01b397bfc7cbe40d30838a6459423b369c105a8526af"
+    "fileHash": "sha256-8c6a381eb8c02bb98feab240f9fa40df467443a656d8537728ee061219112b82"
   }
 ]
