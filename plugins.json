@@ -545,7 +545,7 @@
   {
     "name": "TimStreams",
     "internalName": "TimStreams",
-    "version": 1,
+    "version": 4,
     "description": "TimStreams - Spor ve Canlı Yayınlar",
     "authors": [
       "Wiojelt"
@@ -565,7 +565,7 @@
   {
     "name": "RecTV",
     "internalName": "RecTV",
-    "version": 1,
+    "version": 5,
     "description": "RecTV - Canlı TV, Spor, Film ve Dizi sağlayıcısı.",
     "authors": [
       "Wiojelt"
