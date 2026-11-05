@@ -2,7 +2,7 @@
   {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=9f820774e1ff",
     "status": 3,
-    "version": 56,
+    "version": 57,
     "name": "0 WioSpor",
     "internalName": "WioSpor",
     "authors": [
@@ -322,7 +322,7 @@
   {
     "name": "PatronHD",
     "internalName": "PatronHD",
-    "version": 16,
+    "version": 17,
     "description": "ğŸ”´ Kaynak: PatronHD / Patronspor Â· EmeÄŸi iÃ§in teÅŸekkÃ¼rler â™¥ Â· @wiojelt",
     "authors": [
       "Wiojelt"
@@ -543,7 +543,7 @@
   {
     "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/NewTVLive.cs3",
     "status": 3,
-    "version": 3,
+    "version": 4,
     "name": "NewTVLive",
     "internalName": "NewTVLive",
     "authors": [
