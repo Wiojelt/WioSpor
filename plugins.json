@@ -583,25 +583,5 @@
     "fileSize": 145660,
     "fileHash": "sha256-bfbdab89f458c2443f5a471a31a7c9a87b89bf8c7a13e6780f843273f4153441",
     "apiVersion": 1
-  },
-  {
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/TRLive.cs3?v=cc2a0bdc3476",
-    "status": 3,
-    "version": 1,
-    "name": "TRLive",
-    "internalName": "TRLive",
-    "authors": [
-      "Wiojelt"
-    ],
-    "description": "🇹🇷 Türkiye Canlı TV Kanalları (Ulusal, Haber, Spor, Belgesel, Müzik, Yerel) · Famelack Veritabanı · @wiojelt",
-    "fileSize": 12265,
-    "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "language": "tr",
-    "tvTypes": [
-      "Live"
-    ],
-    "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/TRLive.png",
-    "apiVersion": 1,
-    "fileHash": "sha256-cc2a0bdc3476df31149cf868351ac12ac0da55829157d663763c9f2757c79162"
   }
 ]
