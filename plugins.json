@@ -69,7 +69,7 @@
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BasketballReplays.cs3?v=1b5f36ffb8c3",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/BasketballReplays.cs3?v=7842f847e93a",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/BasketballReplays.png",
     "tvTypes": [
       "Movie",
@@ -77,8 +77,8 @@
     ],
     "language": "en",
     "status": 3,
-    "fileSize": 160702,
-    "fileHash": "sha256-1b5f36ffb8c33a2e93317533287bc3fa02f0e5c577351f2c128a6efaae7d719b",
+    "fileSize": 190236,
+    "fileHash": "sha256-7842f847e93a3c44a18d8150a4fd5eb2ba77bd0739795867f23b041411f17715",
     "apiVersion": 1
   },
   {
