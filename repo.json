@@ -4,10 +4,10 @@
   "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/logo.png?v=3",
   "manifestVersion": 2,
   "pluginLists": [
-    "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/plugins.json?t=1794518572"
+    "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/plugins.json?t=1795107082"
   ],
-  "lastUpdated": 1795034257,
+  "lastUpdated": 1795107082,
   "pluginCount": 27,
-  "timestamp": 1795034257,
+  "timestamp": 1795107082,
   "version": 2
 }
