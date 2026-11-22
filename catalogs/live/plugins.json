@@ -424,7 +424,7 @@
     "internalName": "VionTV",
     "pluginClassName": "dev.wiojelt.viontv.VionTVPlugin",
     "version": 3,
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3?v=884ee3683da9",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3?v=08946613d2f8",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/MienTV.webp",
     "authors": [
       "Wiojelt"
@@ -436,8 +436,8 @@
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 157481,
-    "fileHash": "sha256-884ee3683da9f4d74f3dbbd07fc6c420c1ab1d1f633d4c36e1a85eb2c32b1c40",
+    "fileSize": 161887,
+    "fileHash": "sha256-08946613d2f850489fa4a18be253ab46fe98eba4658f10ab5b7b9fef876ddd42",
     "apiVersion": 1
   },
   {
