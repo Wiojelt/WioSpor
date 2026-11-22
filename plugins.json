@@ -2,24 +2,24 @@
   {
     "name": "0 WioSpor",
     "internalName": "WioSpor",
-    "version": 58,
+    "version": 59,
     "description": "WioSpor · Tek eklenti ile tüm spor sağlayıcıları, canlı skorlar ve kanallar.",
     "authors": [
       "Wiojelt"
     ],
     "repositoryUrl": "https://github.com/Wiojelt/WioSpor",
-    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=66542258e651",
+    "url": "https://raw.githubusercontent.com/Wiojelt/WioSpor/builds/WioSpor.cs3?v=fb6a4caa5b38",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/WioSpor/main/assets/wiospor.png",
     "tvTypes": [
       "Live"
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 843636,
-    "fileHash": "sha256-66542258e651a1e805b23ea8882e107b623b155f8926b0bef89449f112f89946",
+    "fileSize": 846406,
+    "fileHash": "sha256-fb6a4caa5b38bf5fede57b5a5cf60f8ff9ecf81aeede488d5094024ea8b6534e",
     "apiVersion": 1,
-    "hash": "66542258e651a1e805b23ea8882e107b623b155f8926b0bef89449f112f89946",
-    "filesize": 843636
+    "hash": "fb6a4caa5b38bf5fede57b5a5cf60f8ff9ecf81aeede488d5094024ea8b6534e",
+    "filesize": 846406
   },
   {
     "name": "1 v10 Spor",
@@ -385,8 +385,8 @@
     "name": "Mien TV",
     "internalName": "VionTV",
     "pluginClassName": "dev.wiojelt.viontv.VionTVPlugin",
-    "version": 6,
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3?v=a4be7c7268a2",
+    "version": 7,
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3?v=08946613d2f8",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/MienTV.webp",
     "authors": [
       "Wiojelt"
@@ -398,11 +398,11 @@
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 160491,
-    "fileHash": "sha256-a4be7c7268a264a81ab4b2c092ca05d12effec69fd670177d92a71f2575bdd35",
+    "fileSize": 161887,
+    "fileHash": "sha256-08946613d2f850489fa4a18be253ab46fe98eba4658f10ab5b7b9fef876ddd42",
     "apiVersion": 1,
-    "filesize": 160491,
-    "hash": "a4be7c7268a264a81ab4b2c092ca05d12effec69fd670177d92a71f2575bdd35"
+    "filesize": 161887,
+    "hash": "08946613d2f850489fa4a18be253ab46fe98eba4658f10ab5b7b9fef876ddd42"
   },
   {
     "name": "LeoTV",
