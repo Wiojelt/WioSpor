@@ -386,7 +386,7 @@
     "internalName": "VionTV",
     "pluginClassName": "dev.wiojelt.viontv.VionTVPlugin",
     "version": 4,
-    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3?v=563b7ac0c4ec",
+    "url": "https://wiojelt-auth.hdf-worker.workers.dev/dl/spor/VionTV.cs3?v=63d8761412c9",
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/TurkSpor/main/assets/providers/MienTV.webp",
     "authors": [
       "Wiojelt"
@@ -398,11 +398,11 @@
     ],
     "language": "tr",
     "status": 3,
-    "fileSize": 159169,
-    "fileHash": "sha256-563b7ac0c4ecf1df5658dce83594003b421a450904dbfbb50d473a66d3d23f2a",
+    "fileSize": 159923,
+    "fileHash": "sha256-63d8761412c91d4877bf18df6ef5035782ade10cdcd84e2f589ba5f8423e381f",
     "apiVersion": 1,
-    "filesize": 159169,
-    "hash": "563b7ac0c4ecf1df5658dce83594003b421a450904dbfbb50d473a66d3d23f2a"
+    "filesize": 159923,
+    "hash": "63d8761412c91d4877bf18df6ef5035782ade10cdcd84e2f589ba5f8423e381f"
   },
   {
     "name": "LeoTV",
