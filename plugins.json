@@ -2,7 +2,7 @@
   {
     "name": "0 WioSpor",
     "internalName": "WioSpor",
-    "version": 57,
+    "version": 59,
     "description": "WioSpor · Tek eklenti ile tüm spor sağlayıcıları, canlı skorlar ve kanallar.",
     "authors": [
       "Wiojelt"
@@ -18,7 +18,8 @@
     "fileSize": 837265,
     "fileHash": "sha256-9f820774e1ff9e9b3dda8d12e5037a29050ab308f9481948805643c16cf503df",
     "apiVersion": 1,
-    "hash": "9f820774e1ff9e9b3dda8d12e5037a29050ab308f9481948805643c16cf503df"
+    "hash": "fb6a4caa5b38bf5fede57b5a5cf60f8ff9ecf81aeede488d5094024ea8b6534e",
+    "filesize": 846406
   },
   {
     "name": "1 v10 Spor",
@@ -522,6 +523,7 @@
     "iconUrl": "https://raw.githubusercontent.com/Wiojelt/test/main/assets/newtvlive.png",
     "apiVersion": 1,
     "fileHash": "sha256-8c6a381eb8c02bb98feab240f9fa40df467443a656d8537728ee061219112b82",
+    "filesize": 180632,
     "hash": "8c6a381eb8c02bb98feab240f9fa40df467443a656d8537728ee061219112b82"
   },
   {
@@ -543,7 +545,8 @@
     "fileSize": 181360,
     "fileHash": "sha256-b6896901f518629155cb285e3e4d2f5a48364439b433b537e9e13ea607a14ab8",
     "apiVersion": 1,
-    "hash": "b6896901f518629155cb285e3e4d2f5a48364439b433b537e9e13ea607a14ab8"
+    "hash": "b6896901f518629155cb285e3e4d2f5a48364439b433b537e9e13ea607a14ab8",
+    "filesize": 181360
   },
   {
     "name": "TimStreams",
@@ -564,6 +567,7 @@
     "fileSize": 181013,
     "fileHash": "sha256-0512185930a054789a25b0daad7cefa8814a756f060595eb01700751baa38dd5",
     "apiVersion": 1,
+    "filesize": 181013,
     "hash": "0512185930a054789a25b0daad7cefa8814a756f060595eb01700751baa38dd5"
   },
   {
@@ -587,6 +591,7 @@
     "fileSize": 145660,
     "fileHash": "sha256-bfbdab89f458c2443f5a471a31a7c9a87b89bf8c7a13e6780f843273f4153441",
     "apiVersion": 1,
+    "filesize": 145660,
     "hash": "bfbdab89f458c2443f5a471a31a7c9a87b89bf8c7a13e6780f843273f4153441"
   }
 ]
